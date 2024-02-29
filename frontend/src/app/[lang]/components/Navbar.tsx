@@ -51,7 +51,8 @@ function MobileNavLink({ url, text, closeMenu, children }: MobileNavLink) {
     <li>
       <a
         href={url}
-        className={`block py-2 px-3 text-white  rounded md:bg-transparent md:text-black md:p-0 md:dark:text-red-500
+        style={{ fontSize: "16px" }}
+        className={`block py-2 px-3 text-white rounded md:bg-transparent md:text-black md:p-0 md:dark:text-red-500
         hover:text-red-700
         dark:bg-red-600 md:dark:bg-transparent`}
         aria-current="page"
@@ -64,7 +65,10 @@ function MobileNavLink({ url, text, closeMenu, children }: MobileNavLink) {
       <button
         id="dropdownNavbarLink"
         data-dropdown-toggle={id}
-        className="flex items-center justify-between w-full py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-red-500 dark:focus:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+        className="flex items-center justify-between w-full py-2 px-3 text-gray-900
+         hover:bg-gray-100 md:hover:bg-transparent 
+         md:border-0 md:hover:text-red-700 md:p-0 md:w-auto
+          dark:text-white md:dark:hover:text-red-500 dark:focus:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
       >
         {text}
         <svg
@@ -85,18 +89,27 @@ function MobileNavLink({ url, text, closeMenu, children }: MobileNavLink) {
       </button>
       <div
         id={id}
-        className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
+        style={{ fontSize: "16px" }}
+        className="z-10 hidden font-normal  divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
       >
         <ul
           className="py-2 text-sm text-gray-700 dark:text-gray-200"
           aria-labelledby="dropdownLargeButton"
         >
           {children.map((n) => (
-            <li>
+            <li
+              style={{
+                background: "rgb(0 0 0 / 0.1) !important",
+              }}
+            >
               <a
+                style={{
+                  background: "rgb(0 0 0 / 0.1) !important",
+                }}
                 href={n.url}
                 onClick={handleClick}
-                className={`block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white ${
+                className={`block hover:text-red-700
+                dark:bg-red-600 px-4 py-2 bg-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white ${
                   path === url && "text-red-400 border-red-400"
                 }`}
               >
@@ -151,18 +164,21 @@ export default function Nav({
 
   return (
     <nav
-      className={`bg-white border-gray-200 dark:bg-gray-900 sticky top-0  dark:border-gray-700 shadow-sm shadow-slate-300 border-b-slate-400`}
-      style={{ zIndex: "10000" }}
+      className={` border-gray-20 dark:bg-gray-900 sticky bg-gray-300 top-0  dark:border-gray-700 shadow-sm shadow-slate-300 border-b-slate-400`}
+      style={{
+        zIndex: "10000",
+        //background: "rgb(0 0 0 / 0.1) !important"
+      }}
     >
       <div
-        className={`max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto  ${
+        className={`max-w-screen-2xl flex flex-wrap items-center bg-gray-300 justify-between text-2xl mx-auto  ${
           animateMenu ? "p-1 fixed-nav h-16" : "p-3 sticky-nav h-20"
         }`}
       >
         <Logo src={logoUrl}>
           {logoText && (
             <p
-              className="flex-none ms-5 text-xl font-semibold dark:text-white"
+              className="flex-none ms-5 text-2xl font-semibold dark:text-white"
               aria-label="Brand"
             >
               {logoText}
@@ -201,8 +217,11 @@ export default function Nav({
           <div className="flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse">
             <ul
               className="items-center me-5 w-screen sm:w-screen md:w-auto lg:w-auto flex flex-col font-normal p-4 md:p-0 
-            mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 
-            md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+            mt-4 border border-gray-100 rounded-lg   md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 
+             dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+              style={{
+                fontSize: "16px",
+              }}
             >
               {links
                 .filter((p) => p.parent == null)
@@ -216,23 +235,14 @@ export default function Nav({
                 ))}
             </ul>
 
-            {/* </div> <div className="ms-10 me-10"> */}
-            {/* <Dropdown color="primary" label={}>
-                {langs.map((p) => (
-                  <Dropdown.Item>
-                    <span
-                      className={`fi fi-${flags[p.code]} ps-2 pe-2 pl-10 pr-10`}
-                    ></span>
-                    {p.name}
-                  </Dropdown.Item>
-                ))}
-              </Dropdown> */}
-
             <div className="flex">
               <button
                 id="states-button"
                 data-dropdown-toggle="dropdown-states"
-                className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-500 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
+                className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center
+                 text-gray-500 bg-gray-200 border border-gray-300 rounded-lg
+                  hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700
+                   dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
                 type="button"
               >
                 <span
@@ -257,14 +267,21 @@ export default function Nav({
               </button>
               <div
                 id="dropdown-states"
-                className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+                className="z-10 hidden divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
               >
                 <ul
-                  className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                  style={{
+                    background: "rgb(0 0 0 / 0.1) !important",
+                  }}
+                  className="py-2 text-sm text-gray-700 bg-gray-200 dark:text-gray-200"
                   aria-labelledby="states-button"
                 >
                   {langs.map((p) => (
-                    <li>
+                    <li
+                      style={{
+                        background: "rgb(0 0 0 / 0.1) !important",
+                      }}
+                    >
                       <button
                         type="button"
                         className="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"

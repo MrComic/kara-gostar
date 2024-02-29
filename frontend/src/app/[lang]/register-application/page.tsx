@@ -1,43 +1,30 @@
 "use client";
-import dynamic from "next/dynamic";
 import Banner from "../components/Banner";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { faPhone } from "@fortawesome/free-solid-svg-icons/faPhone";
-import { faMailBulk } from "@fortawesome/free-solid-svg-icons/faMailBulk";
-import { faMobile } from "@fortawesome/free-solid-svg-icons/faMobile";
-import { faEarth } from "@fortawesome/free-solid-svg-icons/faEarth";
-import { faA } from "@fortawesome/free-solid-svg-icons";
 
 export default async function RootRoute() {
-  const Map = dynamic(
-    () => import("./components/map"), // replace '@components/map' with your component's location
-    {
-      loading: () => <p>A map is loading</p>,
-      ssr: false, // This line is important. It's what prevents server-side render
-    }
-  );
-
   return (
     <>
       <Banner>
-        <div className="flex flex-col  items-center text-center  text-white py-10">
+        <div className="flex flex-col  items-center text-center  text-white py-8">
           <div className="flex flex-col max-w-screen-2xl flex-row mx-auto justify-center">
-            <h1 className="font-extrabold text-4xl">تماس با ما</h1>
-            <p className="mt-16 font-light text-center text-white dark:text-gray-400 sm:text-xl">
-              باعث افتخار ماست تا نظرات خود را با ما از طریق این فرم به اشتراک
-              بگذارید.
+            <h1 className="font-extrabold text-4xl">همکاری با ما</h1>
+            <p className="mt-10 font-light text-center text-white dark:text-gray-400 sm:text-xl">
+              علاقه مندان به همکاری با گروه کاراگستر می‌توانند اطلاعات و رزومه
+              کاری خود را در این فرم ثبت و ذخیره کرده تا همکاران ما در واحد
+              منابع انسانی بررسی قرار دهند.
+            </p>
+            <p className="mt-2 font-light text-center text-white dark:text-gray-400 sm:text-xl">
+              لطفا به منظور بررسی بهتر درخواست شما، موارد خواسته شده را کامل و
+              دقیق تکمیل کنید.
             </p>
           </div>
         </div>
       </Banner>
 
-      <div className="w-8/12  mx-auto flex flex-row justify-center mt-10 mb-10 bg-white dark:bg-gray-900">
-        <div className="m-4 flex flex-col">
-          <Map />
-
-          <div className=" grid grid-cols-2 py-8 lg:py-16 px-4 w-full">
-            <form action="#" className="space-y-8">
+      <div className="w-8/12 mx-auto flex flex-row justify-center mb-10 bg-white dark:bg-gray-900">
+        <div className="m-4 flex flex-row w-full">
+          <div className="flex flex-row py-8 lg:py-16 px-4 w-full">
+            <form action="#" className="space-y-8 w-full">
               <div>
                 <label
                   for="email"
@@ -100,49 +87,6 @@ export default async function RootRoute() {
                 ارسال فرم
               </button>
             </form>
-
-            <div>
-              <div className="m-4">
-                <div className="contact__channels" data-v-2c279a3f="">
-                  <h5 className="text-xl mb-5">راه‌های ارتباطی</h5>
-                  <div className="flex flex-row mb-5" data-v-2c279a3f="">
-                    <FontAwesomeIcon
-                      icon={faMobile}
-                      className="me-5 font-extrabold h-5"
-                    />
-                    <div className="flex flex-col" data-v-2c279a3f="">
-                      <p data-v-2c279a3f="">تلفن :</p>
-                      <span data-v-2c279a3f="">021-46848781</span>
-                    </div>
-                  </div>
-                  <div className="flex flex-row mb-5" data-v-2c279a3f="">
-                    <FontAwesomeIcon
-                      icon={faMailBulk}
-                      className="me-5 font-extrabold h-5"
-                    />
-                    <div className="fa fa-col" data-v-2c279a3f="">
-                      <p data-v-2c279a3f="">ایمیل:</p>
-                      <span data-v-2c279a3f="">info@karagostar.com</span>
-                    </div>
-                  </div>{" "}
-                  <div className="contact__channel" data-v-2c279a3f="">
-                    <div className="flex flex-row" data-v-2c279a3f="">
-                      <FontAwesomeIcon
-                        icon={faEarth}
-                        className="me-5 font-extrabold h-5"
-                      />
-                      <div className="fa fa-col">
-                        <p data-v-2c279a3f="">دفتر مرکزی تهران:</p>
-                        <span data-v-2c279a3f="">
-                          تهران، شهر قدس (قلعه حسنخان)، بلوار انقلاب، خیابان
-                          صنعت 2، مجتمع صنعتی پویا، پلاک 5
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

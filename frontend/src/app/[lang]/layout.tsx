@@ -130,20 +130,19 @@ export default async function RootLayout({
             logoUrl={navbarLogoUrl}
             logoText={navbar.navbarLogo.logoText}
           />
-
           <main className="dark:bg-black dark:text-gray-100 min-h-screen">
             {children}
           </main>
 
           <Banner data={notificationBanner} />
-          <Footer
+          {/* <Footer
             logoUrl={footerLogoUrl}
             logoText={footer.footerLogo.logoText}
             menuLinks={footer.menuLinks}
             categoryLinks={footer.categories.data}
             legalLinks={footer.legalLinks}
             socialLinks={footer.socialLinks}
-          />
+          /> */}
           <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
         </Flowbite>
       </body>
