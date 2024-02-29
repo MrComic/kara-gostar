@@ -16,7 +16,7 @@ export default async function RootRoute({
   return (
     <>
       <section
-        className="grid grid-cols-2 py-5 items-center"
+        className="grid grid-cols-2 items-center"
         style={{
           background:
             "url('http://localhost:1337/uploads/20180220_093628_09030780df.jpg')",
@@ -28,7 +28,7 @@ export default async function RootRoute({
           "background-color": "rgb(55 65 81/var(--tw-bg-opacity))",
         }}
       >
-        <div className="max-w-screen-2xl sm:text-center max-xl:text-start md:text-start lg:text-start sm:mb-0 py-9 mx-auto">
+        <div className="max-w-screen-2xl sm:text-center max-xl:text-start md:text-start lg:text-start sm:mb-0  mx-auto">
           <div className="h-96 sm:h-64 my-5">
             {/* <h1 className="max-w-2xl mb-4 text-xl text-white font-extrabold tracking-tight leading-none md:text-5xl xl:text-4xl dark:text-white">
               شرکت مهندسی کاراگستر

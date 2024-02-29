@@ -97,19 +97,12 @@ function MobileNavLink({ url, text, closeMenu, children }: MobileNavLink) {
           aria-labelledby="dropdownLargeButton"
         >
           {children.map((n) => (
-            <li
-              style={{
-                background: "rgb(0 0 0 / 0.1) !important",
-              }}
-            >
+            <li>
               <a
-                style={{
-                  background: "rgb(0 0 0 / 0.1) !important",
-                }}
                 href={n.url}
                 onClick={handleClick}
                 className={`block hover:text-red-700
-                dark:bg-red-600 px-4 py-2 bg-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white ${
+                dark:bg-red-600 px-4 py-2 bg-gray-300  dark:hover:bg-gray-600 dark:hover:text-white ${
                   path === url && "text-red-400 border-red-400"
                 }`}
               >
@@ -270,18 +263,11 @@ export default function Nav({
                 className="z-10 hidden divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
               >
                 <ul
-                  style={{
-                    background: "rgb(0 0 0 / 0.1) !important",
-                  }}
                   className="py-2 text-sm text-gray-700 bg-gray-200 dark:text-gray-200"
                   aria-labelledby="states-button"
                 >
                   {langs.map((p) => (
-                    <li
-                      style={{
-                        background: "rgb(0 0 0 / 0.1) !important",
-                      }}
-                    >
+                    <li>
                       <button
                         type="button"
                         className="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
