@@ -134,10 +134,10 @@ export default async function RootLayout({
           </main>
 
           <Banner data={notificationBanner} />
-          <Footer
+          {/* <Footer
             logoUrl={footerLogoUrl}
             logoText={footer.footerLogo.logoText}
-          />
+          /> */}
           <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
           <script src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
         </Flowbite>

@@ -90,37 +90,6 @@ export default async function RootRoute({
                   <li>• برآوردن نيازمنديهاي محصول</li>
                   <li>• توسعه محصولات وبازارهاي جديد</li>
                 </ul>
-                {/* <p className="text-xl text-justify">
-                  كه در رابطه با موارد اشاره شده اصول زير را رعايت مي نمائيم:
-                </p>
-                <ol className="text-xl text-justify">
-                  <li>
-                    -جذب نيروي انساني كارآمد، و استفاده از خلاقيتهاي فردي و
-                    ايجاد امكان رشد پرسنل از طريق قرارگيري در فرآيند توسعه
-                    تكنولوژيك شركت.
-                  </li>
-                  <li>-انجام اقدامات پيشگيرانه جهت جلوگيري از بروز مشكلات.</li>
-                  <li>-مشاوره مستمر و همفكري با مشتري.</li>
-                </ol>
-                <p className="text-xl text-justify">
-                  ما متعهد هستيم جهت ارائه محصولات با كيفيت از بهترين امكانات،
-                  منابع و تجهيزات (نيروي انساني ارتقا يافته و ماشين آلات
-                  پيشرفته) جهت استمرار سيستم مديريت كيفيت و اجراي آن استفاده
-                  نموده و همواره بطور مستمر در حفظ و ارتقاي كيفي منابع و
-                  تجهيزاتمان بكوشيم.
-                </p>
-                <p className="text-xl text-justify">
-                  سيستم كيفيت شركت مهندسي كاراگستر بر پايه مشاركت همگاني پرسنل
-                  درگير در امر كيفيت، در تمامي رده ها و سطوح سازمان استوار است و
-                  برآورده كننده نياز مشتريان بر اساس خواسته هاي استاندارد ISO
-                  9001 (مصوب 2015) مي باشد. هر يك از كاركنان شركت نسبت به كيفيت
-                  انجام كارهاي خود مسئول مي باشند.
-                </p>
-                <p className="text-xl text-justify">
-                  مسئوليت پيگيري و كنترل صحيح سيستم مديريت كيفيت بر عهده مديريت
-                  عامل مي باشد كه ايشان مستقيماً در جريان روند عملكرد سيستم قرار
-                  دارند
-                </p> */}
               </div>
 
               <div
@@ -138,22 +107,22 @@ export default async function RootRoute({
               ></div>
             </div>
           </div>
-          <div className="bg-white">
-            <div
-              className=" flex flex-row items-center justify-center p-10 mx-auto container"
-              style={{
-                height: "500px",
-                background: `url(${getStrapiMedia(
-                  "/uploads/PHOTO_2024_03_07_10_58_43_b1a9ca68f6.jpg"
-                )})`,
-                "background-size": "100% 100%",
-                "background-repeat": "no-repeat",
-                "--tw-bg-opacity": "1",
-                "background-color": "rgb(55 65 81/var(--tw-bg-opacity))",
-              }}
-            >
-              <div className="border h-80 items-center">
-                <video className="h-full" autoPlay muted controls>
+        </div>
+      </div>
+
+      <div>
+        <div className="bg-gray-800">
+          <div className="max-w-screen-2xl mx-auto py-5">
+            <div className="grid grid-cols-2 justify-center">
+              <div className="text-start">
+                <video
+                  style={{
+                    height: "380px",
+                  }}
+                  autoPlay
+                  muted
+                  controls
+                >
                   <source
                     src={getStrapiMedia(
                       "/uploads/4_5825592244706481604_040ea44d54.mp4"
@@ -163,15 +132,49 @@ export default async function RootRoute({
                   Your browser does not support the video tag.
                 </video>
               </div>
+
+              <div className="text-gray-300">
+                <p className="text-lg text-justify">
+                  در رابطه با موارد اشاره شده اصول زير را رعايت مي نمائيم:
+                </p>
+                <ol className="text-lg text-justify">
+                  <li>
+                    -جذب نيروي انساني كارآمد، و استفاده از خلاقيتهاي فردي و
+                    ايجاد امكان رشد پرسنل از طريق قرارگيري در فرآيند توسعه
+                    تكنولوژيك شركت.
+                  </li>
+                  <li>-انجام اقدامات پيشگيرانه جهت جلوگيري از بروز مشكلات.</li>
+                  <li>-مشاوره مستمر و همفكري با مشتري.</li>
+                </ol>
+                <p className="text-lg text-justify">
+                  ما متعهد هستيم جهت ارائه محصولات با كيفيت از بهترين امكانات،
+                  منابع و تجهيزات (نيروي انساني ارتقا يافته و ماشين آلات
+                  پيشرفته) جهت استمرار سيستم مديريت كيفيت و اجراي آن استفاده
+                  نموده و همواره بطور مستمر در حفظ و ارتقاي كيفي منابع و
+                  تجهيزاتمان بكوشيم.
+                </p>
+                <p className="text-lg text-justify">
+                  سيستم كيفيت شركت مهندسي كاراگستر بر پايه مشاركت همگاني پرسنل
+                  درگير در امر كيفيت، در تمامي رده ها و سطوح سازمان استوار است و
+                  برآورده كننده نياز مشتريان بر اساس خواسته هاي استاندارد ISO
+                  9001 (مصوب 2015) مي باشد. هر يك از كاركنان شركت نسبت به كيفيت
+                  انجام كارهاي خود مسئول مي باشند.
+                </p>
+                <p className="text-lg text-justify">
+                  مسئوليت پيگيري و كنترل صحيح سيستم مديريت كيفيت بر عهده مديريت
+                  عامل مي باشد كه ايشان مستقيماً در جريان روند عملكرد سيستم قرار
+                  دارند
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-red-700">
+      <div className="bg-gray-300">
         <div className="grid grid-cols-5 max-w-screen-2xl py-4 mx-auto text-center items-center lg:py-4 ">
           <div className="col-span1 text-start px-4">
-            <h2 className="text-2xl text-white">برخی از مشتریان</h2>
+            <h2 className="text-2xl text-black">برخی از مشتریان</h2>
           </div>
           <div className="col-span-4 flex flex-row items-start">
             <PartnersSlider></PartnersSlider>
