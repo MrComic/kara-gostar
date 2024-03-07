@@ -2,13 +2,9 @@
 import Logo from "./Logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect, useRef, useState } from "react";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { v4 as uuidv4 } from "uuid";
-import { Dropdown } from "flowbite-react";
-import { url } from "inspector";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 
 interface NavLink {

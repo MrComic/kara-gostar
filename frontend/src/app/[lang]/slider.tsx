@@ -45,17 +45,6 @@ export default function HomeSlider() {
       </SwiperSlide>
       <SwiperSlide>
         <img
-          src={getStrapiMedia("/uploads/Screenshot_2_c29ded37a4.png")}
-          alt="..."
-          style={{
-            width: "100%",
-            height: " 450px",
-            "background-size": "cover",
-          }}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img
           src={getStrapiMedia("/uploads/FINAL_14_a60da0ff01.jpg")}
           alt="..."
           style={{
@@ -69,6 +58,17 @@ export default function HomeSlider() {
         <img
           src={getStrapiMedia("/uploads/FINAL_27_9fae161436.jpg")}
           style={{ width: "100%", height: "450px", backgroundSize: "cover" }}
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img
+          src={getStrapiMedia("/uploads/Screenshot_2_c29ded37a4.png")}
+          alt="..."
+          style={{
+            width: "100%",
+            height: " 450px",
+            "background-size": "cover",
+          }}
         />
       </SwiperSlide>
     </Swiper>

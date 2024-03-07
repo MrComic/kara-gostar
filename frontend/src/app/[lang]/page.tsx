@@ -18,26 +18,20 @@ export default async function RootRoute({
       <section
         className="grid grid-cols-2 items-center"
         style={{
-          background:
-            "url('http://localhost:1337/uploads/20180220_093628_09030780df.jpg')",
-          "background-blend-mode": "multiply",
-          "background-repeat": "no-repeat",
-          "background-size": "cover",
-          "background-position": "50%",
-          "--tw-bg-opacity": "1",
-          "background-color": "rgb(55 65 81/var(--tw-bg-opacity))",
+          background: `url("${getStrapiMedia(
+            "/uploads/main_554646b309.png"
+          )}")`,
+          // background:
+          //   "url('http://localhost:1337/uploads/20180220_093628_09030780df.jpg')",
+          // "background-blend-mode": "multiply",
         }}
       >
-        <div className="max-w-screen-2xl sm:text-center max-xl:text-start md:text-start lg:text-start sm:mb-0  mx-auto">
+        <div>
+          <img src={getStrapiMedia("/uploads/main_3255edbcd3.jpg")} />
+        </div>
+        <div className="max-w-2xl  flex  flex-col sm:text-end sm:mb-0  mx-auto">
           <div className="h-96 sm:h-64 my-5">
-            {/* <h1 className="max-w-2xl mb-4 text-xl text-white font-extrabold tracking-tight leading-none md:text-5xl xl:text-4xl dark:text-white">
-              شرکت مهندسی کاراگستر
-            </h1> */}
-            <p className="hidden">
-              پایه یک متعهد به کیفیت، ایمنی، التزام به برنامه زمانبندی و احترام
-              به تعهدات قراردادی
-            </p>
-            <p className="max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-xl text-gray-400 ">
+            <p className=" mb-6 font-light lg:mb-8 text-lg  leading-10 text-justify text-gray-300">
               شرکت مهندسی کارگستر در سال 1372 تاسیس شد و در زمینه طراحی و ساخت
               انواع قطعات ماشین آلات و قالب های صنعتی و تجهیزات جانبی صنایع از
               جمله قالب های پخت لاستیک و سایر محصولات لاستیکی - ارائه خدمات فنی
@@ -65,26 +59,23 @@ export default async function RootRoute({
             </a>
           </div>
         </div>
-        <div className="lg:px-0 md:px-0">
-          <HomeSlider></HomeSlider>
-        </div>
       </section>
 
-      <div style={{ background: "rgb(0 0 0 / 0.1)" }}>
-        <div className="text-black">
+      <div>
+        <div className="text-gray-300" style={{ background: "#070a0f" }}>
           <div className="max-w-screen-2xl mx-auto py-16 ">
-            <div className="grid grid-cols-1">
+            <div className="grid grid-cols-2">
               <div className="text-start">
-                <h2 className="text-3xl font-bold sm:text-4xl text-center">
+                <h2 className="text-xl text-center">
                   خط مشی کیفیت شرکت مهندسی کاراگستر
                 </h2>
-                <p className="mt-4 text-xl text-justify">
+                <p className="mt-4 text-lg text-justify">
                   ما نسبت به پيش بيني و تامين نيازمنديهاي حال و آينده مشتريان در
                   رابطه با محصول خود متعهد مي باشيم. هدف ما به دست آوردن و حفظ
                   بهترين موقعيت در كشور براي ساخت قالب ها و ماشين آلات تايرسازي
                   و قطعات صنعتي پيشرفته با رعايت موارد زير مي باشد:
                 </p>
-                <ul className="text-xl text-justify">
+                <ul className="text-lg text-justify">
                   <li>
                     • شناخت ذینفعان، نیازها و انتظارات ایشان علی الخصوص مشتریان
                     و تدوین راهکارها در جهت ایجاد منافع متقابل
@@ -99,7 +90,7 @@ export default async function RootRoute({
                   <li>• برآوردن نيازمنديهاي محصول</li>
                   <li>• توسعه محصولات وبازارهاي جديد</li>
                 </ul>
-                <p className="text-xl text-justify">
+                {/* <p className="text-xl text-justify">
                   كه در رابطه با موارد اشاره شده اصول زير را رعايت مي نمائيم:
                 </p>
                 <ol className="text-xl text-justify">
@@ -129,21 +120,49 @@ export default async function RootRoute({
                   مسئوليت پيگيري و كنترل صحيح سيستم مديريت كيفيت بر عهده مديريت
                   عامل مي باشد كه ايشان مستقيماً در جريان روند عملكرد سيستم قرار
                   دارند
-                </p>
+                </p> */}
               </div>
+
+              <div
+                className="ms-32"
+                style={{
+                  background: `url(${getStrapiMedia(
+                    "/uploads/background_Copy_2_f709ffb72e.png"
+                  )})`,
+                  "background-blend-mode": "multiply",
+                  "background-repeat": "no-repeat",
+                  "background-size": "cover",
+                  "--tw-bg-opacity": "1",
+                  "background-color": "rgb(55 65 81/var(--tw-bg-opacity))",
+                }}
+              ></div>
             </div>
           </div>
-          <div className="bg-gray-600 ">
-            <div className="flex flex-col  justify-center items-center mx-auto p-10 ">
-              <video className="items-center w-7/12" autoPlay controls>
-                <source
-                  src={getStrapiMedia(
-                    "/uploads/4_5825592244706481604_040ea44d54.mp4"
-                  )}
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
+          <div className="bg-white">
+            <div
+              className=" flex flex-row items-center justify-center p-10 mx-auto container"
+              style={{
+                height: "500px",
+                background: `url(${getStrapiMedia(
+                  "/uploads/PHOTO_2024_03_07_10_58_43_b1a9ca68f6.jpg"
+                )})`,
+                "background-size": "100% 100%",
+                "background-repeat": "no-repeat",
+                "--tw-bg-opacity": "1",
+                "background-color": "rgb(55 65 81/var(--tw-bg-opacity))",
+              }}
+            >
+              <div className="border h-80 items-center">
+                <video className="h-full" autoPlay muted controls>
+                  <source
+                    src={getStrapiMedia(
+                      "/uploads/4_5825592244706481604_040ea44d54.mp4"
+                    )}
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
           </div>
         </div>
@@ -152,7 +171,7 @@ export default async function RootRoute({
       <div className="bg-red-700">
         <div className="grid grid-cols-5 max-w-screen-2xl py-4 mx-auto text-center items-center lg:py-4 ">
           <div className="col-span1 text-start px-4">
-            <h2 className="text-3xl text-white">برخی از مشتریان</h2>
+            <h2 className="text-2xl text-white">برخی از مشتریان</h2>
           </div>
           <div className="col-span-4 flex flex-row items-start">
             <PartnersSlider></PartnersSlider>

@@ -12,7 +12,6 @@ import PrelineScript from "./components/PrelineScript";
 import iranSans from "./font";
 import type { CustomFlowbiteTheme } from "flowbite-react";
 import { Flowbite } from "flowbite-react";
-import ScrollEvent from "./components/handle-scroll";
 function getBaseHttpOption() {
   const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
   if (!token)
@@ -99,7 +98,7 @@ export default async function RootLayout({
   const langs = await getLanguages();
   const languageFile = getLanguageFile(params.lang);
   // TODO: CREATE A CUSTOM ERROR PAGE
-  if (!global.data) return null;
+  if (!global) return null;
 
   const { notificationBanner, navbar, footer } = global.data.attributes;
 
@@ -135,15 +134,12 @@ export default async function RootLayout({
           </main>
 
           <Banner data={notificationBanner} />
-          {/* <Footer
+          <Footer
             logoUrl={footerLogoUrl}
             logoText={footer.footerLogo.logoText}
-            menuLinks={footer.menuLinks}
-            categoryLinks={footer.categories.data}
-            legalLinks={footer.legalLinks}
-            socialLinks={footer.socialLinks}
-          /> */}
+          />
           <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+          <script src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
         </Flowbite>
       </body>
     </html>

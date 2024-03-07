@@ -27,6 +27,16 @@
       "relation": "manyToOne",
       "target": "api::product.product",
       "inversedBy": "category"
+    },
+    "picture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

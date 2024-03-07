@@ -1,96 +1,80 @@
-import { Carousel } from "flowbite-react";
+import { Carousel, Pagination } from "flowbite-react";
 import LangRedirect from "../../../components/LangRedirect";
 import { getProductsByCategory } from "../../../utils/get-products-by-category";
 import { RedirectType } from "next/navigation";
 import { getCategoryByName } from "../../../utils/get-category-by-name";
 import { getStrapiMedia } from "../../../utils/api-helpers";
 import Glide from "../../../components/glide";
+import { getProductsById } from "@/app/[lang]/utils/get-products-by-id";
+import { json } from "stream/consumers";
+import Banner from "@/app/[lang]/components/Banner";
+import Swiper from "swiper";
+import { A11y, Autoplay, Navigation, Scrollbar } from "swiper/modules";
+import { SwiperSlide } from "swiper/react";
+import SingleProductSlider from "./single-product-slider";
 
 export default async function RootRoute({
   params,
 }: {
-  params: { lang: string; category: string };
+  params: { id: number; lang: string };
 }) {
-  try {
-    const products = await getProductsByCategory(params.category, params.lang);
-    const category = await getCategoryByName(params.category, params.lang);
-    if (products.error && products.error.status == 401)
-      throw new Error(
-        "Missing or invalid credentials. Have you created an access token using the Strapi admin panel? http://localhost:1337/admin/"
-      );
-    if (products.data == null)
-      return (
-        <div className="flex max-w-screen-2xl mx-auto my-auto h-screen items-center justify-center">
-          <h1>محصولی تعریف نشده است</h1>
-        </div>
-      );
-    if (products.data.length === 0)
-      return (
-        <div className="flex max-w-screen-2xl mx-auto my-auto h-screen items-center justify-center">
-          <h1>محصولی تعریف نشده است</h1>
-        </div>
-      );
+  const product = await getProductsById(params.id, params.lang);
+  //return <h1 dir="ltr">{JSON.stringify(product.data.attributes.category)}</h1>;
+  const category = await getCategoryByName(
+    product.data.attributes.category.data[0].attributes.slug,
+    params.lang
+  );
 
+  if (product.error && product.error.status == 401)
+    throw new Error(
+      "Missing or invalid credentials. Have you created an access token using the Strapi admin panel? http://localhost:1337/admin/"
+    );
+  if (product.data == null)
     return (
-      <>
-        <div className="flex max-w-screen-2xl flex-row mt-10 mx-auto justify-center">
-          <h1 className="font-extrabold text-4xl">
-            {category.data[0].attributes.name}
-          </h1>
-        </div>
-        <div className="flex max-w-screen-2xl flex-row mt-10 mx-auto justify-center">
-          <p className="font-extrabold">
-            {category.data[0].attributes.description}
-          </p>
-        </div>
-
-        <section
-          id="Projects"
-          className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2   gap-y-20 gap-x-14 mt-10 mb-5"
-        >
-          {products.data.map((j) => (
-            <div className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
-              <a href="#">
-                <div
-                  id="controls-carousel"
-                  className="relative w-full"
-                  data-carousel="static"
-                >
-                  <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-                    <div
-                      className="hidden duration-700 ease-in-out"
-                      data-carousel-item
-                    ></div>
-                    {j.attributes.pictures.data.map((img) => (
-                      <img
-                        src={getStrapiMedia(img.attributes.formats.medium.url)}
-                        className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                        alt="..."
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                <div className="px-4 py-3 w-72">
-                  <p className="text-lg font-bold text-black truncate block capitalize">
-                    {j.attributes.name}
-                  </p>
-                  <span className="text-gray-400 uppercase text-xs">
-                    {j.attributes.englishTitle}
-                  </span>
-                  <div className="flex items-center"></div>
-                </div>
-              </a>
-            </div>
-          ))}
-        </section>
-      </>
+      <div className="flex max-w-screen-2xl mx-auto my-auto h-screen items-center justify-center">
+        <h1>محصول پیدا </h1>
+      </div>
+    );
+  if (product.data.length === 0)
+    return (
+      <div className="flex max-w-screen-2xl mx-auto my-auto h-screen items-center justify-center">
+        <h1>محصولی تعریف نشده است</h1>
+      </div>
     );
 
-    for (let product of products.data) {
-      return <h1>{product.attributes.name}</h1>;
-    }
-  } catch (error: any) {
-    throw new Error(error + "Missing or invalid credentials");
-  }
+  return (
+    <>
+      <section
+        id="Projects"
+        className="container mx-auto grid grid-cols-1 mt-10"
+      >
+        <div className=" bg-white  rounded-xl  ">
+          <section className="text-gray-600 body-font">
+            <div className="container px-5 py-10 mx-auto flex flex-col">
+              <div className="lg:w-4/6 mx-auto">
+                <h1 className="font-medium mb-10 title-font mt-4 text-gray-900 text-4xl">
+                  {product.data.attributes.name}
+                </h1>
+                <div
+                  className="rounded-lg overflow-hidden"
+                  style={{ height: "600px" }}
+                >
+                  <SingleProductSlider
+                    images={product.data.attributes.pictures.data}
+                  />
+                </div>
+                <div className="flex flex-col sm:flex-row mt-1">
+                  <div className="sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
+                    <p className="leading-relaxed text-lg mb-4 text-start text-justify">
+                      {product.data.attributes.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </>
+  );
 }
