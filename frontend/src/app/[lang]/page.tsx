@@ -6,7 +6,6 @@ import Glide from "./components/glide";
 import { getStrapiMedia } from "./utils/api-helpers";
 import HomeSlider from "./slider";
 import PartnersSlider from "./partners";
-import CertificatesSlider from "./certificates";
 
 export default async function RootRoute({
   params,
@@ -27,7 +26,7 @@ export default async function RootRoute({
         }}
       >
         <div>
-          <img src={getStrapiMedia("/uploads/main_3255edbcd3.jpg")} />
+          <img src={getStrapiMedia("/uploads/main_3255edbcd3.jpg") || ""} />
         </div>
         <div className="max-w-2xl  flex  flex-col sm:text-end sm:mb-0  mx-auto">
           <div className="h-96 sm:h-64 my-5">
@@ -98,11 +97,10 @@ export default async function RootRoute({
                   background: `url(${getStrapiMedia(
                     "/uploads/background_Copy_2_f709ffb72e.png"
                   )})`,
-                  "background-blend-mode": "multiply",
-                  "background-repeat": "no-repeat",
-                  "background-size": "cover",
-                  "--tw-bg-opacity": "1",
-                  "background-color": "rgb(55 65 81/var(--tw-bg-opacity))",
+                  backgroundBlendMode: "multiply",
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "cover",
+                  backgroundColor: "rgb(55 65 81/var(1))",
                 }}
               ></div>
             </div>
@@ -124,9 +122,11 @@ export default async function RootRoute({
                   controls
                 >
                   <source
-                    src={getStrapiMedia(
-                      "/uploads/4_5825592244706481604_040ea44d54.mp4"
-                    )}
+                    src={
+                      getStrapiMedia(
+                        "/uploads/4_5825592244706481604_040ea44d54.mp4"
+                      ) || ""
+                    }
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.

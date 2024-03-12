@@ -50,7 +50,10 @@ export default async function RootRoute({
         </div>
       </Banner>
 
-      <section id="Projects" className="container mx-auto mt-10 mb-5">
+      <section
+        id="Projects"
+        className="container flex flex-col h-auto mx-auto mt-10 mb-5"
+      >
         <IsotopGallery
           categories={categories.data}
           mediaGallery={pictures.data}

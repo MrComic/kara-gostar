@@ -37,7 +37,7 @@ export default function SingleProductSlider(params: { images: [] }) {
         <SwiperSlide>
           <img
             className="object-scale-down"
-            src={getStrapiMedia(h.attributes.formats.medium.url)}
+            src={getStrapiMedia(h.attributes.formats.medium.url) || ""}
             alt="..."
             style={{
               width: "100%",

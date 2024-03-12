@@ -52,16 +52,18 @@ export default async function RootRoute({
           id="Projects"
           className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2   gap-y-20 gap-x-14 mt-10 mb-5"
         >
-          {products.data.map((j) => (
+          {products.data.map((j: any) => (
             <div className="hover:scale-105 transition-all hover:transition-all ">
               <div className="bg-gray-100 p-6 rounded-lg">
                 <a href={"/" + params.lang + "/products/single/" + j.id}>
                   <img
                     className="h-96 rounded w-full object-cover object-center mb-6"
-                    src={getStrapiMedia(
-                      j.attributes.pictures.data[0].attributes.formats.medium
-                        .url
-                    )}
+                    src={
+                      getStrapiMedia(
+                        j.attributes.pictures.data[0].attributes.formats.medium
+                          .url
+                      ) || ""
+                    }
                     alt="content"
                   />
                   <h2 className="text-lg text-gray-900 font-medium title-font mt-4">

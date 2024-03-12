@@ -34,40 +34,40 @@ export default function HomeSlider() {
     >
       <SwiperSlide>
         <img
-          src={getStrapiMedia("/uploads/IMG_6107_95086858be.jpg")}
+          src={getStrapiMedia("/uploads/IMG_6107_95086858be.jpg") || ""}
           alt="..."
           style={{
             width: "100%",
             height: " 450px",
-            "background-size": "cover",
+            backgroundSize: "cover",
           }}
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          src={getStrapiMedia("/uploads/FINAL_14_a60da0ff01.jpg")}
+          src={getStrapiMedia("/uploads/FINAL_14_a60da0ff01.jpg") || ""}
           alt="..."
           style={{
             width: "100%",
             height: " 450px",
-            "background-size": "cover",
+            backgroundSize: "cover",
           }}
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          src={getStrapiMedia("/uploads/FINAL_27_9fae161436.jpg")}
+          src={getStrapiMedia("/uploads/FINAL_27_9fae161436.jpg") || ""}
           style={{ width: "100%", height: "450px", backgroundSize: "cover" }}
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          src={getStrapiMedia("/uploads/Screenshot_2_c29ded37a4.png")}
+          src={getStrapiMedia("/uploads/Screenshot_2_c29ded37a4.png") || ""}
           alt="..."
           style={{
             width: "100%",
             height: " 450px",
-            "background-size": "cover",
+            backgroundSize: "cover",
           }}
         />
       </SwiperSlide>

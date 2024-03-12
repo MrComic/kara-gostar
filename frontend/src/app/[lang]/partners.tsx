@@ -34,74 +34,74 @@ export default function PartnersSlider() {
     >
       <SwiperSlide>
         <img
-          src={getStrapiMedia("/uploads/5_98b740e103.png")}
+          src={getStrapiMedia("/uploads/5_98b740e103.png") || ""}
           alt="..."
           style={{
             width: "100%",
             height: "70px;",
-            "background-size": "cover",
+            backgroundSize: "cover",
           }}
         />
       </SwiperSlide>
 
       <SwiperSlide>
         <img
-          src={getStrapiMedia("/uploads/1_dfc3af8044.jpg")}
+          src={getStrapiMedia("/uploads/1_dfc3af8044.jpg") || ""}
           alt="..."
           style={{
             width: "100%",
             height: "70px;",
-            "background-size": "cover",
+            backgroundSize: "cover",
           }}
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          src={getStrapiMedia("/uploads/7_2410fe8c88.jpg")}
+          src={getStrapiMedia("/uploads/7_2410fe8c88.jpg") || ""}
           alt="..."
           style={{
             width: "100%",
             height: "70px;",
-            "background-size": "cover",
+            backgroundSize: "cover",
           }}
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          src={getStrapiMedia("/uploads/2_b8f3638569.jpg")}
+          src={getStrapiMedia("/uploads/2_b8f3638569.jpg") || ""}
           alt="..."
           style={{
             width: "100%",
             height: "70px;",
-            "background-size": "cover",
+            backgroundSize: "cover",
           }}
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          src={getStrapiMedia("/uploads/6_983c08d28f.jpg")}
+          src={getStrapiMedia("/uploads/6_983c08d28f.jpg") || ""}
           alt="..."
           style={{
             width: "100%",
             height: "70px;",
-            "background-size": "cover",
+            backgroundSize: "cover",
           }}
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          src={getStrapiMedia("/uploads/3_2cca28d831.png")}
+          src={getStrapiMedia("/uploads/3_2cca28d831.png") || ""}
           alt="..."
           style={{
             width: "100%",
             height: "70px;",
-            "background-size": "cover",
+            backgroundSize: "cover",
           }}
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          src={getStrapiMedia("/uploads/4_55d48842ef.png")}
+          src={getStrapiMedia("/uploads/4_55d48842ef.png") || ""}
           style={{ width: "100%", height: "70px;", backgroundSize: "cover" }}
         />
       </SwiperSlide>

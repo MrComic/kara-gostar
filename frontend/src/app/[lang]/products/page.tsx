@@ -13,8 +13,6 @@ export default async function RootRoute({
 }: {
   params: { lang: string; category: string };
 }) {
-  //const products = await getProductsByCategory(params.category, params.lang);
-  //const category = await getCategoryByName(params.category, params.lang);
   const categories = await getCategories(params.lang);
   if (categories.error && categories.error.status == 401)
     throw new Error(
@@ -40,18 +38,13 @@ export default async function RootRoute({
           <div className="flex max-w-screen-2xl flex-row  mx-auto justify-center">
             <h1 className="font-extrabold text-4xl">محصولات</h1>
           </div>
-          {/* <div className="flex max-w-screen-2xl flex-row mt-10 mx-auto justify-center">
-              <p className="font-extrabold">
-                {category.data[0].attributes.description}
-              </p>
-            </div> */}
         </div>
       </Banner>
       <section
         id="Projects"
         className="container grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1   mx-auto mt-10 mb-5 gap-16"
       >
-        {categories.data.map((j) => (
+        {categories.data.map((j: any) => (
           <div className=" hover:scale-105 transition-all hover:transition-all ">
             <div className="bg-gray-100 p-6 rounded-lg">
               <a
@@ -66,9 +59,11 @@ export default async function RootRoute({
               >
                 <img
                   className="h-96 rounded w-full object-cover object-center mb-6"
-                  src={getStrapiMedia(
-                    j.attributes.picture.data.attributes.formats.medium.url
-                  )}
+                  src={
+                    getStrapiMedia(
+                      j.attributes.picture.data.attributes.formats.medium.url
+                    ) || ""
+                  }
                   alt="content"
                 />
                 <h2 className="text-lg text-gray-900 font-medium title-font mt-4">
@@ -87,8 +82,4 @@ export default async function RootRoute({
       </section>
     </>
   );
-
-  for (let product of categories.data) {
-    return <h1>{product.attributes.name}</h1>;
-  }
 }

@@ -1,7 +1,6 @@
 "use client";
 import Banner from "../components/Banner";
 import { getStrapiMedia } from "../utils/api-helpers";
-import { OrgChartComponent } from "./OrgChart";
 
 const employees = [
   {
@@ -379,7 +378,7 @@ export default async function RootRoute({
         >
           <img
             className="object-cover grayscale w-full rounded-t-lg h-96 md:h-auto md:w-96 md:rounded-none md:rounded-s-lg"
-            src={getStrapiMedia("/uploads/1_17cbe11e1c.jpg")}
+            src={getStrapiMedia("/uploads/1_17cbe11e1c.jpg") || ""}
             style={{ height: "300px" }}
             alt=""
           />
@@ -408,7 +407,7 @@ export default async function RootRoute({
         >
           <img
             className="object-cover w-full grayscale rounded-t-lg h-96 md:h-auto md:w-96 md:rounded-none md:rounded-s-lg"
-            src={getStrapiMedia("/uploads/2_d7dfece3b3.jpg")}
+            src={getStrapiMedia("/uploads/2_d7dfece3b3.jpg") || ""}
             style={{ height: "300px" }}
             alt=""
           />
@@ -437,7 +436,7 @@ export default async function RootRoute({
         >
           <img
             className="object-cover w-full rounded-t-lg grayscale h-96 md:h-auto md:w-96 md:rounded-none md:rounded-s-lg"
-            src={getStrapiMedia("/uploads/3_f32d9f56b8.jpg")}
+            src={getStrapiMedia("/uploads/3_f32d9f56b8.jpg") || ""}
             style={{ height: "300px" }}
             alt=""
           />
@@ -466,7 +465,7 @@ export default async function RootRoute({
         >
           <img
             className="object-cover  w-full rounded-t-lg grayscale md:h-auto md:w-96 md:rounded-none md:rounded-s-lg"
-            src={getStrapiMedia("/uploads/IMG_6835_74203776a9.jpg")}
+            src={getStrapiMedia("/uploads/IMG_6835_74203776a9.jpg") || ""}
             style={{ height: "300px" }}
             alt=""
           />
@@ -495,7 +494,7 @@ export default async function RootRoute({
         >
           <img
             className="object-cover  w-full grayscale rounded-t-lg md:h-auto md:w-96 md:rounded-none md:rounded-s-lg"
-            src={getStrapiMedia("/uploads/4_0605bcd3d9.jpg")}
+            src={getStrapiMedia("/uploads/4_0605bcd3d9.jpg") || ""}
             style={{ height: "300px" }}
             alt=""
           />

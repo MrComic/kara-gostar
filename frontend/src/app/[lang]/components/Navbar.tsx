@@ -155,7 +155,7 @@ export default function Nav({
     <nav
       className={` border-gray-20 dark:bg-gray-900 sticky bg-gray-300 top-0  dark:border-gray-700 shadow-sm shadow-slate-300 border-b-slate-400`}
       style={{
-        zIndex: "10000",
+        zIndex: "500",
         //background: "rgb(0 0 0 / 0.1) !important"
       }}
     >

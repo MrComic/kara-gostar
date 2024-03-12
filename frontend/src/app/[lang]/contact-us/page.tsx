@@ -40,7 +40,7 @@ export default async function RootRoute() {
             <form action="#" className="space-y-8">
               <div>
                 <label
-                  for="email"
+                  htmlFor="email"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                 >
                   ایمیل
@@ -54,7 +54,7 @@ export default async function RootRoute() {
               </div>
               <div>
                 <label
-                  for="email"
+                  htmlFor="email"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                 >
                   نام و نام خانوادگی
@@ -68,7 +68,7 @@ export default async function RootRoute() {
               </div>
               <div>
                 <label
-                  for="subject"
+                  htmlFor="subject"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                 >
                   موضوع
@@ -82,14 +82,14 @@ export default async function RootRoute() {
               </div>
               <div className="sm:col-span-2">
                 <label
-                  for="message"
+                  htmlFor="message"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
                 >
                   پیغام
                 </label>
                 <textarea
                   id="message"
-                  rows="6"
+                  rows={6}
                   className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
                 ></textarea>
               </div>
