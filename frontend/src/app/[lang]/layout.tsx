@@ -21,6 +21,7 @@ function getBaseHttpOption() {
 
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import Head from "next/head";
 config.autoAddCss = true;
 
 const customTheme: CustomFlowbiteTheme = {
@@ -116,9 +117,9 @@ export default async function RootLayout({
       lang={params.lang}
       className={`${iranSans.variable} font-sans default light`}
     >
-      <head>
+      <Head>
         <ThemeModeScript />
-      </head>
+      </Head>
       <body>
         <Flowbite theme={{ theme: customTheme }}>
           <Nav
@@ -129,17 +130,18 @@ export default async function RootLayout({
             logoUrl={navbarLogoUrl}
             logoText={navbar.navbarLogo.logoText}
           />
-          <main className="dark:bg-black dark:text-gray-100 min-h-screen">
+          <main className=" dark:bg-black dark:text-gray-100 min-h-screen">
             {children}
           </main>
 
+          <Footer></Footer>
           <Banner data={notificationBanner} />
           {/* <Footer
             logoUrl={footerLogoUrl}
             logoText={footer.footerLogo.logoText}
           /> */}
+
           <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-          <script src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
         </Flowbite>
       </body>
     </html>

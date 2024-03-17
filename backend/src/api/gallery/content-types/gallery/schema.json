@@ -44,6 +44,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::gallery-category.gallery-category"
+    },
+    "gallery_page": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::gallery-page.gallery-page",
+      "inversedBy": "galleries"
     }
   }
 }

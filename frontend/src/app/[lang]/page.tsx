@@ -6,6 +6,9 @@ import Glide from "./components/glide";
 import { getStrapiMedia } from "./utils/api-helpers";
 import HomeSlider from "./slider";
 import PartnersSlider from "./partners";
+import { height } from "@fortawesome/free-solid-svg-icons/faPhone";
+import Footer from "./components/Footer";
+import CompanyRules from "./home-company-rules";
 
 export default async function RootRoute({
   params,
@@ -15,7 +18,7 @@ export default async function RootRoute({
   return (
     <>
       <section
-        className="grid grid-cols-2 items-center"
+        className="flex flex-row justify-center items-center"
         style={{
           background: `url("${getStrapiMedia(
             "/uploads/main_554646b309.png"
@@ -25,97 +28,84 @@ export default async function RootRoute({
           // "background-blend-mode": "multiply",
         }}
       >
-        <div>
-          <img src={getStrapiMedia("/uploads/main_3255edbcd3.jpg") || ""} />
-        </div>
-        <div className="max-w-2xl  flex  flex-col sm:text-end sm:mb-0  mx-auto">
-          <div className="h-96 sm:h-64 my-5">
-            <p className=" mb-6 font-light lg:mb-8 text-lg  leading-10 text-justify text-gray-300">
-              شرکت مهندسی کارگستر در سال 1372 تاسیس شد و در زمینه طراحی و ساخت
-              انواع قطعات ماشین آلات و قالب های صنعتی و تجهیزات جانبی صنایع از
-              جمله قالب های پخت لاستیک و سایر محصولات لاستیکی - ارائه خدمات فنی
-              و مهندسی و اخذ تاییدیه و مجوزهای قانونی اولیه ساخت و بهره برداری
-              کارخانجات ساخت قطعات و ماشین آلات صنعتی و قالب - واردات و صادرات
-              قطعات یدکی و ماشین آلات و قالب های صنعتی و اخذ نمایندگی داخلی و
-              خارجی و انجام کلیه امور مربوط به موارد فوق.
-            </p>
-            <a
-              href="/fa/contact-us"
-              className="inline-flex me-3 items-center justify-center px-5 py-3 
+        <div className="max-w-screen-2xl grid grid-cols-2 p-3 ">
+          <div>
+            <img src={getStrapiMedia("/uploads/main_3255edbcd3.jpg") || ""} />
+          </div>
+          <div className=" flex flex-col sm:text-end justify-end items-end sm:mb-0  mx-auto">
+            <div className="h-96 my-3">
+              <h1 className="text-white pb-5 text-start text-2xl">
+                شرکت مهندسی
+                <span className="text-red-700"> کاراگستر </span>
+              </h1>
+              <p className=" mb-6 font-light lg:mb-8 text-lg  leading-10 text-justify text-gray-300">
+                شرکت مهندسی کارگستر در سال 1372 تاسیس شد و در زمینه طراحی و ساخت
+                انواع قطعات ماشین آلات و قالب های صنعتی و تجهیزات جانبی صنایع از
+                جمله قالب های پخت لاستیک و سایر محصولات لاستیکی - ارائه خدمات
+                فنی و مهندسی و اخذ تاییدیه و مجوزهای قانونی اولیه ساخت و بهره
+                برداری کارخانجات ساخت قطعات و ماشین آلات صنعتی و قالب - واردات و
+                صادرات قطعات یدکی و ماشین آلات و قالب های صنعتی و اخذ نمایندگی
+                داخلی و خارجی و انجام کلیه امور مربوط به موارد فوق.
+              </p>
+              <a
+                href="/fa/contact-us"
+                className="inline-flex me-3 items-center justify-center px-5 py-3 
                font-medium text-center text-gray-900 border border-gray-300 rounded-lg
                 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 text-white
                  border-gray-700 hover:bg-gray-700 focus:ring-gray-800"
-            >
-              تماس با ما
-            </a>
-            <a
-              href="/fa/products"
-              className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center
+              >
+                تماس با ما
+              </a>
+              <a
+                href="/fa/products"
+                className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center
                text-gray-900 border border-red-300 rounded-lg hover:bg-red-100 focus:ring-4 focus:ring-red-100
                 text-white border-red-700 hover:bg-red-700 focus:ring-red-800"
-            >
-              محصولات
-            </a>
+              >
+                محصولات
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      <div>
-        <div className="text-gray-300" style={{ background: "#070a0f" }}>
+      <div style={{ background: "#212830" }}>
+        <div className="text-gray-300">
           <div className="max-w-screen-2xl mx-auto py-16 ">
             <div className="grid grid-cols-2">
-              <div className="text-start">
-                <h2 className="text-xl text-center">
-                  خط مشی کیفیت شرکت مهندسی کاراگستر
-                </h2>
-                <p className="mt-4 text-lg text-justify">
-                  ما نسبت به پيش بيني و تامين نيازمنديهاي حال و آينده مشتريان در
-                  رابطه با محصول خود متعهد مي باشيم. هدف ما به دست آوردن و حفظ
-                  بهترين موقعيت در كشور براي ساخت قالب ها و ماشين آلات تايرسازي
-                  و قطعات صنعتي پيشرفته با رعايت موارد زير مي باشد:
-                </p>
-                <ul className="text-lg text-justify">
-                  <li>
-                    • شناخت ذینفعان، نیازها و انتظارات ایشان علی الخصوص مشتریان
-                    و تدوین راهکارها در جهت ایجاد منافع متقابل
-                  </li>
-                  <li>
-                    • توسعه تفکر مبتنی بر ریسک به منظور شناسایی و مدیریت موثرتر
-                    فرصتها و تهدیدهای محیط بیرونی و درونی سازمان، در تمامی زمینه
-                    های عملکردی و کسب و کار شرکت
-                  </li>
-                  <li>• دستيابي به تكنولوژي روز توليد</li>
-                  <li>• رقابتي نمودن قيمت تمام شده محصول</li>
-                  <li>• برآوردن نيازمنديهاي محصول</li>
-                  <li>• توسعه محصولات وبازارهاي جديد</li>
-                </ul>
-              </div>
-
-              <div
-                className="ms-32"
-                style={{
-                  background: `url(${getStrapiMedia(
-                    "/uploads/background_Copy_2_f709ffb72e.png"
-                  )})`,
-                  backgroundBlendMode: "multiply",
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "cover",
-                  backgroundColor: "rgb(55 65 81/var(1))",
-                }}
-              ></div>
+              <CompanyRules></CompanyRules>
+              <img
+                className="ps-32 pe-5 object-fit"
+                src={getStrapiMedia("/uploads/background_cc3915025b.png") || ""}
+              />
             </div>
           </div>
         </div>
       </div>
 
       <div>
-        <div className="bg-gray-800">
-          <div className="max-w-screen-2xl mx-auto py-5">
-            <div className="grid grid-cols-2 justify-center">
-              <div className="text-start">
+        <div
+          style={{
+            background: "linear-gradient(to bottom,  #2d2e30 0%,#565759 100%)",
+          }}
+        >
+          <h1 className="text-xl text-white text-center p-5">
+            کاراگستر در یک نگاه
+          </h1>
+
+          <div className="max-w-screen-2xl mx-auto ">
+            <div className="grid grid-cols-5 justify-center">
+              <div
+                style={{ height: 500, marginTop: -68 }}
+                className="text-gray-300 col-span-1 justify-end flex"
+              >
+                <img src={getStrapiMedia("/uploads/TIRE_2_7a240e6ee9.png")} />
+              </div>
+              <div className="text-start col-span-3">
                 <video
                   style={{
-                    height: "380px",
+                    height: "400px",
+                    width: "100%",
                   }}
                   autoPlay
                   muted
@@ -133,51 +123,107 @@ export default async function RootRoute({
                 </video>
               </div>
 
-              <div className="text-gray-300">
-                <p className="text-lg text-justify">
-                  در رابطه با موارد اشاره شده اصول زير را رعايت مي نمائيم:
-                </p>
-                <ol className="text-lg text-justify">
-                  <li>
-                    -جذب نيروي انساني كارآمد، و استفاده از خلاقيتهاي فردي و
-                    ايجاد امكان رشد پرسنل از طريق قرارگيري در فرآيند توسعه
-                    تكنولوژيك شركت.
-                  </li>
-                  <li>-انجام اقدامات پيشگيرانه جهت جلوگيري از بروز مشكلات.</li>
-                  <li>-مشاوره مستمر و همفكري با مشتري.</li>
-                </ol>
-                <p className="text-lg text-justify">
-                  ما متعهد هستيم جهت ارائه محصولات با كيفيت از بهترين امكانات،
-                  منابع و تجهيزات (نيروي انساني ارتقا يافته و ماشين آلات
-                  پيشرفته) جهت استمرار سيستم مديريت كيفيت و اجراي آن استفاده
-                  نموده و همواره بطور مستمر در حفظ و ارتقاي كيفي منابع و
-                  تجهيزاتمان بكوشيم.
-                </p>
-                <p className="text-lg text-justify">
-                  سيستم كيفيت شركت مهندسي كاراگستر بر پايه مشاركت همگاني پرسنل
-                  درگير در امر كيفيت، در تمامي رده ها و سطوح سازمان استوار است و
-                  برآورده كننده نياز مشتريان بر اساس خواسته هاي استاندارد ISO
-                  9001 (مصوب 2015) مي باشد. هر يك از كاركنان شركت نسبت به كيفيت
-                  انجام كارهاي خود مسئول مي باشند.
-                </p>
-                <p className="text-lg text-justify">
-                  مسئوليت پيگيري و كنترل صحيح سيستم مديريت كيفيت بر عهده مديريت
-                  عامل مي باشد كه ايشان مستقيماً در جريان روند عملكرد سيستم قرار
-                  دارند
-                </p>
+              <div
+                style={{ height: 500, marginTop: -68 }}
+                className="text-gray-300 justify-start flex col-span-1"
+              >
+                <img src={getStrapiMedia("/uploads/TIRE_1_8f51fdcd66.png")} />
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-gray-300">
+      {/* <div className="bg-gray-300">
         <div className="grid grid-cols-5 max-w-screen-2xl py-4 mx-auto text-center items-center lg:py-4 ">
           <div className="col-span1 text-start px-4">
             <h2 className="text-2xl text-black">برخی از مشتریان</h2>
           </div>
           <div className="col-span-4 flex flex-row items-start">
             <PartnersSlider></PartnersSlider>
+          </div>
+        </div>
+      </div>
+ */}
+
+      <div style={{ background: "#212830" }}>
+        <div className="relative overflow-hidden grid grid-cols-2 max-w-screen-2xl py-4 mx-auto text-center items-center lg:py-4 ">
+          <div
+            style={{ height: "500px" }}
+            className="col-span-1 flex flex-row justify-center"
+          >
+            <img
+              style={{ height: "500px" }}
+              className="animate-spin animate-infinite animate-duration-[60000ms]"
+              src={getStrapiMedia("/uploads/Capture_2_ea7729d813.png")}
+            />
+            <div className="flex text-white absolute top-1/2 -mt-3.5 justify-center items-center w-full text-center">
+              <p className=" text-xl">برخی از مشتریان ما</p>
+            </div>
+          </div>
+          <div className="col-span-1  text-white text-start text-xl">
+            <div className="flex justify-start w-full mb-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                className="text-white"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"
+                />
+              </svg>
+            </div>
+            <blockquote>
+              <p>
+                طي روشي مشخص و مدون رضايت مشتريان ، اطلاعات ، نظرات و شكايات
+                مشتريان بطور مستمر جمع آوري و مورد بررسي و ارزيابي قرار مي گيرند
+                و بر اساس آن ميزان رضايت مشتري اندازه گيري مي شود .
+              </p>
+              <ol
+                style={{ listStyle: "outside", listStyleType: "upper-roman" }}
+              >
+                <li>
+                  <p>
+                    نظر خواهي از مشتري سالي يكبار با استفاده از فرم نظر خواهي
+                    انجام ميشود كه اين فرم طي دو مرحله تکمیل میگردد:
+                  </p>
+                  <ul style={{ listStyle: "inside" }}>
+                    <li>توسط كاراگستر براساس مذاكرات مدير عامل با مشتريان</li>
+                    <li> توسط مشتري </li>
+                  </ul>
+                </li>
+                <li>
+                  <p>
+                    {" "}
+                    گزارشات خدمات پس از فروش اين اطلاعات جمع آوري شده و ساليانه
+                    طبق دستور مورد تجزيه و تحليل قرار ميگيرد.{" "}
+                  </p>
+                  <ol style={{ listStyle: "inside" }}>
+                    <li>
+                      درصورتيكه ميزان عدم رضايت مشتري خيلي شاخص وبحراني تشخيص
+                      داده شود ، اين گزارش جهت طرح در كميته بازنگري مديريت آماده
+                      مي شود .
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </blockquote>
+            <div className="flex justify-end w-full">
+              <svg
+                style={{ height: "30px;" }}
+                viewBox="0 0 24 27"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
