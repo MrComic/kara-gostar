@@ -52,28 +52,28 @@ export default async function RootRoute({
                   "/" +
                   params.lang +
                   "/products/" +
-                  j.attributes.slug +
+                  j?.attributes?.slug +
                   "/" +
-                  j.attributes.name
+                  j?.attributes?.name
                 }
               >
                 <img
                   className="h-96 rounded w-full object-cover object-center mb-6"
                   src={
                     getStrapiMedia(
-                      j.attributes.picture.data.attributes.formats.medium.url
+                      j?.attributes.picture.data?.attributes?.formats.medium.url
                     ) || ""
                   }
                   alt="content"
                 />
                 <h2 className="text-lg text-gray-900 font-medium title-font mt-4">
-                  {j.attributes.name}
+                  {j?.attributes?.name}
                 </h2>
                 <h3 className="mb-4 tracking-widest text-red-500 text-xs font-medium title-font">
-                  {j.attributes.slug}
+                  {j?.attributes?.slug}
                 </h3>
                 <p className="leading-relaxed text-base">
-                  {j.attributes.description}
+                  {j?.attributes?.description}
                 </p>
               </a>
             </div>

@@ -37,7 +37,6 @@ export default function ArticleSelect({
     category: string;
   };
 }) {
-
   return (
     <div className="p-4 rounded-lg dark:bg-gray-900 min-h-[365px] relative">
       <h4 className="text-xl font-semibold">Browse By Category</h4>
@@ -45,16 +44,16 @@ export default function ArticleSelect({
       <div>
         <div className="flex flex-wrap py-6 space-x-2 dark:border-gray-400">
           {categories.map((category: Category) => {
-            if (category.attributes.articles.data.length === 0) return null;
+            if (category?.attributes?.articles.data.length === 0) return null;
             return (
               <Link
-                href={`/blog/${category.attributes.slug}`}
+                href={`/blog/${category?.attributes.slug}`}
                 className={selectedFilter(
-                  category.attributes.slug,
+                  category?.attributes?.slug,
                   params.category
                 )}
               >
-                #{category.attributes.name}
+                #{category?.attributes?.name}
               </Link>
             );
           })}
