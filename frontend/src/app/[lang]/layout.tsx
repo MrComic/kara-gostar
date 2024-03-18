@@ -101,7 +101,7 @@ export default async function RootLayout({
   // TODO: CREATE A CUSTOM ERROR PAGE
   if (!global) return null;
 
-  const { notificationBanner, navbar, footer } = global?.data?.attributes;
+  const { notificationBanner, navbar, footer } = global.data.attributes;
 
   const navbarLogoUrl = getStrapiMedia(
     navbar?.navbarLogo.logoImg.data?.attributes?.url
