@@ -101,10 +101,10 @@ export default async function RootLayout({
   // TODO: CREATE A CUSTOM ERROR PAGE
   if (!global) return null;
 
-  const { navbar } = global.data.attributes;
+  const { navbar } = global?.data?.attributes;
 
   const navbarLogoUrl = getStrapiMedia(
-    navbar?.navbarLogo.logoImg.data.attributes.url
+    navbar?.navbarLogo.logoImg.data?.attributes?.url || ""
   );
 
   return (
@@ -119,7 +119,7 @@ export default async function RootLayout({
       <body>
         <Flowbite theme={{ theme: customTheme }}>
           <Nav
-            links={navbar.links}
+            links={navbar?.links}
             langs={langs}
             lang={params.lang}
             buttons={navbar.buttons}
@@ -131,10 +131,6 @@ export default async function RootLayout({
           </main>
 
           <Footer></Footer>
-          {/* <Footer
-            logoUrl={footerLogoUrl}
-            logoText={footer.footerLogo.logoText}
-          /> */}
 
           <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
         </Flowbite>
