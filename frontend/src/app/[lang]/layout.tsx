@@ -76,8 +76,8 @@ export async function generateMetadata({
   const meta = await getGlobal(params.lang);
   if (!meta.data) return FALLBACK_SEO;
 
-  const { metadata, favicon } = meta?.data?.attributes;
-  const { url } = favicon?.data?.attributes;
+  const { metadata, favicon } = meta.data.attributes;
+  const { url } = favicon.data.attributes;
 
   return {
     title: metadata.metaTitle,
@@ -104,11 +104,11 @@ export default async function RootLayout({
   const { notificationBanner, navbar, footer } = global.data.attributes;
 
   const navbarLogoUrl = getStrapiMedia(
-    navbar?.navbarLogo.logoImg.data?.attributes?.url
+    navbar?.navbarLogo.logoImg.data.attributes.url
   );
 
   const footerLogoUrl = getStrapiMedia(
-    footer?.footerLogo.logoImg.data?.attributes?.url
+    footer?.footerLogo.logoImg.data.attributes.url
   );
 
   return (
