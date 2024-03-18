@@ -25,7 +25,7 @@ module.exports = ({ env }) => {
             client: "mysql",
             host: env("DATABASE_HOST", "localhost"),
             port: env.int("DATABASE_PORT", 3306),
-            database: env("DATABASE_NAME", "karagostar-production"),
+            database: env("DATABASE_NAME", "karagostar_production"),
             username: env("DATABASE_USERNAME", "root"),
             password: env("DATABASE_PASSWORD", ""),
           },
