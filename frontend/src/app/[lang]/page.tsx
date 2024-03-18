@@ -73,7 +73,7 @@ export default async function RootRoute({
         <div className="text-gray-300">
           <div className="max-w-screen-2xl mx-auto py-16 ">
             <div className="grid grid-cols-2">
-              <CompanyRules></CompanyRules>
+              <CompanyRules params={{ lang: params.lang }}></CompanyRules>
               <img
                 className="ps-32 pe-5 object-fit"
                 src={getStrapiMedia("/uploads/background_cc3915025b.png") || ""}
@@ -99,7 +99,9 @@ export default async function RootRoute({
                 style={{ height: 500, marginTop: -68 }}
                 className="text-gray-300 col-span-1 justify-end flex"
               >
-                <img src={getStrapiMedia("/uploads/TIRE_2_7a240e6ee9.png")} />
+                <img
+                  src={getStrapiMedia("/uploads/TIRE_2_7a240e6ee9.png") || ""}
+                />
               </div>
               <div className="text-start col-span-3">
                 <video
@@ -127,7 +129,9 @@ export default async function RootRoute({
                 style={{ height: 500, marginTop: -68 }}
                 className="text-gray-300 justify-start flex col-span-1"
               >
-                <img src={getStrapiMedia("/uploads/TIRE_1_8f51fdcd66.png")} />
+                <img
+                  src={getStrapiMedia("/uploads/TIRE_1_8f51fdcd66.png") || ""}
+                />
               </div>
             </div>
           </div>
@@ -155,7 +159,7 @@ export default async function RootRoute({
             <img
               style={{ height: "500px" }}
               className="animate-spin animate-infinite animate-duration-[60000ms]"
-              src={getStrapiMedia("/uploads/Capture_2_ea7729d813.png")}
+              src={getStrapiMedia("/uploads/Capture_2_ea7729d813.png") || ""}
             />
             <div className="flex text-white absolute top-1/2 -mt-3.5 justify-center items-center w-full text-center">
               <p className=" text-xl">برخی از مشتریان ما</p>
@@ -229,20 +233,4 @@ export default async function RootRoute({
       </div>
     </>
   );
-  try {
-    const page = await getPageBySlug("home", params.lang);
-    if (page.error && page.error.status == 401)
-      throw new Error(
-        "Missing or invalid credentials. Have you created an access token using the Strapi admin panel? http://localhost:1337/admin/"
-      );
-
-    if (page.data.length == 0 && params.lang !== "en") return <LangRedirect />;
-    if (page.data.length === 0) return null;
-    const contentSections = page.data[0].attributes.contentSections;
-    return contentSections.map((section: any, index: number) =>
-      sectionRenderer(section, index)
-    );
-  } catch (error: any) {
-    window.alert("Missing or invalid credentials");
-  }
 }
