@@ -101,7 +101,11 @@ export default async function RootLayout({
   // TODO: CREATE A CUSTOM ERROR PAGE
   if (!global) return null;
 
-  const { navbar } = global?.data?.attributes || { links: [] };
+  const { navbar } = global?.data?.attributes || {
+    links: [],
+    buttons: [],
+    navbarLogo: { logoText: "" },
+  };
 
   const navbarLogoUrl = getStrapiMedia(
     navbar?.navbarLogo.logoImg.data?.attributes?.url || ""
