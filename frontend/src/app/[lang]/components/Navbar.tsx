@@ -156,7 +156,6 @@ export default function Nav({
       className={` border-gray-20 dark:bg-gray-900 sticky bg-gray-300 top-0  dark:border-gray-700 shadow-sm shadow-slate-300 border-b-slate-400`}
       style={{
         zIndex: "500",
-        //background: "rgb(0 0 0 / 0.1) !important"
       }}
     >
       <div
@@ -212,13 +211,15 @@ export default function Nav({
                 fontSize: "16px",
               }}
             >
-              {links
-                .filter((p) => p.parent == null)
+              {(links || [])
+                ?.filter((p) => p.parent == null)
                 .map((item) => (
                   <MobileNavLink
                     key={item.id}
                     closeMenu={closeMenu}
-                    children={links.filter((p) => p.parent == item.text)}
+                    children={(links || [])?.filter(
+                      (p) => p.parent == item.text
+                    )}
                     {...item}
                   />
                 ))}
@@ -289,169 +290,5 @@ export default function Nav({
         </div>
       </div>
     </nav>
-
-    // <header className="sticky flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white border-b border-gray-200 text-sm py-3 sm:py-0 dark:bg-gray-800 dark:border-gray-700">
-    //   <nav
-    //     className="relative max-w-7xl w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8"
-    //     aria-label="Global"
-    //   >
-    //     <div className="flex items-center justify-between">
-    //       <Logo src={logoUrl}>
-    //         {logoText && (
-    //           <p
-    //             className="flex-none text-xl font-semibold dark:text-white"
-    //             aria-label="Brand"
-    //           >
-    //             {logoText}
-    //           </p>
-    //         )}
-    //       </Logo>
-
-    //       <div className="sm:hidden">
-    //         <button
-    //           type="button"
-    //           className="hs-collapse-toggle size-9 flex justify-center items-center text-sm font-semibold rounded-lg border border-gray-200 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-    //           data-hs-collapse="#navbar-collapse-with-animation"
-    //           aria-controls="navbar-collapse-with-animation"
-    //           aria-label="Toggle navigation"
-    //         >
-    //           <svg
-    //             className="hs-collapse-open:hidden size-4"
-    //             width="16"
-    //             height="16"
-    //             fill="currentColor"
-    //             viewBox="0 0 16 16"
-    //           >
-    //             <path
-    //               fillRule="evenodd"
-    //               d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-    //             />
-    //           </svg>
-    //           <svg
-    //             className="hs-collapse-open:block flex-shrink-0 hidden size-4"
-    //             width="16"
-    //             height="16"
-    //             fill="currentColor"
-    //             viewBox="0 0 16 16"
-    //           >
-    //             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-    //           </svg>
-    //         </button>
-    //       </div>
-    //     </div>
-    //     <div
-    //       id="navbar-collapse-with-animation"
-    //       className="hs-collapse hidden transition-all duration-300 basis-full grow sm:block"
-    //     >
-    //       <div className="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:ps-7">
-    //         {links
-    //           .filter((p) => p.parent == null)
-    //           .map((item) => (
-    //             <MobileNavLink
-    //               key={item.id}
-    //               closeMenu={closeMenu}
-    //               children={links.filter((p) => p.parent == item.text)}
-    //               {...item}
-    //             />
-    //           ))}
-
-    //         <select
-    //           id="changelang"
-    //           onChange={(e) => console.log(e.target.value)}
-    //           data-hs-select='{
-    //   "placeholder": "Select option...",
-    //   "toggleTag": "<button type=\"button\"><span className=\"me-2\" data-icon></span><span className=\"text-gray-800 dark:text-gray-200\" data-title></span></button>",
-    //   "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 px-4 pe-9 flex items-center text-nowrap w-full cursor-pointer bg-white border border-gray-200 rounded-lg text-start text-sm focus:border-red-500 focus:ring-red-500 before:absolute before:inset-0 before:z-[1] dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600",
-    //   "dropdownClasses": "mt-2 z-50 w-full max-h-72 p-1 space-y-0.5 bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto dark:bg-slate-900 dark:border-gray-700",
-    //   "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 dark:text-gray-200 dark:focus:bg-slate-800",
-    //   "optionTemplate": "<div><div className=\"flex items-center\"><div className=\"me-2\" data-icon></div><div className=\"font-semibold text-gray-800 dark:text-gray-200\" data-title></div></div><div className=\"mt-1.5 text-sm text-gray-500\" data-description></div></div>"
-    // }'
-    //         >
-    //           <option value="">Choose</option>
-
-    //           {langs.map((p) => {
-    //             let option = {
-    //               selected: true,
-    //               icon: `<span className="fi fi-${flags[
-    //                 p.code
-    //               ].toString()}"></span>`,
-    //             };
-
-    //             return (
-    //               <option
-    //                 selected={lang == p.code}
-    //                 value={p.code}
-    //                 data-hs-select-option={JSON.stringify(option)}
-    //               >
-    //                 {p.name}
-    //               </option>
-    //             );
-    //           })}
-    //         </select>
-    //       </div>
-    //     </div>
-    //   </nav>
-    // </header>
-
-    // <div className="sticky top-0 bg-white shadow p-4 p-4 ">
-    //       <div className="container flex justify-between h-16 mx-auto px-0 sm:px-6">
-    //         <Logo src={logoUrl}>
-    //           {logoText && <h2 className="text-2xl font-bold">{logoText}</h2>}
-    //         </Logo>
-
-    //         <div className="items-center flex-shrink-0 hidden lg:flex">
-    //           <ul className="items-stretch hidden space-x-3 lg:flex">
-    //             {links.map((item: NavLink) => (
-    //               <NavLink key={item.id} {...item} />
-    //             ))}
-    //           </ul>
-    //         </div>
-
-    //         <Dialog
-    //           as="div"
-    //           className="lg:hidden"
-    //           open={mobileMenuOpen}
-    //           onClose={setMobileMenuOpen}
-    //         >
-    //           <div className="fixed inset-0 z-40 bg-gray-600 bg-opacity-75" />{" "}
-    //           {/* Overlay */}
-    //           <Dialog.Panel className="fixed inset-y-0 rtl:left-0 ltr:right-0 z-50 w-full overflow-y-auto bg-gray-800 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-inset sm:ring-white/10">
-    //             <div className="flex items-center justify-between">
-    //               <a href="#" className="-m-1.5 p-1.5">
-    //                 <span className="sr-only">Strapi</span>
-    //                 {logoUrl && <img className="h-8 w-auto" src={logoUrl} alt="" />}
-    //               </a>
-    //               <button
-    //                 type="button"
-    //                 className="-m-2.5 rounded-md p-2.5 text-white"
-    //                 onClick={() => setMobileMenuOpen(false)}
-    //               >
-    //                 <span className="sr-only">Close menu</span>
-    //                 <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-    //               </button>
-    //             </div>
-    //             <div className="mt-6 flow-root">
-    //               <div className="-my-6 divide-y divide-gray-700">
-    //                 <div className="space-y-2 py-6">
-    //                   {links.map((item) => (
-    //                     <MobileNavLink
-    //                       key={item.id}
-    //                       closeMenu={closeMenu}
-    //                       {...item}
-    //                     />
-    //                   ))}
-    //                 </div>
-    //               </div>
-    //             </div>
-    //           </Dialog.Panel>
-    //         </Dialog>
-    //         <button
-    //           className="p-4 lg:hidden"
-    //           onClick={() => setMobileMenuOpen(true)}
-    //         >
-    //           <Bars3Icon className="h-7 w-7 text-gray-100" aria-hidden="true" />
-    //         </button>
-    //       </div>
-    //     </div>
   );
 }
