@@ -15,7 +15,9 @@ export default function IsotopGallery(params: {
   mediaGallery: [];
   categories: [];
 }) {
-  var [pictures_chunk, set_picture_chunk] = useState(_.chunk(_.shuffle([]), 4));
+  var [pictures_chunk, set_picture_chunk] = useState<any[][]>(
+    _.chunk(_.shuffle([]), 4)
+  );
 
   const handleFilter = (a: string) => {
     if (a == "") {
