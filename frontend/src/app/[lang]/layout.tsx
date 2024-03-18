@@ -126,9 +126,9 @@ export default async function RootLayout({
             links={navbar?.links}
             langs={langs}
             lang={params.lang}
-            buttons={navbar.buttons}
+            buttons={navbar?.buttons}
             logoUrl={navbarLogoUrl}
-            logoText={navbar.navbarLogo.logoText}
+            logoText={navbar?.navbarLogo?.logoText || "کاراگستر"}
           />
           <main className=" dark:bg-black dark:text-gray-100 min-h-screen">
             {children}
