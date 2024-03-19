@@ -23,9 +23,6 @@ export default async function RootRoute({
           background: `url("${getStrapiMedia(
             "/uploads/main_554646b309.png"
           )}")`,
-          // background:
-          //   "url('http://localhost:1337/uploads/20180220_093628_09030780df.jpg')",
-          // "background-blend-mode": "multiply",
         }}
       >
         <div className="max-w-screen-2xl grid grid-cols-2 p-3 ">
@@ -137,18 +134,6 @@ export default async function RootRoute({
           </div>
         </div>
       </div>
-
-      {/* <div className="bg-gray-300">
-        <div className="grid grid-cols-5 max-w-screen-2xl py-4 mx-auto text-center items-center lg:py-4 ">
-          <div className="col-span1 text-start px-4">
-            <h2 className="text-2xl text-black">برخی از مشتریان</h2>
-          </div>
-          <div className="col-span-4 flex flex-row items-start">
-            <PartnersSlider></PartnersSlider>
-          </div>
-        </div>
-      </div>
- */}
 
       <div style={{ background: "#212830" }}>
         <div className="relative overflow-hidden grid grid-cols-2 max-w-screen-2xl py-4 mx-auto text-center items-center lg:py-4 ">

@@ -4,11 +4,9 @@ import { getStrapiMedia, getStrapiURL } from "./utils/api-helpers";
 import { fetchAPI } from "./utils/fetch-api";
 import { ThemeModeScript } from "flowbite-react";
 import { i18n } from "../../../i18n-config";
-import Banner from "./components/Banner";
 import Footer from "./components/Footer";
 import Nav from "./components/Navbar";
 import { FALLBACK_SEO } from "@/app/[lang]/utils/constants";
-import PrelineScript from "./components/PrelineScript";
 import iranSans from "./font";
 import type { CustomFlowbiteTheme } from "flowbite-react";
 import { Flowbite } from "flowbite-react";
@@ -52,7 +50,6 @@ async function getGlobal(lang: string): Promise<any> {
     ],
     locale: lang,
   };
-  console.log(lang);
   return await fetchAPI(path, urlParamsObject, options);
 }
 
