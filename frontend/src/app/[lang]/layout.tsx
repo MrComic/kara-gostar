@@ -95,7 +95,7 @@ export default async function RootLayout({
   const global = await getGlobal(params.lang);
   const langs = await getLanguages();
   const languageFile = getLanguageFile(params.lang);
-  // TODO: CREATE A CUSTOM ERROR PAGE
+
   if (!global) return null;
 
   const { navbar } = global?.data?.attributes || {

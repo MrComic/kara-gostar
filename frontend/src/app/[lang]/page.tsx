@@ -1,13 +1,4 @@
-import { Carousel } from "flowbite-react";
-import LangRedirect from "./components/LangRedirect";
-import { sectionRenderer } from "./utils/section-renderer";
-import { getPageBySlug } from "@/app/[lang]/utils/get-page-by-slug";
-import Glide from "./components/glide";
 import { getStrapiMedia } from "./utils/api-helpers";
-import HomeSlider from "./slider";
-import PartnersSlider from "./partners";
-import { height } from "@fortawesome/free-solid-svg-icons/faPhone";
-import Footer from "./components/Footer";
 import CompanyRules from "./home-company-rules";
 
 export default async function RootRoute({

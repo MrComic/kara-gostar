@@ -121,17 +121,15 @@ export default function IsotopGallery(params: {
                     ) || ""
                   }
                 >
-                  <Image
+                  <img
                     className="h-60 w-full rounded-lg"
-                    width={1000}
-                    height={1000}
                     src={
                       getStrapiMedia(
                         a.attributes.Image.data.attributes.formats.large.url
                       ) || ""
                     }
                     alt={a.attributes.caption}
-                  ></Image>
+                  />
                   <label
                     style={{
                       marginTop: "-45px",
