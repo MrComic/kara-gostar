@@ -5,6 +5,8 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   distDir: "dist",
+  output: "standalone",
+
   images: {
     remotePatterns: [
       {
