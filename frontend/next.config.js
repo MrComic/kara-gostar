@@ -5,13 +5,11 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   distDir: "dist",
-  output: "standalone",
-
   images: {
     remotePatterns: [
       {
         protocol: "http",
-        hostname: "127.0.0.1",
+        hostname: "185.226.119.44",
         port: "1337",
         pathname: "/uploads/**",
       },
