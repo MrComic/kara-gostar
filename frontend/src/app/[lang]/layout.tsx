@@ -116,6 +116,7 @@ export default async function RootLayout({
     >
       <Head>
         <ThemeModeScript />
+        <meta name="theme-color" content="#ED1B24" />
       </Head>
       <body>
         <Flowbite theme={{ theme: customTheme }}>
