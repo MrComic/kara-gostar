@@ -16,15 +16,22 @@ export default async function RootRoute({
           )}")`,
         }}
       >
-        <div className="max-w-screen-2xl grid grid-cols-2 p-3 ">
-          <div>
-            <img src={getStrapiMedia("/uploads/main_3255edbcd3.jpg") || ""} />
+        <div className="max-w-screen-2xl grid lg:grid-cols-2 xl:grid-cols-2 md:grid-cols-2 px-5 text-justify sm:grid-cols-1 ">
+          <div className="hidden sm:hidden lg:block md:block xl:block 2xl:block">
+            <img
+              className="w-full h-full"
+              src={getStrapiMedia("/uploads/main_3255edbcd3.jpg") || ""}
+            />
           </div>
-          <div className=" flex flex-col sm:text-end justify-end items-end sm:mb-0  mx-auto">
-            <div className="h-96 my-3">
-              <h1 className="text-white pb-5 text-start text-2xl">
-                شرکت مهندسی
-                <span className="text-red-700"> کاراگستر </span>
+          <div className=" flex flex-col relative sm:text-end justify-end items-center sm:mb-0 mx-auto ">
+            <img
+              src={getStrapiMedia("/uploads/main_3255edbcd3.jpg") || ""}
+              className="absolute top-0 z-0 w-full h-full sm:visible md:hidden lg:hidden xl:hidden 2xl:hidden"
+            />
+            <div className="my-3 relative flex flex-col justify-center h-full">
+              <h1 className="text-white pb-5 text-center sm:text-center md:text-start xl:text-start 2xl:text-start lg:text-start text-2xl">
+                شرکت مهندسی &nbsp;
+                <span className="text-red-700">کاراگستر</span>
               </h1>
               <p className=" mb-6 font-light lg:mb-8 text-lg  leading-10 text-justify text-gray-300">
                 شرکت مهندسی کارگستر در سال 1372 تاسیس شد و در زمینه طراحی و ساخت
@@ -35,23 +42,25 @@ export default async function RootRoute({
                 صادرات قطعات یدکی و ماشین آلات و قالب های صنعتی و اخذ نمایندگی
                 داخلی و خارجی و انجام کلیه امور مربوط به موارد فوق.
               </p>
-              <a
-                href="/fa/contact-us"
-                className="inline-flex me-3 items-center justify-center px-5 py-3 
+              <div className="flex flex-row justify-center">
+                <a
+                  href="/fa/contact-us"
+                  className="inline-flex me-3 justify-self-center px-5 py-3 
                font-medium text-center text-gray-900 border border-gray-300 rounded-lg
                 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 text-white
                  border-gray-700 hover:bg-gray-700 focus:ring-gray-800"
-              >
-                تماس با ما
-              </a>
-              <a
-                href="/fa/products"
-                className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center
+                >
+                  تماس با ما
+                </a>
+                <a
+                  href="/fa/products"
+                  className="inline-flex  justify-self-center px-5 py-3 text-base font-medium text-center
                text-gray-900 border border-red-300 rounded-lg hover:bg-red-100 focus:ring-4 focus:ring-red-100
                 text-white border-red-700 hover:bg-red-700 focus:ring-red-800"
-              >
-                محصولات
-              </a>
+                >
+                  محصولات
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -59,11 +68,13 @@ export default async function RootRoute({
 
       <div style={{ background: "#212830" }}>
         <div className="text-gray-300">
-          <div className="max-w-screen-2xl mx-auto py-16 ">
-            <div className="grid grid-cols-2">
-              <CompanyRules params={{ lang: params.lang }}></CompanyRules>
+          <div className="max-w-screen-2xl mx-auto py-16 px-3">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 text-justify">
+              <div className="order-last sm:order-last md:order-first lg:order-first xl:order-first 2xl:order-first">
+                <CompanyRules params={{ lang: params.lang }}></CompanyRules>
+              </div>
               <img
-                className="ps-32 pe-5 object-fit"
+                className="px-20 py-10 mx-auto object-fit order-first sm:order-first lg:order-last xl:order-last 2xl:order-last"
                 src={getStrapiMedia("/uploads/background_cc3915025b.png") || ""}
               />
             </div>
@@ -127,17 +138,20 @@ export default async function RootRoute({
       </div>
 
       <div style={{ background: "#212830" }}>
-        <div className="relative overflow-hidden grid grid-cols-2 max-w-screen-2xl py-4 mx-auto text-center items-center lg:py-4 ">
+        <div
+          className="relative overflow-hidden grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2
+         container py-4 mx-auto text-center items-center lg:py-4 "
+        >
           <div
             style={{ height: "500px" }}
             className="col-span-1 flex flex-row justify-center"
           >
             <img
               style={{ height: "500px" }}
-              className="animate-spin animate-infinite animate-duration-[60000ms]"
+              className="animate-spin absolute animate-infinite animate-duration-[60000ms]"
               src={getStrapiMedia("/uploads/Capture_2_ea7729d813.png") || ""}
             />
-            <div className="flex text-white absolute top-1/2 -mt-3.5 justify-center items-center w-full text-center">
+            <div className="flex text-white justify-center items-center w-full text-center">
               <p className=" text-xl">برخی از مشتریان ما</p>
             </div>
           </div>
