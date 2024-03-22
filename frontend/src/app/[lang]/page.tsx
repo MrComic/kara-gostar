@@ -16,8 +16,8 @@ export default async function RootRoute({
           )}")`,
         }}
       >
-        <div className="max-w-screen-2xl grid lg:grid-cols-2 xl:grid-cols-2 md:grid-cols-2 px-5 text-justify sm:grid-cols-1 ">
-          <div className="hidden sm:hidden lg:block md:block xl:block 2xl:block">
+        <div className="max-w-screen-2xl grid lg:grid-cols-2 xl:grid-cols-2 md:grid-cols-1 px-5 text-justify sm:grid-cols-1 ">
+          <div className="hidden sm:hidden lg:block md:hidden xl:block 2xl:block">
             <img
               className="w-full h-full"
               src={getStrapiMedia("/uploads/main_3255edbcd3.jpg") || ""}
@@ -26,10 +26,10 @@ export default async function RootRoute({
           <div className=" flex flex-col relative sm:text-end justify-end items-center sm:mb-0 mx-auto ">
             <img
               src={getStrapiMedia("/uploads/main_3255edbcd3.jpg") || ""}
-              className="absolute top-0 z-0 w-full h-full sm:visible md:hidden lg:hidden xl:hidden 2xl:hidden"
+              className="absolute top-0 z-0 w-full h-full sm:visible md:visible lg:hidden xl:hidden 2xl:hidden"
             />
             <div className="my-3 relative flex flex-col justify-center h-full">
-              <h1 className="text-white pb-5 text-center sm:text-center md:text-start xl:text-start 2xl:text-start lg:text-start text-2xl">
+              <h1 className="text-white pb-5 text-center sm:text-center md:text-center xl:text-start 2xl:text-start lg:text-start text-2xl">
                 شرکت مهندسی &nbsp;
                 <span className="text-red-700">کاراگستر</span>
               </h1>
@@ -69,8 +69,8 @@ export default async function RootRoute({
       <div style={{ background: "#212830" }}>
         <div className="text-gray-300">
           <div className="max-w-screen-2xl mx-auto py-16 px-3">
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 text-justify">
-              <div className="order-last sm:order-last md:order-first lg:order-first xl:order-first 2xl:order-first">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 text-justify">
+              <div className="order-last sm:order-last md:order-last lg:order-first xl:order-first 2xl:order-first">
                 <CompanyRules params={{ lang: params.lang }}></CompanyRules>
               </div>
               <img
@@ -139,7 +139,7 @@ export default async function RootRoute({
 
       <div style={{ background: "#212830" }}>
         <div
-          className="relative overflow-hidden grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2
+          className="relative overflow-hidden grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2
          container py-4 mx-auto text-center items-center lg:py-4 "
         >
           <div
