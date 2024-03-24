@@ -10,16 +10,12 @@ import { FALLBACK_SEO } from "@/app/[lang]/utils/constants";
 import iranSans from "./font";
 import type { CustomFlowbiteTheme } from "flowbite-react";
 import { Flowbite } from "flowbite-react";
-function getBaseHttpOption() {
-  const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
-  if (!token)
-    throw new Error("The Strapi API Token environment variable is not set.");
-  return { headers: { Authorization: `Bearer ${token}` } };
-}
+import type { Viewport } from "next";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import Head from "next/head";
+import getBaseHttpOption from "./utils/get-base-http-options";
 config.autoAddCss = true;
 
 const customTheme: CustomFlowbiteTheme = {
@@ -53,17 +49,15 @@ async function getGlobal(lang: string): Promise<any> {
   return await fetchAPI(path, urlParamsObject, options);
 }
 
-export async function getLanguageFile(lang: string): Promise<Array<any>> {
-  const path = `/language`;
-  const options = getBaseHttpOption();
-  return await fetchAPI(path, { locale: lang }, options);
-}
-
 export async function getLanguages(): Promise<Array<any>> {
   const path = `/i18n/locales`;
   const options = getBaseHttpOption();
   return await fetchAPI(path, {}, options);
 }
+
+export const viewport: Viewport = {
+  themeColor: "#ED1B24",
+};
 
 export async function generateMetadata({
   params,
@@ -82,6 +76,23 @@ export async function generateMetadata({
     icons: {
       icon: [new URL(url, getStrapiURL())],
     },
+    applicationName: "Kara Gostar",
+    referrer: "origin-when-cross-origin",
+    keywords: [
+      "karagostar",
+      "کاراگستر",
+      "شرکت مهندسی کاراگستر",
+      "kara gostar",
+      "KG",
+    ],
+    alternates: {
+      canonical: "/",
+      languages: {
+        "en-US": "/en",
+        "de-DE": "/de",
+        "fa-IR": "/fa",
+      },
+    },
   };
 }
 
@@ -94,7 +105,6 @@ export default async function RootLayout({
 }) {
   const global = await getGlobal(params.lang);
   const langs = await getLanguages();
-  const languageFile = getLanguageFile(params.lang);
 
   if (!global) return null;
 
@@ -116,7 +126,6 @@ export default async function RootLayout({
     >
       <Head>
         <ThemeModeScript />
-        <meta name="theme-color" content="#ED1B24" />
       </Head>
       <body>
         <Flowbite theme={{ theme: customTheme }}>

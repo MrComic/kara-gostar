@@ -1,11 +1,31 @@
 import { getStrapiMedia } from "./utils/api-helpers";
 import CompanyRules from "./home-company-rules";
+import { getLanguageFile } from "./utils/get-language-file";
 
 export default async function RootRoute({
   params,
 }: {
   params: { lang: string };
 }) {
+  const languageFile = await getLanguageFile(params.lang);
+  let data = languageFile?.data?.attributes.text;
+
+  const translate = (key: string, translateObject: any): string => {
+    let splitedKeys: string[] = key?.split(".");
+    if (!splitedKeys || (splitedKeys && splitedKeys.length == 0)) {
+      return "";
+    } else if (splitedKeys && splitedKeys.length > 1) {
+      if (translateObject) {
+        let object = translateObject[splitedKeys.splice(0, 1)[0]];
+        return translate(splitedKeys.join("."), object);
+      } else {
+        return "";
+      }
+    } else {
+      return translateObject[splitedKeys[0]];
+    }
+  };
+
   return (
     <>
       <section
@@ -30,17 +50,13 @@ export default async function RootRoute({
             />
             <div className="my-3 relative flex flex-col justify-center h-full">
               <h1 className="text-white pb-5 text-center sm:text-center md:text-center xl:text-start 2xl:text-start lg:text-start text-2xl">
-                شرکت مهندسی &nbsp;
-                <span className="text-red-700">کاراگستر</span>
+                {translate("home.section1.main-heading", data)} &nbsp;
+                <span className="text-red-700">
+                  {translate("home.section1.title", data)}
+                </span>
               </h1>
               <p className=" mb-6 font-light lg:mb-8 text-lg  leading-10 text-justify text-gray-300">
-                شرکت مهندسی کارگستر در سال 1372 تاسیس شد و در زمینه طراحی و ساخت
-                انواع قطعات ماشین آلات و قالب های صنعتی و تجهیزات جانبی صنایع از
-                جمله قالب های پخت لاستیک و سایر محصولات لاستیکی - ارائه خدمات
-                فنی و مهندسی و اخذ تاییدیه و مجوزهای قانونی اولیه ساخت و بهره
-                برداری کارخانجات ساخت قطعات و ماشین آلات صنعتی و قالب - واردات و
-                صادرات قطعات یدکی و ماشین آلات و قالب های صنعتی و اخذ نمایندگی
-                داخلی و خارجی و انجام کلیه امور مربوط به موارد فوق.
+                {translate("home.section1.about-company", data)}
               </p>
               <div className="flex flex-row justify-center">
                 <a
@@ -50,7 +66,7 @@ export default async function RootRoute({
                 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 text-white
                  border-gray-700 hover:bg-gray-700 focus:ring-gray-800"
                 >
-                  تماس با ما
+                  {translate("home.section1.contact-us", data)}
                 </a>
                 <a
                   href="/fa/products"
@@ -58,7 +74,7 @@ export default async function RootRoute({
                text-gray-900 border border-red-300 rounded-lg hover:bg-red-100 focus:ring-4 focus:ring-red-100
                 text-white border-red-700 hover:bg-red-700 focus:ring-red-800"
                 >
-                  محصولات
+                  {translate("home.section1.view-products", data)}
                 </a>
               </div>
             </div>
@@ -74,7 +90,7 @@ export default async function RootRoute({
                 <CompanyRules params={{ lang: params.lang }}></CompanyRules>
               </div>
               <img
-                className="px-20 py-10 mx-auto object-fit order-first sm:order-first lg:order-last xl:order-last 2xl:order-last"
+                className=" mx-auto object-fit order-first sm:order-first lg:order-last xl:order-last 2xl:order-last"
                 src={getStrapiMedia("/uploads/background_cc3915025b.png") || ""}
               />
             </div>
@@ -89,14 +105,14 @@ export default async function RootRoute({
           }}
         >
           <h1 className="text-xl text-white text-center p-5">
-            کاراگستر در یک نگاه
+            {translate("home.section3.title", data)}
           </h1>
 
           <div className="max-w-screen-2xl mx-auto ">
             <div className="grid grid-cols-5 justify-center">
               <div
                 style={{ height: 500, marginTop: -68 }}
-                className="text-gray-300 col-span-1 justify-end flex"
+                className="text-gray-300 col-span-1 justify-start flex"
               >
                 <img
                   src={getStrapiMedia("/uploads/TIRE_2_7a240e6ee9.png") || ""}
@@ -108,6 +124,7 @@ export default async function RootRoute({
                     height: "400px",
                     width: "100%",
                   }}
+                  className="object-cover"
                   autoPlay
                   muted
                   controls
@@ -120,13 +137,12 @@ export default async function RootRoute({
                     }
                     type="video/mp4"
                   />
-                  Your browser does not support the video tag.
                 </video>
               </div>
 
               <div
                 style={{ height: 500, marginTop: -68 }}
-                className="text-gray-300 justify-start flex col-span-1"
+                className="text-gray-300 justify-end flex col-span-1"
               >
                 <img
                   src={getStrapiMedia("/uploads/TIRE_1_8f51fdcd66.png") || ""}
@@ -139,23 +155,25 @@ export default async function RootRoute({
 
       <div style={{ background: "#212830" }}>
         <div
-          className="relative overflow-hidden grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2
+          className="relative overflow-hidden grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-10 xl:grid-cols-12 2xl:grid-cols-12
          container py-4 mx-auto text-center items-center lg:py-4 "
         >
           <div
             style={{ height: "500px" }}
-            className="col-span-1 flex flex-row justify-center"
+            className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-5 xl:col-span-5 2xl:col-span-4 flex flex-row items-center justify-center"
           >
             <img
-              style={{ height: "500px" }}
+              style={{ maxHeight: "500px", minWidth: "350px" }}
               className="animate-spin absolute animate-infinite animate-duration-[60000ms]"
               src={getStrapiMedia("/uploads/Capture_2_ea7729d813.png") || ""}
             />
-            <div className="flex text-white justify-center items-center w-full text-center">
-              <p className=" text-xl">برخی از مشتریان ما</p>
+            <div className="flex text-white justify-center items-center  text-center">
+              <p className=" text-xl">
+                {translate("home.section4.title", data)}
+              </p>
             </div>
           </div>
-          <div className="col-span-1  text-white text-start text-xl">
+          <div className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-5 xl:col-span-7 2xl:col-span-8 text-white text-start text-xl">
             <div className="flex justify-start w-full mb-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -176,25 +194,22 @@ export default async function RootRoute({
                 مشتريان بطور مستمر جمع آوري و مورد بررسي و ارزيابي قرار مي گيرند
                 و بر اساس آن ميزان رضايت مشتري اندازه گيري مي شود .
               </p>
-              <ol
-                style={{ listStyle: "outside", listStyleType: "upper-roman" }}
-              >
+              <ol style={{ listStyle: "inside", listStyleType: "decimal" }}>
                 <li>
-                  <p>
+                  <span>
                     نظر خواهي از مشتري سالي يكبار با استفاده از فرم نظر خواهي
                     انجام ميشود كه اين فرم طي دو مرحله تکمیل میگردد:
-                  </p>
+                  </span>
                   <ul style={{ listStyle: "inside" }}>
                     <li>توسط كاراگستر براساس مذاكرات مدير عامل با مشتريان</li>
                     <li> توسط مشتري </li>
                   </ul>
                 </li>
                 <li>
-                  <p>
-                    {" "}
+                  <span>
                     گزارشات خدمات پس از فروش اين اطلاعات جمع آوري شده و ساليانه
                     طبق دستور مورد تجزيه و تحليل قرار ميگيرد.{" "}
-                  </p>
+                  </span>
                   <ol style={{ listStyle: "inside" }}>
                     <li>
                       درصورتيكه ميزان عدم رضايت مشتري خيلي شاخص وبحراني تشخيص

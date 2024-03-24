@@ -10,7 +10,6 @@ export default async function RootRoute({
 }: {
   params: { lang: string; category: string };
 }) {
-  console.log(params);
   const pictures = await getGallery(params.lang, params.category);
   const categories = await getGalleryCategories(params.lang);
 

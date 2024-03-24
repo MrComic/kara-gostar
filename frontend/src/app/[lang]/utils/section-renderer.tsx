@@ -6,7 +6,6 @@ import Email from "../components/Email";
 import RichText from "../components/RichText";
 
 export function sectionRenderer(section: any, index: number) {
-  console.log(section);
   switch (section.__component) {
     case "sections.hero":
       return <Hero key={index} data={section} />;

@@ -12,7 +12,6 @@ export default async function RootRoute({
   params: { lang: string; category: string };
 }) {
   try {
-    console.log(params.category);
     const products = await getProductsByCategory(params.category, params.lang);
     const category = await getCategoryByName(params.category, params.lang);
     if (products.error && products.error.status == 401)

@@ -13,7 +13,7 @@ declare global {
 export default function PrelineScript() {
   const path = usePathname();
 
-  let [loaded,setloaded] = useState(false);
+  let [loaded, setloaded] = useState(false);
 
   useEffect(() => {
     import("preline/preline");
@@ -21,16 +21,11 @@ export default function PrelineScript() {
 
   useEffect(() => {
     let interval = setInterval(() => {
-      if(window.HSStaticMethods)
-      {
+      if (window.HSStaticMethods) {
         window.HSStaticMethods.autoInit();
         setloaded(true);
         clearInterval(interval);
-        console.log("scripts loaded")
-      }
-      else
-      {
-        console.log("wating 100ms again")
+      } else {
       }
     }, 100);
   }, [path]);
