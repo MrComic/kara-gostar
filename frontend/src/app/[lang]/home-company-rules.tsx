@@ -1,69 +1,49 @@
 "use client";
 import { useState } from "react";
+import translate from "./utils/translate";
 
-export default function CompanyRules({ params }: { params: { lang: string } }) {
+export default function CompanyRules({
+  params,
+}: {
+  params: { lang: string; language: any };
+}) {
   let [readMore, setReadmore] = useState(false);
 
   return (
     <>
       <div className="text-start">
         <h2 className="text-xl text-center">
-          خط مشی کیفیت شرکت مهندسی کاراگستر
+          {translate("home.section2.title", params.language)}
         </h2>
         <p className="mt-4 text-lg text-justify">
-          ما نسبت به پيش بيني و تامين نيازمنديهاي حال و آينده مشتريان در رابطه
-          با محصول خود متعهد مي باشيم. هدف ما به دست آوردن و حفظ بهترين موقعيت
-          در كشور براي ساخت قالب ها و ماشين آلات تايرسازي و قطعات صنعتي پيشرفته
-          با رعايت موارد زير مي باشد:
+          {translate("home.section2.1", params.language)}
         </p>
-        <ul className="text-lg text-justify">
-          <li>
-            • شناخت ذینفعان، نیازها و انتظارات ایشان علی الخصوص مشتریان و تدوین
-            راهکارها در جهت ایجاد منافع متقابل
-          </li>
-          <li>
-            • توسعه تفکر مبتنی بر ریسک به منظور شناسایی و مدیریت موثرتر فرصتها و
-            تهدیدهای محیط بیرونی و درونی سازمان، در تمامی زمینه های عملکردی و
-            کسب و کار شرکت
-          </li>
-          <li>• دستيابي به تكنولوژي روز توليد</li>
-          <li>• رقابتي نمودن قيمت تمام شده محصول</li>
-          <li>• برآوردن نيازمنديهاي محصول</li>
-          <li>• توسعه محصولات وبازارهاي جديد</li>
+        <ul className="text-lg text-justify list-disc list-inside">
+          <li>{translate("home.section2.2", params.language)}</li>
+          <li>{translate("home.section2.3", params.language)}</li>
+          <li> {translate("home.section2.4", params.language)}</li>
+          <li> {translate("home.section2.5", params.language)}</li>
+          <li> {translate("home.section2.6", params.language)}</li>
+          <li> {translate("home.section2.7", params.language)}</li>
         </ul>
 
         {readMore == true ? (
           <>
             <div>
-              <p className="text-lg text-justify">
-                در رابطه با موارد اشاره شده اصول زير را رعايت مي نمائيم:
-              </p>
-              <ol className="text-lg text-justify">
-                <li>
-                  -جذب نيروي انساني كارآمد، و استفاده از خلاقيتهاي فردي و ايجاد
-                  امكان رشد پرسنل از طريق قرارگيري در فرآيند توسعه تكنولوژيك
-                  شركت.
-                </li>
-                <li>-انجام اقدامات پيشگيرانه جهت جلوگيري از بروز مشكلات.</li>
-                <li>-مشاوره مستمر و همفكري با مشتري.</li>
+              <br />
+              <h3 className="text-xl mb-5  text-bold text-justify">
+                {translate("home.section2.8", params.language)}
+              </h3>
+              <ol className="text-lg text-justify list-disc list-inside">
+                <li>{translate("home.section2.9", params.language)}</li>
+                <li> {translate("home.section2.10", params.language)}</li>
+                <li> {translate("home.section2.11", params.language)}</li>
               </ol>
               <p className="text-lg text-justify">
-                ما متعهد هستيم جهت ارائه محصولات با كيفيت از بهترين امكانات،
-                منابع و تجهيزات (نيروي انساني ارتقا يافته و ماشين آلات پيشرفته)
-                جهت استمرار سيستم مديريت كيفيت و اجراي آن استفاده نموده و همواره
-                بطور مستمر در حفظ و ارتقاي كيفي منابع و تجهيزاتمان بكوشيم.
+                {translate("home.section2.12", params.language)}
               </p>
               <p className="text-lg text-justify">
-                سيستم كيفيت شركت مهندسي كاراگستر بر پايه مشاركت همگاني پرسنل
-                درگير در امر كيفيت، در تمامي رده ها و سطوح سازمان استوار است و
-                برآورده كننده نياز مشتريان بر اساس خواسته هاي استاندارد ISO 9001
-                (مصوب 2015) مي باشد. هر يك از كاركنان شركت نسبت به كيفيت انجام
-                كارهاي خود مسئول مي باشند.
-              </p>
-              <p className="text-lg text-justify">
-                مسئوليت پيگيري و كنترل صحيح سيستم مديريت كيفيت بر عهده مديريت
-                عامل مي باشد كه ايشان مستقيماً در جريان روند عملكرد سيستم قرار
-                دارند
+                {translate("home.section2.13", params.language)}
               </p>
             </div>
             <div className="flex w-full justify-center pt-10">
@@ -73,7 +53,7 @@ export default function CompanyRules({ params }: { params: { lang: string } }) {
                 }}
                 className="text-center bg-transparent hover:bg-red-700 text-white font-semibold hover:text-white py-2 px-4 border border-red-700 hover:border-transparent rounded"
               >
-                بستن جزئیات
+                {translate("home.section2.closeDetail", params.language)}
               </button>
             </div>
           </>
@@ -85,7 +65,7 @@ export default function CompanyRules({ params }: { params: { lang: string } }) {
               }}
               className="text-center bg-transparent hover:bg-red-700 text-white font-semibold hover:text-white py-2 px-4 border border-red-700 hover:border-transparent rounded"
             >
-              نمایش بیشتر
+              {translate("home.section2.openDetail", params.language)}
             </button>
           </div>
         )}

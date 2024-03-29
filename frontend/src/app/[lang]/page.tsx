@@ -1,6 +1,7 @@
 import { getStrapiMedia } from "./utils/api-helpers";
 import CompanyRules from "./home-company-rules";
 import { getLanguageFile } from "./utils/get-language-file";
+import translate from "./utils/translate";
 
 export default async function RootRoute({
   params,
@@ -9,22 +10,6 @@ export default async function RootRoute({
 }) {
   const languageFile = await getLanguageFile(params.lang);
   let data = languageFile?.data?.attributes.text;
-
-  const translate = (key: string, translateObject: any): string => {
-    let splitedKeys: string[] = key?.split(".");
-    if (!splitedKeys || (splitedKeys && splitedKeys.length == 0)) {
-      return "";
-    } else if (splitedKeys && splitedKeys.length > 1) {
-      if (translateObject) {
-        let object = translateObject[splitedKeys.splice(0, 1)[0]];
-        return translate(splitedKeys.join("."), object);
-      } else {
-        return "";
-      }
-    } else {
-      return translateObject[splitedKeys[0]];
-    }
-  };
 
   return (
     <>
@@ -87,7 +72,9 @@ export default async function RootRoute({
           <div className="max-w-screen-2xl mx-auto py-16 px-3">
             <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 text-justify">
               <div className="order-last sm:order-last md:order-last lg:order-first xl:order-first 2xl:order-first">
-                <CompanyRules params={{ lang: params.lang }}></CompanyRules>
+                <CompanyRules
+                  params={{ lang: params.lang, language: data }}
+                ></CompanyRules>
               </div>
               <img
                 className=" mx-auto object-fit order-first sm:order-first lg:order-last xl:order-last 2xl:order-last"
@@ -189,33 +176,19 @@ export default async function RootRoute({
               </svg>
             </div>
             <blockquote>
-              <p>
-                طي روشي مشخص و مدون رضايت مشتريان ، اطلاعات ، نظرات و شكايات
-                مشتريان بطور مستمر جمع آوري و مورد بررسي و ارزيابي قرار مي گيرند
-                و بر اساس آن ميزان رضايت مشتري اندازه گيري مي شود .
-              </p>
+              <p>{translate("home.section4.1", data)}</p>
               <ol style={{ listStyle: "inside", listStyleType: "decimal" }}>
                 <li>
-                  <span>
-                    نظر خواهي از مشتري سالي يكبار با استفاده از فرم نظر خواهي
-                    انجام ميشود كه اين فرم طي دو مرحله تکمیل میگردد:
-                  </span>
+                  <span>{translate("home.section4.2", data)}</span>
                   <ul style={{ listStyle: "inside" }}>
-                    <li>توسط كاراگستر براساس مذاكرات مدير عامل با مشتريان</li>
-                    <li> توسط مشتري </li>
+                    <li>{translate("home.section4.3", data)}</li>
+                    <li>{translate("home.section4.4", data)}</li>
                   </ul>
                 </li>
                 <li>
-                  <span>
-                    گزارشات خدمات پس از فروش اين اطلاعات جمع آوري شده و ساليانه
-                    طبق دستور مورد تجزيه و تحليل قرار ميگيرد.{" "}
-                  </span>
+                  <span>{translate("home.section4.5", data)}</span>
                   <ol style={{ listStyle: "inside" }}>
-                    <li>
-                      درصورتيكه ميزان عدم رضايت مشتري خيلي شاخص وبحراني تشخيص
-                      داده شود ، اين گزارش جهت طرح در كميته بازنگري مديريت آماده
-                      مي شود .
-                    </li>
+                    <li>{translate("home.section4.6", data)}</li>
                   </ol>
                 </li>
               </ol>
