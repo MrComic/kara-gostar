@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from "react";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { v4 as uuidv4 } from "uuid";
 import { useMotionValueEvent, useScroll } from "framer-motion";
-
 interface NavLink {
   id: number;
   url: string;
@@ -45,7 +44,7 @@ function MobileNavLink({ url, text, closeMenu, children }: MobileNavLink) {
   const id = uuidv4();
   return children.length == 0 ? (
     <li>
-      <a
+      <Link
         href={url}
         style={{ fontSize: "16px" }}
         className={`block py-2 px-3 text-white rounded md:bg-transparent md:text-black md:p-0 md:dark:text-red-500
@@ -54,7 +53,7 @@ function MobileNavLink({ url, text, closeMenu, children }: MobileNavLink) {
         aria-current="page"
       >
         {text}
-      </a>
+      </Link>
     </li>
   ) : (
     <li>
@@ -94,7 +93,7 @@ function MobileNavLink({ url, text, closeMenu, children }: MobileNavLink) {
         >
           {children.map((n) => (
             <li>
-              <a
+              <Link
                 href={n.url}
                 onClick={handleClick}
                 className={`block hover:text-red-700
@@ -103,7 +102,7 @@ function MobileNavLink({ url, text, closeMenu, children }: MobileNavLink) {
                 }`}
               >
                 {n.text}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

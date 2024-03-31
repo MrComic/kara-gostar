@@ -5,6 +5,9 @@ import { i18n } from "../i18n-config";
 
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
+import { RedirectType, redirect } from "next/navigation";
+import { NextURL } from "next/dist/server/web/next-url";
+import { getStrapiURL } from "./app/[lang]/utils/api-helpers";
 
 function getLocale(request: NextRequest): string | undefined {
   // Negotiator expects plain object so we need to transform headers
@@ -36,17 +39,18 @@ export function middleware(request: NextRequest) {
   const pathnameIsMissingLocale = i18n.locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
-
+  console.log(request.url);
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
-    console.log(locale);
     // e.g. incoming request is /products
     // The new URL is now /en-US/products
-    return NextResponse.redirect(
-      new URL(`/${locale}/${pathname}`, request.url)
-    );
+    //    redirect(new URL(`/${locale}`, request.url).href);
+    //request.nextUrl.pathname = `/${locale}`;
+    // return NextResponse.redirect(request.nextUrl);
+    //return NextResponse.redirect(new NextURL(`/${locale}`));
   }
+  return NextResponse.next();
 }
 
 export const config = {
