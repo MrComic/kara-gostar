@@ -162,7 +162,7 @@ export default function Nav({
           animateMenu ? "p-1 fixed-nav h-16" : "p-3 sticky-nav h-20"
         }`}
       >
-        <Logo src={logoUrl}>
+        <Logo lang={lang} src={logoUrl}>
           {logoText && (
             <p
               className="flex-none ms-5 text-2xl font-semibold dark:text-white"
