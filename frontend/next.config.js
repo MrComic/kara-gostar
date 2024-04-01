@@ -5,6 +5,14 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   distDir: "dist",
+  async rewrites() {
+    return [
+      {
+        source: "/",
+        destination: "/fa",
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
