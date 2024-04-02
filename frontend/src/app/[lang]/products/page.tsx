@@ -8,11 +8,16 @@ import Glide from "../components/glide";
 import Banner from "../components/Banner";
 import { getEnabledCategories } from "trace_events";
 import { getCategories } from "../utils/get-categoryies";
+import { getLanguageFile } from "../utils/get-language-file";
+import translate from "../utils/translate";
 export default async function RootRoute({
   params,
 }: {
   params: { lang: string; category: string };
 }) {
+  const languageFile = await getLanguageFile(params.lang);
+  let data = languageFile?.data?.attributes.text;
+
   const categories = await getCategories(params.lang);
   if (categories.error && categories.error.status == 401)
     throw new Error(
@@ -21,13 +26,13 @@ export default async function RootRoute({
   if (categories.data == null)
     return (
       <div className="flex max-w-screen-2xl mx-auto my-auto h-screen items-center justify-center">
-        <h1>محصولی تعریف نشده است</h1>
+        <h1>{translate("products.noProductsDefined", data)}</h1>
       </div>
     );
   if (categories.data.length === 0)
     return (
       <div className="flex max-w-screen-2xl mx-auto my-auto h-screen items-center justify-center">
-        <h1>محصولی تعریف نشده است</h1>
+        <h1>{translate("products.noProductsDefined", data)}</h1>
       </div>
     );
 
@@ -36,7 +41,9 @@ export default async function RootRoute({
       <Banner>
         <div className="flex flex-col  items-center text-center  text-white py-20">
           <div className="flex max-w-screen-2xl flex-row  mx-auto justify-center">
-            <h1 className="font-extrabold text-4xl">محصولات</h1>
+            <h1 className="font-extrabold text-4xl">
+              {translate("products.title", data)}
+            </h1>
           </div>
         </div>
       </Banner>

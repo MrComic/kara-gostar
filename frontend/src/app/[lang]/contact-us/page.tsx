@@ -8,8 +8,13 @@ import { faMailBulk } from "@fortawesome/free-solid-svg-icons/faMailBulk";
 import { faMobile } from "@fortawesome/free-solid-svg-icons/faMobile";
 import { faEarth } from "@fortawesome/free-solid-svg-icons/faEarth";
 import { faA } from "@fortawesome/free-solid-svg-icons";
+import translate from "../utils/translate";
+import { getLanguageFile } from "../utils/get-language-file";
 
-export default async function RootRoute() {
+export default async function RootRoute(params: { lang: string }) {
+  const languageFile = await getLanguageFile(params.lang);
+  let data = languageFile?.data?.attributes.text;
+
   const Map = dynamic(
     () => import("./components/map"), // replace '@components/map' with your component's location
     {
@@ -23,10 +28,11 @@ export default async function RootRoute() {
       <Banner>
         <div className="flex flex-col  items-center text-center  text-white py-10">
           <div className="flex flex-col max-w-screen-2xl flex-row mx-auto justify-center">
-            <h1 className="font-extrabold text-4xl">تماس با ما</h1>
+            <h1 className="font-extrabold text-4xl">
+              {translate("contact-us.title", data)}
+            </h1>
             <p className="mt-16 font-light text-center text-white dark:text-gray-400 sm:text-xl">
-              باعث افتخار ماست تا نظرات خود را با ما از طریق این فرم به اشتراک
-              بگذارید.
+              {translate("contact-us.subtitle", data)}
             </p>
           </div>
         </div>
@@ -43,7 +49,7 @@ export default async function RootRoute() {
                   htmlFor="email"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                 >
-                  ایمیل
+                  {translate("contact-us.email", data)}
                 </label>
                 <input
                   type="email"
@@ -57,7 +63,7 @@ export default async function RootRoute() {
                   htmlFor="email"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                 >
-                  نام و نام خانوادگی
+                  {translate("contact-us.name", data)}
                 </label>
                 <input
                   type="text"
@@ -71,7 +77,7 @@ export default async function RootRoute() {
                   htmlFor="subject"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                 >
-                  موضوع
+                  {translate("contact-us.subject", data)}
                 </label>
                 <input
                   type="text"
@@ -85,7 +91,7 @@ export default async function RootRoute() {
                   htmlFor="message"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
                 >
-                  پیغام
+                  {translate("contact-us.message", data)}
                 </label>
                 <textarea
                   id="message"
@@ -97,22 +103,29 @@ export default async function RootRoute() {
                 type="submit"
                 className="py-3 px-5 text-lg text-center justify-self-end  text-white rounded-lg bg-red-700 sm:w-fit hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
               >
-                ارسال فرم
+                {translate("contact-us.submit-form", data)}
               </button>
             </form>
 
             <div>
               <div className="m-4">
                 <div className="contact__channels" data-v-2c279a3f="">
-                  <h5 className="text-xl mb-5">راه‌های ارتباطی</h5>
+                  <h5 className="text-xl mb-5">
+                    {" "}
+                    {translate("contact-us.contactTitle", data)}
+                  </h5>
                   <div className="flex flex-row mb-5" data-v-2c279a3f="">
                     <FontAwesomeIcon
                       icon={faMobile}
                       className="me-5 font-extrabold h-5"
                     />
                     <div className="flex flex-col" data-v-2c279a3f="">
-                      <p data-v-2c279a3f="">تلفن :</p>
-                      <span data-v-2c279a3f="">021-46848781</span>
+                      <p data-v-2c279a3f="">
+                        {translate("contact-us.phone", data)}
+                      </p>
+                      <span data-v-2c279a3f="">
+                        {translate("contact-us.phone-value", data)}
+                      </span>
                     </div>
                   </div>
                   <div className="flex flex-row mb-5" data-v-2c279a3f="">
@@ -121,10 +134,14 @@ export default async function RootRoute() {
                       className="me-5 font-extrabold h-5"
                     />
                     <div className="fa fa-col" data-v-2c279a3f="">
-                      <p data-v-2c279a3f="">ایمیل:</p>
-                      <span data-v-2c279a3f="">info@karagostar.com</span>
+                      <p data-v-2c279a3f="">
+                        {translate("contact-us.email", data)}
+                      </p>
+                      <span data-v-2c279a3f="">
+                        {translate("contact-us.email-value", data)}
+                      </span>
                     </div>
-                  </div>{" "}
+                  </div>
                   <div className="contact__channel" data-v-2c279a3f="">
                     <div className="flex flex-row" data-v-2c279a3f="">
                       <FontAwesomeIcon
@@ -132,10 +149,11 @@ export default async function RootRoute() {
                         className="me-5 font-extrabold h-5"
                       />
                       <div className="fa fa-col">
-                        <p data-v-2c279a3f="">دفتر مرکزی تهران:</p>
+                        <p data-v-2c279a3f="">
+                          {translate("contact-us.address", data)}
+                        </p>
                         <span data-v-2c279a3f="">
-                          تهران، شهر قدس (قلعه حسنخان)، بلوار انقلاب، خیابان
-                          صنعت 2، مجتمع صنعتی پویا، پلاک 5
+                          {translate("contact-us.address-value", data)}
                         </span>
                       </div>
                     </div>

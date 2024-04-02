@@ -4,6 +4,8 @@ import _ from "underscore";
 import { getGalleryCategories } from "../../utils/get-galleries-category";
 import React from "react";
 import IsotopGallery from "./gallery";
+import { getLanguageFile } from "../../utils/get-language-file";
+import translate from "../../utils/translate";
 
 export default async function RootRoute({
   params,
@@ -12,6 +14,8 @@ export default async function RootRoute({
 }) {
   const pictures = await getGallery(params.lang, params.category);
   const categories = await getGalleryCategories(params.lang);
+  const languageFile = await getLanguageFile(params.lang);
+  let data = languageFile?.data?.attributes.text;
 
   if (pictures.error && pictures.error.status == 401)
     throw new Error(
@@ -20,13 +24,13 @@ export default async function RootRoute({
   if (pictures.data == null)
     return (
       <div className="flex max-w-screen-2xl mx-auto my-auto h-screen items-center justify-center">
-        <h1>تصویری تعریف نشده است</h1>
+        <h1>{translate("gallery.noItemsDefined", data)}</h1>
       </div>
     );
   if (pictures.data.length === 0)
     return (
       <div className="flex max-w-screen-2xl mx-auto my-auto h-screen items-center justify-center">
-        <h1>تصویری تعریف نشده است</h1>
+        <h1>{translate("gallery.noItemsDefined", data)}</h1>
       </div>
     );
 
