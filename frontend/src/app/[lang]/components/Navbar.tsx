@@ -47,7 +47,7 @@ function MobileNavLink({ url, text, closeMenu, children }: MobileNavLink) {
       <Link
         href={url}
         style={{ fontSize: "16px" }}
-        className={`block py-2 px-3 text-white rounded md:bg-transparent md:text-black md:p-0 md:dark:text-red-500
+        className={`block py-2 px-3 text-black sm:text-black  rounded md:bg-transparent md:text-black md:p-0 md:dark:text-red-500
         hover:text-red-700
         dark:bg-red-600 md:dark:bg-transparent`}
         aria-current="page"
@@ -61,8 +61,8 @@ function MobileNavLink({ url, text, closeMenu, children }: MobileNavLink) {
         id="dropdownNavbarLink"
         data-dropdown-toggle={id}
         className="flex items-center justify-between w-full py-2 px-3 text-gray-900
-         hover:bg-gray-100 md:hover:bg-transparent 
-         md:border-0 md:hover:text-red-700 md:p-0 md:w-auto
+         hover:bg-gray-200 md:hover:bg-transparent 
+         md:border-0 hover:text-red-700 md:p-0 md:w-auto
           dark:text-white md:dark:hover:text-red-500 dark:focus:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
       >
         {text}
@@ -203,8 +203,8 @@ export default function Nav({
         >
           <div className="flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse">
             <ul
-              className="items-center me-5 w-screen sm:w-screen md:w-auto lg:w-auto flex flex-col font-normal p-4 md:p-0 
-            mt-4 border border-gray-100 rounded-lg   md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 
+              className="bg-gray-200 text-black sm:bg-gray-200 md:bg-transparent space-x-3 lg:space-x-8 xl:space-x-9 2xl:space-x-10 lg:bg-transparent xl:bg-transparent 2xl:bg-transparent items-center me-5 w-screen sm:w-screen md:w-auto lg:w-auto flex flex-col font-normal p-4 md:p-0 
+            mt-4 border border-gray-100 rounded-lg  rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 
              dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
               style={{
                 fontSize: "16px",
@@ -222,69 +222,68 @@ export default function Nav({
                     {...item}
                   />
                 ))}
-            </ul>
-
-            <div className="flex">
-              <button
-                id="states-button"
-                data-dropdown-toggle="dropdown-states"
-                className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center
+              <li>
+                <button
+                  id="states-button"
+                  data-dropdown-toggle="dropdown-states"
+                  className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center
                  text-gray-500 bg-gray-200 border border-gray-300 rounded-lg
-                  hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700
+                  hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700
                    dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
-                type="button"
-              >
-                <span
-                  className={`fi fi-${flags[lang]} ps-2 pe-2 pl-10 pr-10`}
-                ></span>
-                <span className="ps-2">{lang}</span>
-                <svg
-                  className="w-2.5 h-2.5 ms-2.5"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 10 6"
+                  type="button"
                 >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="m1 1 4 4 4-4"
-                  />
-                </svg>
-              </button>
-              <div
-                id="dropdown-states"
-                className="z-10 hidden divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
-              >
-                <ul
-                  className="py-2 text-sm text-gray-700 bg-gray-200 dark:text-gray-200"
-                  aria-labelledby="states-button"
+                  <span
+                    className={`fi fi-${flags[lang]} ps-2 pe-2 pl-10 pr-10`}
+                  ></span>
+                  <span className="ps-2">{lang}</span>
+                  <svg
+                    className="w-2.5 h-2.5 ms-2.5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 10 6"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 4 4 4-4"
+                    />
+                  </svg>
+                </button>
+                <div
+                  id="dropdown-states"
+                  className="z-10 hidden divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
                 >
-                  {langs.map((p) => (
-                    <li>
-                      <button
-                        type="button"
-                        className="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        <div
-                          onClick={(e) => changeLanguage(p.code)}
-                          className="inline-flex items-center"
+                  <ul
+                    className="py-2 text-sm text-gray-700 bg-gray-200 dark:text-gray-200"
+                    aria-labelledby="states-button"
+                  >
+                    {langs.map((p) => (
+                      <li>
+                        <button
+                          type="button"
+                          className="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
-                          <span
-                            className={`fi fi-${
-                              flags[p.code]
-                            } ps-2 pe-2 pl-10 pr-10`}
-                          ></span>
-                          {p.name}
-                        </div>
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+                          <div
+                            onClick={(e) => changeLanguage(p.code)}
+                            className="inline-flex items-center"
+                          >
+                            <span
+                              className={`fi fi-${
+                                flags[p.code]
+                              } ps-2 pe-2 pl-10 pr-10`}
+                            ></span>
+                            {p.name}
+                          </div>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
