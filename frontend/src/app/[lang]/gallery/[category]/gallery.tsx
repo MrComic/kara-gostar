@@ -119,7 +119,6 @@ export default function IsotopGallery(params: {
                     getStrapiMedia(a.attributes.Image.data.attributes.url) || ""
                   }
                 >
-                  {JSON.stringify()}
                   <img
                     className="h-60 w-full rounded-lg"
                     src={
