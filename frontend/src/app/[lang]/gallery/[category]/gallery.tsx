@@ -116,16 +116,15 @@ export default function IsotopGallery(params: {
                   data-fancybox="gallery"
                   data-caption={a.attributes.caption}
                   data-src={
-                    getStrapiMedia(
-                      a.attributes.Image.data.attributes.formats.large.url
-                    ) || ""
+                    getStrapiMedia(a.attributes.Image.data.attributes.url) || ""
                   }
                 >
+                  {JSON.stringify()}
                   <img
                     className="h-60 w-full rounded-lg"
                     src={
                       getStrapiMedia(
-                        a.attributes.Image.data.attributes.formats.large.url
+                        a.attributes.Image.data.attributes.formats.medium.url
                       ) || ""
                     }
                     alt={a.attributes.caption}
