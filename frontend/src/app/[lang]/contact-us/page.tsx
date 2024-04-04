@@ -10,11 +10,12 @@ import { faEarth } from "@fortawesome/free-solid-svg-icons/faEarth";
 import { faA } from "@fortawesome/free-solid-svg-icons";
 import translate from "../utils/translate";
 import { getLanguageFile } from "../utils/get-language-file";
+import { ContactFormSubmit } from "../actions/contact-form";
+import { useFormStatus } from "react-dom";
 
 export default async function RootRoute(params: { lang: string }) {
   const languageFile = await getLanguageFile(params.lang);
   let data = languageFile?.data?.attributes.text;
-
   const Map = dynamic(
     () => import("./components/map"), // replace '@components/map' with your component's location
     {
@@ -43,7 +44,7 @@ export default async function RootRoute(params: { lang: string }) {
           <Map />
 
           <div className=" grid grid-cols-2 py-8 lg:py-16 px-4 w-full">
-            <form action="#" className="space-y-8">
+            <form action={ContactFormSubmit} className="space-y-8">
               <div>
                 <label
                   htmlFor="email"
@@ -53,7 +54,7 @@ export default async function RootRoute(params: { lang: string }) {
                 </label>
                 <input
                   type="email"
-                  id="email"
+                  name="email"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500 dark:shadow-sm-light"
                   required
                 />
@@ -67,7 +68,7 @@ export default async function RootRoute(params: { lang: string }) {
                 </label>
                 <input
                   type="text"
-                  id="text"
+                  name="name"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500 dark:shadow-sm-light"
                   required
                 />
@@ -82,6 +83,7 @@ export default async function RootRoute(params: { lang: string }) {
                 <input
                   type="text"
                   id="subject"
+                  name="subject"
                   className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500 dark:shadow-sm-light"
                   required
                 />
@@ -94,7 +96,7 @@ export default async function RootRoute(params: { lang: string }) {
                   {translate("contact-us.message", data)}
                 </label>
                 <textarea
-                  id="message"
+                  name="message"
                   rows={6}
                   className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-red-500 focus:border-red-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
                 ></textarea>
@@ -111,7 +113,6 @@ export default async function RootRoute(params: { lang: string }) {
               <div className="m-4">
                 <div className="contact__channels" data-v-2c279a3f="">
                   <h5 className="text-xl mb-5">
-                    {" "}
                     {translate("contact-us.contactTitle", data)}
                   </h5>
                   <div className="flex flex-row mb-5" data-v-2c279a3f="">

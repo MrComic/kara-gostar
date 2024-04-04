@@ -485,35 +485,6 @@ export default async function RootRoute({
           </div>
         </a>
       </div>
-
-      <div className="my-10 px-10 w-full">
-        <a
-          href="#"
-          className="flex flex-col w-full items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row 
-           hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
-        >
-          <img
-            className="object-cover  w-full grayscale rounded-t-lg md:h-auto md:w-96 md:rounded-none md:rounded-s-lg"
-            src={getStrapiMedia("/uploads/4_0605bcd3d9.jpg") || ""}
-            style={{ height: "300px" }}
-            alt=""
-          />
-          <div className="flex flex-col justify-between p-4 leading-normal">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              حمید مومنی
-            </h5>
-            <h6 className="mb-2 text-xs font-light tracking-tight text-gray-700 dark:text-white">
-              مدیر خرید و تدارکات
-            </h6>
-            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              ایمیل : momeni@karagostar.com
-            </p>
-            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              تلفن : <span dir="ltr"> +98 - 21 468195 44</span>
-            </p>
-          </div>
-        </a>
-      </div>
     </>
   );
 }

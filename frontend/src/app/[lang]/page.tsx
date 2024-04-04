@@ -31,7 +31,7 @@ export default async function RootRoute({
           <div className=" flex flex-col relative sm:text-end justify-end items-center sm:mb-0 mx-auto ">
             <img
               src={getStrapiMedia("/uploads/main_3255edbcd3.jpg") || ""}
-              className="absolute top-0 z-0 w-full h-full sm:visible md:visible lg:hidden xl:hidden 2xl:hidden"
+              className=" w-full h-full sm:visible md:visible lg:hidden xl:hidden 2xl:hidden"
             />
             <div className="my-3 relative flex flex-col justify-center h-full">
               <h1 className="text-white pb-5 text-center sm:text-center md:text-center xl:text-start 2xl:text-start lg:text-start text-2xl">
@@ -160,7 +160,7 @@ export default async function RootRoute({
               </p>
             </div>
           </div>
-          <div className="col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-5 xl:col-span-7 2xl:col-span-8 text-white text-start text-xl">
+          <div className="p-8 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-5 xl:col-span-7 2xl:col-span-8 text-white text-start text-xl">
             <div className="flex justify-start w-full mb-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

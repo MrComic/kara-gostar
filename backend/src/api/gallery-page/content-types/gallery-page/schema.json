@@ -37,6 +37,12 @@
         }
       },
       "type": "string"
+    },
+    "gallery_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::gallery-category.gallery-category",
+      "mappedBy": "gallery_pages"
     }
   }
 }

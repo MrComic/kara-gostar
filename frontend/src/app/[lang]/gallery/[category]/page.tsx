@@ -13,7 +13,8 @@ export default async function RootRoute({
   params: { lang: string; category: string };
 }) {
   const pictures = await getGallery(params.lang, params.category);
-  const categories = await getGalleryCategories(params.lang);
+  const categories = await getGalleryCategories(params.lang, params.category);
+  console.log(JSON.stringify(categories));
   const languageFile = await getLanguageFile(params.lang);
   let data = languageFile?.data?.attributes.text;
 
