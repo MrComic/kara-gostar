@@ -24,7 +24,7 @@ export default async function RootRoute({
           backgroundRepeat: "no-repeat",
           backgroundSize: "100% 100%",
           backgroundPosition: "contain",
-          backgroundColor: "rgba(55 65 80/1)",
+          backgroundColor: "rgba(55,65,80,0.6)",
         }}
       >
         {/* <img
