@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "concurrently": "^8.2.2",
+    "ncu": "^0.2.1",
+    "npm-check-updates": "^16.14.18",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {

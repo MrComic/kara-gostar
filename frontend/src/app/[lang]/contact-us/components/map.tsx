@@ -1,4 +1,4 @@
-// src/components/Map.tsx
+"use client";
 import { Marker, Popup, TileLayer, Tooltip } from "react-leaflet";
 import { MapContainer } from "react-leaflet";
 

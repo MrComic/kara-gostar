@@ -15,7 +15,8 @@
     "@strapi/plugin-users-permissions": "4.12.5",
     "@strapi/strapi": "4.13.1",
     "better-sqlite3": "8.7.0",
-    "strapi-plugin-menus": "^1.6.1"
+    "strapi-plugin-menus": "^1.6.1",
+    "@strapi/plugin-documentation": "^4.22.0"
   },
   "author": {
     "name": "A Strapi developer"
@@ -28,7 +29,5 @@
     "npm": ">=6.0.0"
   },
   "license": "MIT",
-  "devDependencies": {
-    "@strapi/plugin-documentation": "^4.20.5"
-  }
+  "devDependencies": {}
 }
