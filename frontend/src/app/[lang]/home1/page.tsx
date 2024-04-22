@@ -1,4 +1,4 @@
-import { getStrapiMedia } from "../utils/api-helpers";
+import { getStrapiMedia, getStrapiURL } from "../utils/api-helpers";
 import CompanyRules from "../home-company-rules";
 import { getLanguageFile } from "../utils/get-language-file";
 import translate from "../utils/translate";
@@ -12,20 +12,54 @@ export default async function RootRoute({
   let data = languageFile?.data?.attributes.text;
 
   return (
-    <div className="bg-white w-full flex justify-center flex-col items-center">
-      <div className="container">
-        <section className=" flex flex-row justify-center items-center">
-          <div className="container text-justify ">
-            <img
-              src={getStrapiMedia("/uploads/header3_76469aa713.jpg") || ""}
-              className="w-full"
-            />
+    <div
+      className="bg-white w-full flex justify-center flex-col items-center"
+      style={{
+        background: "#bb0202",
+        //background: "#f00b0b",
+        //   backgroundPosition: "contain",
+        //   background: `url('${getStrapiURL("/uploads/image1_8398ee8afb.jpeg")}')`,
+      }}
+    >
+      <section
+        className=" flex flex-row justify-center items-center w-full h-screen"
+        style={{
+          background: `url('${getStrapiMedia(
+            "/uploads/Header2_7b47e81edb.jpg"
+          )}')`,
+          backgroundBlendMode: "multiply",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100% 100%",
+          backgroundPosition: "cover",
+          backgroundColor: "rgba(55,65,80,0.3)",
+        }}
+      >
+        <div className="container relative text-justify ">
+          <div className="absolute top-auto flex flex-col items-center justify-center ms-20">
+            <h1 className="text-5xl text-white">
+              شرکت مهندسی <span className="text-red-600">کاراگستر</span>
+            </h1>
+            <h2 className="text-2xl text-white pt-5">
+              تولید کننده قالب تایر و پرس پخت
+            </h2>
+            <div className="pt-7">
+              <a
+                href="/fa/contact-us"
+                className="inline-flex  justify-self-center px-5 py-3 text-base font-medium text-center
+              text-gray-900 border border-red-300 rounded-lg hover:bg-red-500 focus:ring-4 focus:ring-red-100
+               text-white border-red-700 bg-red-700 focus:ring-red-800"
+              >
+                {translate("home.section1.contact-us", data)}
+              </a>
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <div style={{ background: "#212830" }}>
+      <div className="mx-10" style={{}}>
+        <div className="max-w-max" style={{ background: "#212830" }}>
           <div className="text-gray-300">
-            <div className="max-w-screen-2xl mx-auto py-16 px-3">
+            <div className=" mx-auto py-16 px-3">
               <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 text-justify">
                 <div className="order-last sm:order-last md:order-last lg:order-first xl:order-first 2xl:order-first">
                   <CompanyRules

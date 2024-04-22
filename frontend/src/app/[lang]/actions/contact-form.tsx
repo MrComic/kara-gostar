@@ -3,6 +3,7 @@ import { z, ZodError } from "zod";
 import { getStrapiURL } from "../utils/api-helpers";
 import { promises } from "dns";
 import { FormState, fromErrorToFormState } from "../utils/FieldError";
+import { useReCaptcha } from "next-recaptcha-v3";
 
 const contactFormSchema = z.object({
   email: z.string().email().min(1).max(500),

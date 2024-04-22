@@ -1679,6 +1679,11 @@ negotiator@^0.6.3:
   resolved "https://registry.npmjs.org/negotiator/-/negotiator-0.6.3.tgz"
   integrity sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==
 
+next-recaptcha-v3@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/next-recaptcha-v3/-/next-recaptcha-v3-1.4.1.tgz#8cbb3bd0f64c2b1da5a22414205f14635feff216"
+  integrity sha512-ZQXwcGHMIbXG3ppK6s2EGyTMjkVW5wARupQsBrFQbO6BhNlfBXAb3BVQEZt6uYyp12z5tf06DEa3JIqCqQoXTQ==
+
 next@^14.2.0:
   version "14.2.0"
   resolved "https://registry.yarnpkg.com/next/-/next-14.2.0.tgz#ed80b21375ccd43a69ea8088cbace731966def52"

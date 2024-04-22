@@ -13,10 +13,43 @@ export default async function RootRoute({
   let data = languageFile?.data?.attributes.text;
 
   return (
-    <>
-      <section className="flex flex-row justify-center items-center w-full h-screen">
-        <HomePageSlider languageFile={data} />
-      </section>
+    <section className="">
+      <div className="container ">
+        <section className="flex flex-row justify-center items-center w-full h-screen">
+          <HomePageSlider languageFile={data} />
+        </section>
+      </div>
+
+      <div style={{ background: "#212830" }}>
+        <div className="text-gray-300">
+          <div className="max-w-screen-2xl mx-auto py-16 px-3">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 text-2xl text-justify">
+              شرکت مهندسی کارگستر در سال 1372 تاسیس شد و در زمینه طراحی و ساخت
+              انواع قطعات ماشین آلات و قالب های صنعتی و تجهیزات جانبی صنایع از
+              جمله قالب های پخت لاستیک و سایر محصولات لاستیکی - ارائه خدمات فنی
+              و مهندسی و اخذ تاییدیه و مجوزهای قانونی اولیه ساخت و بهره برداری
+              کارخانجات ساخت قطعات و ماشین آلات صنعتی و قالب - واردات و صادرات
+              قطعات یدکی و ماشین آلات و قالب های صنعتی و اخذ نمایندگی داخلی و
+              خارجی و انجام کلیه امور مربوط به موارد فوق.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section
+        className=" relative w-screen p-20"
+        style={{
+          height: "600px",
+          background: `url('${getStrapiMedia(
+            "/uploads/header3_76469aa713.jpg"
+          )}')`,
+          flexWrap: "wrap",
+          backgroundBlendMode: "multiply",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100% 100%",
+          backgroundPosition: "cover",
+        }}
+      ></section>
 
       <div style={{ background: "#212830" }}>
         <div className="text-gray-300">
@@ -161,6 +194,6 @@ export default async function RootRoute({
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 }

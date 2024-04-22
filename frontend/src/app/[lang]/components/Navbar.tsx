@@ -46,6 +46,8 @@ function MobileNavLink({ url, text, closeMenu, children }: MobileNavLink) {
     <li>
       <Link
         href={url}
+        prefetch={true}
+        shallow
         style={{ fontSize: "16px" }}
         className={`block py-2 px-3 text-black sm:text-black  rounded md:bg-transparent md:text-black md:p-0 md:dark:text-red-500
         hover:text-red-700
@@ -95,6 +97,7 @@ function MobileNavLink({ url, text, closeMenu, children }: MobileNavLink) {
             <li>
               <Link
                 href={n.url}
+                prefetch={true}
                 onClick={handleClick}
                 className={`block hover:text-red-700
                 dark:bg-red-600 px-4 py-2 bg-gray-300  dark:hover:bg-gray-600 dark:hover:text-white ${
@@ -155,10 +158,11 @@ export default function Nav({
       className={` border-gray-20 dark:bg-gray-900 sticky bg-gray-300 top-0  dark:border-gray-700 shadow-sm shadow-slate-300 border-b-slate-400`}
       style={{
         zIndex: "500",
+        boxShadow: "0px 13px 9px 1px rgb(0 26 238 / 25%)",
       }}
     >
       <div
-        className={`max-w-screen-2xl flex flex-wrap items-center bg-gray-300 justify-between text-2xl mx-auto  ${
+        className={` flex flex-wrap items-center bg-gray-300 justify-between text-2xl mx-auto  ${
           animateMenu ? "p-1 fixed-nav h-16" : "p-3 sticky-nav h-20"
         }`}
       >
