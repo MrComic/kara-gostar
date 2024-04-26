@@ -158,7 +158,6 @@ export default function Nav({
       className={` border-gray-20 dark:bg-gray-900 sticky bg-gray-300 top-0  dark:border-gray-700 shadow-sm shadow-slate-300 border-b-slate-400`}
       style={{
         zIndex: "500",
-        boxShadow: "0px 13px 9px 1px rgb(0 26 238 / 25%)",
       }}
     >
       <div

@@ -12,7 +12,11 @@ import { getLanguageFile } from "../utils/get-language-file";
 import ContactForm from "./components/contact-form";
 import ContactMap from "./components/map";
 
-export default async function RootRoute(params: { lang: string }) {
+export default async function RootRoute({
+  params,
+}: {
+  params: { lang: string };
+}) {
   const languageFile = await getLanguageFile(params.lang);
   let data = languageFile?.data?.attributes.text;
 

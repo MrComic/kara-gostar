@@ -13,7 +13,7 @@ export default function ContactForm(params: { data: any }) {
   let data = params.data;
   const [formState, action] = useFormState(ContactFormSubmit, EMPTY_FORM_STATE);
   const formRef = useFormReset(formState);
-  const [token, setToken] = useState<string>(null);
+  const [token, setToken] = useState<string>("");
 
   const { executeRecaptcha } = useReCaptcha();
 

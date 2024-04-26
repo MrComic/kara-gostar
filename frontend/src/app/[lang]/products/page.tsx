@@ -18,18 +18,19 @@ export default async function RootRoute({
   const languageFile = await getLanguageFile(params.lang);
   let data = languageFile?.data?.attributes.text;
 
-  const categories = await getCategories(params.lang);
-  if (categories.error && categories.error.status == 401)
+  const products = await getProductsByCategory(params.category, params.lang);
+
+  if (products.error && products.error.status == 401)
     throw new Error(
       "Missing or invalid credentials. Have you created an access token using the Strapi admin panel? http://localhost:1337/admin/"
     );
-  if (categories.data == null)
+  if (products.data == null)
     return (
       <div className="flex max-w-screen-2xl mx-auto my-auto h-screen items-center justify-center">
         <h1>{translate("products.noProductsDefined", data)}</h1>
       </div>
     );
-  if (categories.data.length === 0)
+  if (products.data.length === 0)
     return (
       <div className="flex max-w-screen-2xl mx-auto my-auto h-screen items-center justify-center">
         <h1>{translate("products.noProductsDefined", data)}</h1>
@@ -49,40 +50,14 @@ export default async function RootRoute({
       </Banner>
       <section
         id="Projects"
-        className="container grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1   mx-auto mt-10 mb-5 gap-16"
+        className="container grid 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1   mx-auto mt-10 mb-10 gap-8"
       >
-        {categories.data.map((j: any) => (
+        {products.data.map((j: any) => (
           <div className=" hover:scale-105 transition-all hover:transition-all ">
-            <div className="bg-gray-100 p-6 rounded-lg">
-              <a
-                href={
-                  "/" +
-                  params.lang +
-                  "/products/" +
-                  j?.attributes?.slug +
-                  "/" +
-                  j?.attributes?.name
-                }
-              >
-                <img
-                  className="h-96 rounded w-full object-cover object-center mb-6"
-                  src={
-                    getStrapiMedia(
-                      j?.attributes.picture.data?.attributes?.formats.medium.url
-                    ) || ""
-                  }
-                  alt="content"
-                />
-                <h2 className="text-lg text-gray-900 font-medium title-font mt-4">
-                  {j?.attributes?.name}
-                </h2>
-                <h3 className="mb-4 tracking-widest text-red-500 text-xs font-medium title-font">
-                  {j?.attributes?.slug}
-                </h3>
-                <p className="leading-relaxed text-base">
-                  {j?.attributes?.description}
-                </p>
-              </a>
+            <div className="bg-gray-100 p-6 rounded-lg text-center">
+              <h2 className="text-xl text-gray-900 font-medium title-font my-4">
+                {j?.attributes?.name}
+              </h2>
             </div>
           </div>
         ))}

@@ -141,7 +141,11 @@ export default async function RootLayout({
             {children}
           </main>
 
-          <Footer></Footer>
+          <Footer
+            lang={params.lang}
+            logoUrl={navbarLogoUrl}
+            logoText={navbar?.navbarLogo?.logoText || "کاراگستر"}
+          ></Footer>
 
           <script src="/flowbite/flowbite.min.js"></script>
         </Flowbite>

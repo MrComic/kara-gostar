@@ -2,7 +2,11 @@ import Banner from "../components/Banner";
 import { getLanguageFile } from "../utils/get-language-file";
 import translate from "../utils/translate";
 
-export default async function RegisterApplication(params: { lang: string }) {
+export default async function RegisterApplication({
+  params,
+}: {
+  params: { lang: string };
+}) {
   const languageFile = await getLanguageFile(params.lang);
   let data = languageFile?.data?.attributes.text;
 

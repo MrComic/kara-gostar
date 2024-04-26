@@ -2,6 +2,7 @@ import { getStrapiMedia } from "./utils/api-helpers";
 import CompanyRules from "./home-company-rules";
 import { getLanguageFile } from "./utils/get-language-file";
 import translate from "./utils/translate";
+import HomePageSlider from "./slider";
 
 export default async function RootRoute({
   params,
@@ -12,72 +13,339 @@ export default async function RootRoute({
   let data = languageFile?.data?.attributes.text;
 
   return (
-    <>
-      <section
-        className="flex flex-row justify-center items-center"
-        style={{
-          background: `url("${getStrapiMedia(
-            "/uploads/main_554646b309.png"
-          )}")`,
-        }}
-      >
-        <div className="max-w-screen-2xl grid lg:grid-cols-2 xl:grid-cols-2 md:grid-cols-1 px-5 text-justify sm:grid-cols-1 ">
-          <div className="hidden sm:hidden lg:block md:hidden xl:block 2xl:block">
-            <img
-              className="w-full h-full"
-              src={getStrapiMedia("/uploads/main_3255edbcd3.jpg") || ""}
-            />
-          </div>
-          <div className=" flex flex-col relative sm:text-end justify-end items-center sm:mb-0 mx-auto ">
-            <img
-              src={getStrapiMedia("/uploads/main_3255edbcd3.jpg") || ""}
-              className=" w-full h-full sm:visible md:visible lg:hidden xl:hidden 2xl:hidden"
-            />
-            <div className="my-3 relative flex flex-col justify-center h-full">
-              <h1 className="text-white pb-5 text-center sm:text-center md:text-center xl:text-start 2xl:text-start lg:text-start text-2xl">
-                {translate("home.section1.main-heading", data)} &nbsp;
-                <span className="text-red-700">
-                  {translate("home.section1.title", data)}
-                </span>
+    <section className="">
+      <div className="flex flex-row justify-center items-center sm:mt-0 md:mt-0 lg:-mt-[60px] 2xl:-mt-[60px] xl:-mt-[60px]">
+        <section className="w-screen  visible md:hidden lg:hidden xl:hidden 2xl:hidden">
+          <section
+            className="flex flex-row justify-center items-center  relative w-full"
+            style={{
+              background: `url('${getStrapiMedia(
+                "/uploads/Screenshot_2024_04_18_142659_11d42a78fb.png"
+              )}')`,
+              backgroundBlendMode: "multiply",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "100% 100%",
+              backgroundPosition: "cover",
+              height: "50dvh",
+            }}
+          >
+            <div
+              className="flex flex-col justify-items-center p-10"
+              style={{
+                backgroundColor: "rgba(55,65,80,0.7)",
+              }}
+            >
+              <h1 className="text-2xl text-white">
+                شرکت مهندسی <span className="text-white">کاراگستر</span>
               </h1>
-              <p className=" mb-6 font-light lg:mb-8 text-lg  leading-10 text-justify text-gray-300">
-                {translate("home.section1.about-company", data)}
-              </p>
-              <div className="flex flex-row justify-center">
+              <h2 className="text-lg text-white pt-5">
+                تولید کننده قالب تایر و پرس پخت
+              </h2>
+              <div className="pt-7 flex justify-items-center justify-center">
                 <a
                   href="/fa/contact-us"
-                  className="inline-flex me-3 justify-self-center px-5 py-3 
-               font-medium text-center text-gray-900 border border-gray-300 rounded-lg
-                hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 text-white
-                 border-gray-700 hover:bg-gray-700 focus:ring-gray-800"
+                  className="me-3 px-5 py-3 
+               font-medium text-center border border-gray-300 rounded-lg
+                hover:bg-red-500 focus:ring-4 focus:ring-gray-100 text-white
+                border-red-700 bg-red-700 focus:ring-red-800"
                 >
                   {translate("home.section1.contact-us", data)}
                 </a>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section className="w-screen  hidden md:hidden lg:flex xl:flex 2xl:flex ">
+          <section
+            className="flex flex-row justify-start items-end   relative w-full p-20"
+            style={{
+              background: `url('${getStrapiMedia(
+                "/uploads/Screenshot_2024_04_18_142659_11d42a78fb.png"
+              )}')`,
+              backgroundBlendMode: "multiply",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "100% 100%",
+              backgroundPosition: "cover",
+              height: "100dvh",
+            }}
+          >
+            <div
+              className="flex flex-col justify-items-end p-10 "
+              style={{
+                backgroundColor: "rgba(55,65,80,0.7)",
+                position: "absolute",
+                top: "50dvh",
+              }}
+            >
+              <h1 className="text-5xl text-white">
+                شرکت مهندسی <span className="text-white">کاراگستر</span>
+              </h1>
+              <h2 className="text-2xl text-white pt-5">
+                تولید کننده قالب تایر و پرس پخت
+              </h2>
+              <div className="pt-7 flex justify-items-end justify-end">
                 <a
-                  href="/fa/products"
-                  className="inline-flex  justify-self-center px-5 py-3 text-base font-medium text-center
-               text-gray-900 border border-red-300 rounded-lg hover:bg-red-100 focus:ring-4 focus:ring-red-100
-                text-white border-red-700 hover:bg-red-700 focus:ring-red-800"
+                  href="/fa/contact-us"
+                  className="me-3 px-5 py-3 
+               font-medium text-center border border-gray-300 rounded-lg
+                hover:bg-red-500 focus:ring-4 focus:ring-gray-100 text-white
+                border-red-700 bg-red-700 focus:ring-red-800"
                 >
-                  {translate("home.section1.view-products", data)}
+                  {translate("home.section1.contact-us", data)}
                 </a>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
+        </section>
+      </div>
 
       <div style={{ background: "#212830" }}>
         <div className="text-gray-300">
-          <div className="max-w-screen-2xl mx-auto py-16 px-3">
+          <div className="max-w-screen-2xl mx-auto pt-16 px-3">
+            <h2 className="w-full text-center text-2xl lg:text-4xl xl:text-4xl  mb-9">
+              مختصری درباره شرکت
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 text-lg lg:text-2xl xl:text-2xl 2xl:text-2xl text-justify">
+              شرکت مهندسی کاراگستر فعاليت خود را از سال 1372با هدف تأمين و توليد
+              انواع قالب تاير آغاز نموده است. اين شرکت از بدو فعاليت خود با اتکا
+              به دانش، تخصص،ماشین الات پیشرفته و تجربه کارشناسان خود توانسته است
+              نياز کارخانجات تاير سازی را مرتفع نمايد. شرکت کاراگسترظرفيت توليد
+              خود را به 600 دست انواع قالب تاير، تيوب ، بلادر و فلپ در سال
+              رساند. شرکت کاراگستر در سال 2012 موفق به امضای قرارداد همکاری و
+              انتقال دانش فنی ساخت انواع پرس پخت تاير گرديد و هم اکنون قادر است
+              نيآز مشتری در ارتباط با خريد پرس پخت را مرتفع سازد. شرکت مهندسی
+              کاراگستر با بهره گیری از ماشین الات دقیق و نیروی متخصص امکان ارایه
+              خدمات فنی ، مهندسی و تولیدی جهت سایر صنایع نیازمند قطعات با دقت
+              بالا مانند صنایع نیروگاهی ، هواپیمایی ، پتروشیمی و ... را دارا می
+              باشد.
+            </div>
+          </div>
+          <section>
+            <div className="text-white max-w-screen-xl px-4 py-5 mx-auto text-center lg:py-16 lg:px-6">
+              <dl className="grid  gap-8 mx-auto text-gray-900 sm:grid-cols-4 dark:text-white">
+                <div
+                  className="text-white flex flex-col p-8 items-center justify-center"
+                  style={{
+                    borderRadius: "10px",
+                    "--tw-bg-opacity": 1,
+                    padding: "20px",
+                    backgroundColor: "rgb(41 50 63)",
+                    "--tw-shadow":
+                      "0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px -1px rgba(0,0,0,.1)",
+                    "--tw-shadow-colored":
+                      "0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color)",
+                    "box-shadow": "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+                  }}
+                >
+                  <dt>
+                    <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-gray-600 lg:h-12 lg:w-12 ">
+                      <svg
+                        className="w-7 h-7 text-white"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="100"
+                        height="100"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </div>
+                  </dt>
+
+                  <dt className="mb-2 text-3xl md:text-4xl font-extrabold">
+                    +100
+                  </dt>
+                  <dd className="font-light text-white dark:text-gray-400">
+                    نفر پرسنل متخصص
+                  </dd>
+                </div>
+                <div
+                  className="flex flex-col text-white items-center justify-center"
+                  style={{
+                    borderRadius: "10px",
+                    "--tw-bg-opacity": 1,
+                    padding: "20px",
+                    backgroundColor: "rgb(41 50 63)",
+                    "--tw-shadow":
+                      "0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px -1px rgba(0,0,0,.1)",
+                    "--tw-shadow-colored":
+                      "0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color)",
+                    "box-shadow": "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+                  }}
+                >
+                  <dt>
+                    <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-gray-600 lg:h-12 lg:w-12 ">
+                      <svg
+                        className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path>
+                      </svg>
+                    </div>
+                  </dt>
+                  <dt className="mb-2 text-3xl md:text-4xl font-extrabold">
+                    +1000
+                  </dt>
+                  <dd className="font-light text-white dark:text-gray-400">
+                    پروژه موفق
+                  </dd>
+                </div>
+                <div
+                  className="flex flex-col text-white items-center justify-center"
+                  style={{
+                    borderRadius: "10px",
+                    "--tw-bg-opacity": 1,
+                    padding: "20px",
+                    backgroundColor: "rgb(41 50 63)",
+                    "--tw-shadow":
+                      "0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px -1px rgba(0,0,0,.1)",
+                    "--tw-shadow-colored":
+                      "0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color)",
+                    "box-shadow": "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+                  }}
+                >
+                  <dt>
+                    <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-gray-600 lg:h-12 lg:w-12 dark:bg-primary-900">
+                      <svg
+                        className="w-7 h-7 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  </dt>
+                  <dt className="mb-2 text-3xl md:text-4xl font-extrabold">
+                    +500
+                  </dt>
+                  <dd className="font-light text-white dark:text-gray-400">
+                    محصول متنوع
+                  </dd>
+                </div>
+                <div
+                  className="flex flex-col text-white items-center justify-center"
+                  style={{
+                    borderRadius: "10px",
+                    "--tw-bg-opacity": 1,
+                    padding: "20px",
+                    backgroundColor: "rgb(41 50 63)",
+                    "--tw-shadow":
+                      "0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px -1px rgba(0,0,0,.1)",
+                    "--tw-shadow-colored":
+                      "0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color)",
+                    "box-shadow": "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+                  }}
+                >
+                  <dt>
+                    <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-gray-600 lg:h-12 lg:w-12 dark:bg-primary-900">
+                      <svg
+                        className="w-7 h-7 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                    </div>
+                  </dt>
+                  <dt className="mb-2 text-3xl md:text-4xl font-extrabold">
+                    +500
+                  </dt>
+                  <dd className="font-light text-white dark:text-gray-400">
+                    محصول متنوع
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <section
+        className=" relativen p-10 h-[300px] sm:h-[300px] md:h-[300px] lg:h-[600px] xl:h-[600px]"
+        style={{
+          background: `url('${getStrapiMedia(
+            "/uploads/header3_76469aa713.jpg"
+          )}')`,
+          flexWrap: "wrap",
+          backgroundBlendMode: "multiply",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100% 100%",
+          backgroundPosition: "cover",
+          backgroundColor: "rgba(55,65,81,0.7)",
+        }}
+      >
+        <div className="flex justify-center flex-col h-full items-center">
+          <h1 className="text-2xl sm:text-xl md:text-xl xl:text-2xl 2xl:text-3xl py-6 text-white">
+            دفتر مرکزی شرکت :
+          </h1>
+          <h1 className="text-white text-2xl sm:text-xl md:text-xl xl:text-2xl 2xl:text-3xl text-white">
+            تهران شهر قدس (قلعه حسنخان)، بلوار انقلاب، خیابان صنعت 2، مجتمع
+            صنعتی پویا، پلاک 6
+          </h1>
+        </div>
+      </section>
+
+      <div
+        style={{ background: "#212830" }}
+        className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2"
+      >
+        <div className="text-gray-300 p-6">
+          <div className="max-w-screen-2xl mx-auto px-10 flex items-center flex-col h-full justify-center">
+            <h2 className="w-full text-center text-2xl sm:text-2xl md:text-2xl lg:text-4xl xl:text-4xl 2xl:text-4xl mb-9">
+              گواهينامه ISO 9001
+            </h2>
+            <div className=" text-lg text-justify md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-2xl">
+              شرکت کاراگستر در سال 2002 ميلادی موفق به اخذ گواهينامه سيستم
+              مديريت کيفيت ISO 9001 شده و هرساله علاوه بر اجرای مميزی های داخلی،
+              توسط مميزين شرکت TUV Nord مورد مميزی قرار می گيرد.
+            </div>
+          </div>
+        </div>
+        <div
+          style={{
+            height: "600px",
+            background: `url('${getStrapiMedia(
+              "/uploads/iso9001_2fb3478d85.jpg"
+            )}')`,
+            flexWrap: "wrap",
+            backgroundBlendMode: "multiply",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "100% 160%",
+            backgroundPosition: "contain",
+            backgroundColor: "rgba(55,65,81,0.3)",
+          }}
+        ></div>
+      </div>
+
+      <div style={{ background: "#212830" }}>
+        <div className="text-gray-300">
+          <div className="mx-auto py-16 px-3">
             <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 text-justify">
-              <div className="order-last sm:order-last md:order-last lg:order-first xl:order-first 2xl:order-first">
+              <div className="order-first sm:order-first md:order-first lg:order-first xl:order-first 2xl:order-last flex items-center flex-col h-full justify-center p-6">
                 <CompanyRules
                   params={{ lang: params.lang, language: data }}
                 ></CompanyRules>
               </div>
               <img
-                className=" mx-auto object-fit order-first sm:order-first lg:order-last xl:order-last 2xl:order-last"
+                className=" mx-auto object-fit order-last sm:order-last lg:order-first xl:order-first 2xl:order-first p-6"
                 src={getStrapiMedia("/uploads/background_cc3915025b.png") || ""}
               />
             </div>
@@ -91,15 +359,15 @@ export default async function RootRoute({
             background: "linear-gradient(to bottom,  #2d2e30 0%,#565759 100%)",
           }}
         >
-          <h1 className="text-xl text-white text-center p-5">
+          <h1 className="text-4xl text-white text-center p-5">
             {translate("home.section3.title", data)}
           </h1>
 
           <div className="max-w-screen-2xl mx-auto ">
-            <div className="grid grid-cols-5 justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-5 justify-center">
               <div
                 style={{ height: 500, marginTop: -68 }}
-                className="text-gray-300 col-span-1 justify-start flex"
+                className="text-gray-300 col-span-1 justify-start  hidden md:hidden lg:flex xl:flex 2xl:flex"
               >
                 <img
                   src={getStrapiMedia("/uploads/TIRE_2_7a240e6ee9.png") || ""}
@@ -129,7 +397,7 @@ export default async function RootRoute({
 
               <div
                 style={{ height: 500, marginTop: -68 }}
-                className="text-gray-300 justify-end flex col-span-1"
+                className="text-gray-300 justify-end col-span-1 hidden md:hidden lg:flex xl:flex 2xl:flex"
               >
                 <img
                   src={getStrapiMedia("/uploads/TIRE_1_8f51fdcd66.png") || ""}
@@ -155,12 +423,12 @@ export default async function RootRoute({
               src={getStrapiMedia("/uploads/Capture_2_ea7729d813.png") || ""}
             />
             <div className="flex text-white justify-center items-center  text-center">
-              <p className=" text-xl">
+              <p className="md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-2xl">
                 {translate("home.section4.title", data)}
               </p>
             </div>
           </div>
-          <div className="p-8 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-5 xl:col-span-7 2xl:col-span-8 text-white text-start text-xl">
+          <div className="p-8 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-5 xl:col-span-7 2xl:col-span-8 text-white text-start md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-2xl">
             <div className="flex justify-start w-full mb-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -210,6 +478,6 @@ export default async function RootRoute({
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 }

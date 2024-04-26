@@ -2,7 +2,6 @@ import { getStrapiMedia } from "../utils/api-helpers";
 import CompanyRules from "../home-company-rules";
 import { getLanguageFile } from "../utils/get-language-file";
 import translate from "../utils/translate";
-import HomePageSlider from "./slider";
 
 export default async function RootRoute({
   params,
