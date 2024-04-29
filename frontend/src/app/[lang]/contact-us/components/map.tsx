@@ -17,11 +17,7 @@ export default function MyMap(props: any) {
       style={{ height: 400, width: "100%" }}
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <Marker position={[35.71773061103417, 51.12759384438734]}>
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
-      </Marker>
+      <Marker position={[35.71773061103417, 51.12759384438734]}></Marker>
     </MapContainer>
   );
 }

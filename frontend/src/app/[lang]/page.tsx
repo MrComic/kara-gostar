@@ -15,7 +15,7 @@ export default async function RootRoute({
   return (
     <section className="">
       <div className="flex flex-row justify-center items-center sm:mt-0 md:mt-0 lg:-mt-[60px] 2xl:-mt-[60px] xl:-mt-[60px]">
-        <section className="w-screen  visible md:hidden lg:hidden xl:hidden 2xl:hidden">
+        <section className="w-screen  visible md:visible lg:hidden xl:hidden 2xl:hidden">
           <section
             className="flex flex-row justify-center items-center  relative w-full"
             style={{

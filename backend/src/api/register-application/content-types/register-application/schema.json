@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "register_applications",
+  "info": {
+    "singularName": "register-application",
+    "pluralName": "register-applications",
+    "displayName": "register-application",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "resume": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "reviewed": {
+      "type": "boolean"
+    },
+    "accepted": {
+      "type": "boolean"
+    },
+    "comment": {
+      "type": "string"
+    }
+  }
+}

@@ -24,7 +24,7 @@ export default async function RootRoute({
     <>
       <Banner>
         <div className="flex flex-col  items-center text-center  text-white py-10">
-          <div className="flex flex-col max-w-screen-2xl flex-row mx-auto justify-center">
+          <div className="flex flex-col  mx-auto justify-center">
             <h1 className="font-extrabold text-4xl">
               {translate("contact-us.title", data)}
             </h1>
@@ -35,12 +35,12 @@ export default async function RootRoute({
         </div>
       </Banner>
 
-      <div className="w-8/12  mx-auto flex flex-row justify-center mt-10 mb-10 bg-white dark:bg-gray-900">
+      <div className="container mx-auto flex flex-row justify-center mt-10 mb-10 bg-white dark:bg-gray-900">
         <div className="m-4 flex flex-col">
           <ContactMap />
-          <div className=" grid grid-cols-2 py-8 lg:py-16 px-4 w-full">
+          <div className=" grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-2 py-8 lg:py-16 px-4 w-full">
             <ContactForm data={data} />
-            <div>
+            <div className="order-first sm:order-first xl:order-last 2xl:order-last lg:order-last">
               <div className="m-4">
                 <div className="contact__channels" data-v-2c279a3f="">
                   <h5 className="text-xl mb-5">
