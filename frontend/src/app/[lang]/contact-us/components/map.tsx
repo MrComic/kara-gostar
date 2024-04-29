@@ -7,8 +7,6 @@ import "leaflet-defaulticon-compatibility";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 
 export default function MyMap(props: any) {
-  const { position, zoom } = props;
-
   return (
     <MapContainer
       center={[35.71773061103417, 51.12759384438734]}

@@ -1,4 +1,3 @@
-"use client";
 import Banner from "../components/Banner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -11,6 +10,7 @@ import translate from "../utils/translate";
 import { getLanguageFile } from "../utils/get-language-file";
 import ContactForm from "./components/contact-form";
 import ContactMap from "./components/map";
+import dynamic from "next/dynamic";
 
 export default async function RootRoute({
   params,
@@ -19,7 +19,9 @@ export default async function RootRoute({
 }) {
   const languageFile = await getLanguageFile(params.lang);
   let data = languageFile?.data?.attributes.text;
-
+  const MapWithNoSSR = dynamic(() => import("./components/map"), {
+    ssr: false,
+  });
   return (
     <>
       <Banner>
@@ -37,7 +39,7 @@ export default async function RootRoute({
 
       <div className="container mx-auto flex flex-row justify-center mt-10 mb-10 bg-white dark:bg-gray-900">
         <div className="m-4 flex flex-col">
-          <ContactMap />
+          <MapWithNoSSR />
           <div className=" grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-2 py-8 lg:py-16 px-4 w-full">
             <ContactForm data={data} />
             <div className="order-first sm:order-first xl:order-last 2xl:order-last lg:order-last">

@@ -128,14 +128,9 @@ export default async function RootRoute({
                   className="text-white flex flex-col p-8 items-center justify-center"
                   style={{
                     borderRadius: "10px",
-                    "--tw-bg-opacity": 1,
                     padding: "20px",
                     backgroundColor: "rgb(41 50 63)",
-                    "--tw-shadow":
-                      "0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px -1px rgba(0,0,0,.1)",
-                    "--tw-shadow-colored":
-                      "0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color)",
-                    "box-shadow": "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+                    boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
                   }}
                 >
                   <dt>
@@ -169,14 +164,10 @@ export default async function RootRoute({
                   className="flex flex-col text-white items-center justify-center"
                   style={{
                     borderRadius: "10px",
-                    "--tw-bg-opacity": 1,
                     padding: "20px",
                     backgroundColor: "rgb(41 50 63)",
-                    "--tw-shadow":
-                      "0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px -1px rgba(0,0,0,.1)",
-                    "--tw-shadow-colored":
-                      "0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color)",
-                    "box-shadow": "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+
+                    boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
                   }}
                 >
                   <dt>
@@ -202,14 +193,9 @@ export default async function RootRoute({
                   className="flex flex-col text-white items-center justify-center"
                   style={{
                     borderRadius: "10px",
-                    "--tw-bg-opacity": 1,
                     padding: "20px",
                     backgroundColor: "rgb(41 50 63)",
-                    "--tw-shadow":
-                      "0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px -1px rgba(0,0,0,.1)",
-                    "--tw-shadow-colored":
-                      "0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color)",
-                    "box-shadow": "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+                    boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
                   }}
                 >
                   <dt>
@@ -239,14 +225,9 @@ export default async function RootRoute({
                   className="flex flex-col text-white items-center justify-center"
                   style={{
                     borderRadius: "10px",
-                    "--tw-bg-opacity": 1,
                     padding: "20px",
                     backgroundColor: "rgb(41 50 63)",
-                    "--tw-shadow":
-                      "0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px -1px rgba(0,0,0,.1)",
-                    "--tw-shadow-colored":
-                      "0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color)",
-                    "box-shadow": "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+                    boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
                   }}
                 >
                   <dt>

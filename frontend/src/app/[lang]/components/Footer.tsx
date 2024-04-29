@@ -9,7 +9,7 @@ import { AiFillTwitterCircle, AiFillYoutube } from "react-icons/ai";
 export default function Footer(params: {
   lang: string;
   logoText: string;
-  logoUrl: string;
+  logoUrl: string | null;
 }) {
   return (
     <footer
