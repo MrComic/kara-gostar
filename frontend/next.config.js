@@ -4,7 +4,8 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  distDir: "dist",
+  distDir: "build",
+  output: "standalone",
   async rewrites() {
     return [
       {

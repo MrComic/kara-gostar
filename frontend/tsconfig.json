@@ -39,7 +39,8 @@
     "src/app/[lang]/components/ErrorBoundry.jsx",
     "src/app/[lang]/components/ErrorBoundary.tsx",
     "src/app/global-error.tsx",
-    "dist/types/**/*.ts"
+    "dist/types/**/*.ts",
+    "_next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
