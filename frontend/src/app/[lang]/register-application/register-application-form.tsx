@@ -1,6 +1,6 @@
 "use client";
 import { useFormState, useFormStatus } from "react-dom";
-import { ContactFormSubmit } from "../actions/contact-form";
+import { RegisterApplication } from "../actions/register-application";
 import { useEffect, useRef, useState } from "react";
 import { useFormReset } from "../utils/useFormReset";
 import translate from "../utils/translate";
@@ -11,7 +11,10 @@ import { ReCaptcha } from "next-recaptcha-v3";
 
 export default function RegisterApplicationForm(params: { data: any }) {
   let data = params.data;
-  const [formState, action] = useFormState(ContactFormSubmit, EMPTY_FORM_STATE);
+  const [formState, action] = useFormState(
+    RegisterApplication,
+    EMPTY_FORM_STATE
+  );
   const formRef = useFormReset(formState);
   const [token, setToken] = useState<string>("");
 

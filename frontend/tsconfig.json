@@ -40,7 +40,8 @@
     "src/app/[lang]/components/ErrorBoundary.tsx",
     "src/app/global-error.tsx",
     "dist/types/**/*.ts",
-    "_next/types/**/*.ts"
+    "_next/types/**/*.ts",
+    "build/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
