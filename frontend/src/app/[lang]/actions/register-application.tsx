@@ -10,15 +10,6 @@ function convertBlobToFile(blob: any, fileName: any) {
   return blob;
 }
 
-const MAX_FILE_SIZE = 5000000;
-
-const ACCEPTED_IMAGE_TYPES = [
-  "image/jpeg",
-  "image/jpg",
-  "image/png",
-  "image/webp",
-];
-
 async function uploadFile(file: any) {
   const formData = new FormData();
   formData.append("data", JSON.stringify({ path: "/resume" })); // Optional data for the Strapi entry
@@ -32,38 +23,22 @@ async function uploadFile(file: any) {
     },
   });
   return response.data[0].id;
-  // try {
-  //   const options: any = {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": `multipart/form-data; boundary=${formData.getBoundary()}`,
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //     body: formData,
-  //   };
-
-  //   console.log("date mire");
-  //   const response = await fetch(getStrapiURL("/api/upload"), options);
-  //   console.log(response);
-  //   return response;
-  // } catch (error) {
-  //   console.error("Failed to upload file:", error);
-  // }
 }
 
-const imageSchema = z.object({
-  image: z
+const fileSchema = z.object({
+  file: z
     .any()
     .refine((file) => {
+      console.log(file);
       if (file.size === 0 || file.name === undefined) return false;
       else return true;
-    }, "Please update or add new image.")
+    }, "لطفا فایل را ارسال کنید")
 
     .refine(
-      (file) => ACCEPTED_IMAGE_TYPES.includes(file?.type),
-      ".jpg, .jpeg, .png and .webp files are accepted."
+      (file) => file.type === "application/vnd.ms-excel",
+      "لطفا  فقط فایل اکسل ارسال نمایید"
     )
-    .refine((file) => file.size <= MAX_FILE_SIZE, `Max file size is 5MB.`),
+    .refine((file) => file.size <= 5 * 1024 * 1024, `Max file size is 5MB.`),
 });
 
 export const RegisterApplication = async (
@@ -72,6 +47,16 @@ export const RegisterApplication = async (
 ): Promise<any> => {
   try {
     const file = formData.get("file") as File;
+    const validationResult = fileSchema.safeParse({ file: file });
+    if (!validationResult.success) {
+      return {
+        status: "Error",
+        message: validationResult.error.issues,
+        timestamp: +new Date(),
+      };
+    } else {
+      console.log("success");
+    }
 
     let item = await uploadFile(file);
     console.log(item);
