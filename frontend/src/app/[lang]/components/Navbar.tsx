@@ -24,14 +24,14 @@ function NavLink({ url, text }: NavLink) {
 
   return (
     <li className="flex">
-      <Link
+      <a
         href={url}
         className={`flex items-center mx-4 -mb-1 border-b-2 dark:border-transparent ${
           path === url && "dark:text-violet-400 dark:border-violet-400"
         }}`}
       >
         {text}
-      </Link>
+      </a>
     </li>
   );
 }
@@ -155,26 +155,17 @@ export default function Nav({
 
   return (
     <nav
-      className={` border-gray-20 dark:bg-gray-900 sticky bg-gray-300 top-0  dark:border-gray-700 shadow-sm shadow-slate-300 border-b-slate-400`}
+      className={`border-gray-20 dark:bg-gray-900 sticky bg-gray-300 top-0  dark:border-gray-700 shadow-sm shadow-slate-300 border-b-slate-400`}
       style={{
         zIndex: "500",
       }}
     >
       <div
-        className={` flex flex-wrap items-center bg-gray-300 justify-between text-2xl mx-auto  ${
+        className={`container flex flex-wrap items-center bg-gray-300 justify-between text-2xl mx-auto  ${
           animateMenu ? "p-1 fixed-nav h-16" : "p-3 sticky-nav h-20"
         }`}
       >
-        <Logo lang={lang} src={logoUrl}>
-          {logoText && (
-            <p
-              className="flex-none ms-5 text-2xl font-semibold dark:text-white"
-              aria-label="Brand"
-            >
-              {logoText}
-            </p>
-          )}
-        </Logo>
+        <Logo lang={lang} src={logoUrl}></Logo>
 
         <button
           data-collapse-toggle="navbar-multi-level"

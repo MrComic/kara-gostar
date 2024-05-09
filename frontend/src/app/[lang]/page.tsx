@@ -20,7 +20,7 @@ export default async function RootRoute({
             className="flex flex-row justify-center items-center  relative w-full"
             style={{
               background: `url('${getStrapiMedia(
-                "/uploads/Screenshot_2024_04_18_142659_11d42a78fb.png"
+                "/uploads/header_9ce715cd3d.jpg"
               )}')`,
               backgroundBlendMode: "multiply",
               backgroundRepeat: "no-repeat",
@@ -35,7 +35,7 @@ export default async function RootRoute({
                 backgroundColor: "rgba(55,65,80,0.7)",
               }}
             >
-              <h1 className="text-2xl text-white">
+              <h1 className="text-lg text-white">
                 شرکت مهندسی <span className="text-white">کاراگستر</span>
               </h1>
               <h2 className="text-lg text-white pt-5">
@@ -56,32 +56,33 @@ export default async function RootRoute({
           </section>
         </section>
 
-        <section className="w-screen  hidden md:hidden lg:flex xl:flex 2xl:flex ">
+        <section className="container hidden md:hidden lg:flex xl:flex 2xl:flex pt-14 ">
           <section
             className="flex flex-row justify-start items-end   relative w-full p-20"
             style={{
               background: `url('${getStrapiMedia(
-                "/uploads/Screenshot_2024_04_18_142659_11d42a78fb.png"
+                "/uploads/header_9ce715cd3d.jpg"
               )}')`,
               backgroundBlendMode: "multiply",
               backgroundRepeat: "no-repeat",
               backgroundSize: "100% 100%",
-              backgroundPosition: "cover",
+              backgroundPosition: "contain",
               height: "100dvh",
             }}
           >
             <div
               className="flex flex-col justify-items-end p-10 "
               style={{
-                backgroundColor: "rgba(55,65,80,0.7)",
+                backgroundColor: "rgba(55,65,80,0.3)",
                 position: "absolute",
+                borderRadius: "5px",
                 top: "50dvh",
               }}
             >
-              <h1 className="text-5xl text-white">
+              <h1 className="text-4xl text-white">
                 شرکت مهندسی <span className="text-white">کاراگستر</span>
               </h1>
-              <h2 className="text-2xl text-white pt-5">
+              <h2 className="text-lg text-white pt-5">
                 تولید کننده قالب تایر و پرس پخت
               </h2>
               <div className="pt-7 flex justify-items-end justify-end">
@@ -102,11 +103,11 @@ export default async function RootRoute({
 
       <div style={{ background: "#212830" }}>
         <div className="text-gray-300">
-          <div className="max-w-screen-2xl mx-auto pt-16 px-3">
-            <h2 className="w-full text-center text-2xl lg:text-4xl xl:text-4xl  mb-9">
+          <div className="max-w-screen-2xl mx-auto pt-16 px-3 py-16">
+            <h2 className="w-full text-center text-lg lg:text-4xl xl:text-4xl  mb-9">
               مختصری درباره شرکت
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 text-lg lg:text-2xl xl:text-2xl 2xl:text-2xl text-justify">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 text-lg lg:text-lg xl:text-lg 2xl:text-lg text-justify ">
               شرکت مهندسی کاراگستر فعاليت خود را از سال 1372با هدف تأمين و توليد
               انواع قالب تاير آغاز نموده است. اين شرکت از بدو فعاليت خود با اتکا
               به دانش، تخصص،ماشین الات پیشرفته و تجربه کارشناسان خود توانسته است
@@ -121,7 +122,7 @@ export default async function RootRoute({
               باشد.
             </div>
           </div>
-          <section>
+          {/* <section>
             <div className="text-white max-w-screen-xl px-4 py-5 mx-auto text-center lg:py-16 lg:px-6">
               <dl className="grid  gap-8 mx-auto text-gray-900 sm:grid-cols-4 dark:text-white">
                 <div
@@ -182,8 +183,8 @@ export default async function RootRoute({
                       </svg>
                     </div>
                   </dt>
-                  <dt className="mb-2 text-3xl md:text-4xl font-extrabold">
-                    +1000
+                  <dt className="mb-2 text-3xl md:text-3xl font-extrabold">
+                    رت
                   </dt>
                   <dd className="font-light text-white dark:text-gray-400">
                     پروژه موفق
@@ -214,7 +215,7 @@ export default async function RootRoute({
                       </svg>
                     </div>
                   </dt>
-                  <dt className="mb-2 text-3xl md:text-4xl font-extrabold">
+                  <dt className="mb-2 text-xl md:text-3xl font-extrabold">
                     +500
                   </dt>
                   <dd className="font-light text-white dark:text-gray-400">
@@ -246,7 +247,7 @@ export default async function RootRoute({
                       </svg>
                     </div>
                   </dt>
-                  <dt className="mb-2 text-3xl md:text-4xl font-extrabold">
+                  <dt className="mb-2 text-3xl md:text-3xl font-extrabold">
                     +500
                   </dt>
                   <dd className="font-light text-white dark:text-gray-400">
@@ -255,7 +256,7 @@ export default async function RootRoute({
                 </div>
               </dl>
             </div>
-          </section>
+          </section> */}
         </div>
       </div>
 
@@ -273,16 +274,33 @@ export default async function RootRoute({
           backgroundColor: "rgba(55,65,81,0.7)",
         }}
       >
-        <div className="flex justify-center flex-col h-full items-center">
-          <h1 className="text-2xl sm:text-xl md:text-xl xl:text-2xl 2xl:text-3xl py-6 text-white">
-            دفتر مرکزی شرکت :
+        <div className="flex justify-start flex-col h-full items-center">
+          <h1 className="text-lg sm:text-lg md:text-lg xl:text-lg 2xl:text-3xl py-6 text-white">
+            آدرس شرکت:
           </h1>
-          <h1 className="text-white text-2xl sm:text-xl md:text-xl xl:text-2xl 2xl:text-3xl text-white">
-            تهران شهر قدس (قلعه حسنخان)، بلوار انقلاب، خیابان صنعت 2، مجتمع
-            صنعتی پویا، پلاک 6
+          <h1 className="text-white text-lg sm:text-lg md:text-lg xl:text-lg 2xl:text-3xl text-white">
+            تهران شهر قدس بلوار انقلاب، خیابان صنعت 2، مجتمع صنعتی پویا، پلاک 6
           </h1>
         </div>
       </section>
+
+      <div style={{ background: "#212830" }}>
+        <div className="text-gray-300">
+          <div className="mx-auto py-16 px-3">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 text-justify">
+              <div className="order-first sm:order-first md:order-first lg:order-first xl:order-first 2xl:order-last flex items-center flex-col h-full justify-center p-6">
+                <CompanyRules
+                  params={{ lang: params.lang, language: data }}
+                ></CompanyRules>
+              </div>
+              <img
+                className=" mx-auto object-fit order-last sm:order-last lg:order-first xl:order-first 2xl:order-first p-6"
+                src={getStrapiMedia("/uploads/background_cc3915025b.png") || ""}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div
         style={{ background: "#212830" }}
@@ -290,10 +308,10 @@ export default async function RootRoute({
       >
         <div className="text-gray-300 p-6">
           <div className="max-w-screen-2xl mx-auto px-10 flex items-center flex-col h-full justify-center">
-            <h2 className="w-full text-center text-2xl sm:text-2xl md:text-2xl lg:text-4xl xl:text-4xl 2xl:text-4xl mb-9">
+            <h2 className="w-full text-center text-lg sm:text-lg md:text-lg lg:text-3xl xl:text-3xl 2xl:text-3xl mb-9">
               گواهينامه ISO 9001
             </h2>
-            <div className=" text-lg text-justify md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-2xl">
+            <div className=" text-lg text-justify md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">
               شرکت کاراگستر در سال 2002 ميلادی موفق به اخذ گواهينامه سيستم
               مديريت کيفيت ISO 9001 شده و هرساله علاوه بر اجرای مميزی های داخلی،
               توسط مميزين شرکت TUV Nord مورد مميزی قرار می گيرد.
@@ -316,33 +334,15 @@ export default async function RootRoute({
         ></div>
       </div>
 
-      <div style={{ background: "#212830" }}>
-        <div className="text-gray-300">
-          <div className="mx-auto py-16 px-3">
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 text-justify">
-              <div className="order-first sm:order-first md:order-first lg:order-first xl:order-first 2xl:order-last flex items-center flex-col h-full justify-center p-6">
-                <CompanyRules
-                  params={{ lang: params.lang, language: data }}
-                ></CompanyRules>
-              </div>
-              <img
-                className=" mx-auto object-fit order-last sm:order-last lg:order-first xl:order-first 2xl:order-first p-6"
-                src={getStrapiMedia("/uploads/background_cc3915025b.png") || ""}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div>
         <div
           style={{
             background: "linear-gradient(to bottom,  #2d2e30 0%,#565759 100%)",
           }}
         >
-          <h1 className="text-4xl text-white text-center p-5">
+          <h2 className="text-xl sm:text-xl md:text-xl lg:text-3xl xl:text-3xl 2xl:text-3xl text-white text-center p-5">
             {translate("home.section3.title", data)}
-          </h1>
+          </h2>
 
           <div className="max-w-screen-2xl mx-auto ">
             <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-5 justify-center">
@@ -404,12 +404,12 @@ export default async function RootRoute({
               src={getStrapiMedia("/uploads/Capture_2_ea7729d813.png") || ""}
             />
             <div className="flex text-white justify-center items-center  text-center">
-              <p className="md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-2xl">
+              <p className="md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">
                 {translate("home.section4.title", data)}
               </p>
             </div>
           </div>
-          <div className="p-8 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-5 xl:col-span-7 2xl:col-span-8 text-white text-start md:text-2xl lg:text-2xl xl:text-2xl 2xl:text-2xl">
+          <div className="p-8 col-span-1 sm:col-span-1 md:col-span-1 lg:col-span-5 xl:col-span-7 2xl:col-span-8 text-white text-start md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">
             <div className="flex justify-start w-full mb-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

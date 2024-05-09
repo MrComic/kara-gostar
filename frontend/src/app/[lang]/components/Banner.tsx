@@ -10,9 +10,8 @@ export default function Banner(props: any) {
         )}')`,
         backgroundBlendMode: "multiply",
         backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "50%",
-        backgroundColor: "rgb(55 65 81/1)",
+        backgroundSize: "100%",
+        backgroundColor: "rgba(55,65,81,0.6)",
       }}
     >
       {props.children}

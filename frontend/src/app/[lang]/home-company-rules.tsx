@@ -12,13 +12,13 @@ export default function CompanyRules({
   return (
     <>
       <div className="text-start">
-        <h2 className="text-2xl sm:text-2xl md:text-2xl lg:text-4xl xl:text-4xl 2xl:text-4xl text-center">
+        <h2 className="text-xl sm:text-xl md:text-xl lg:text-3xl xl:text-3xl 2xl:text-3xl text-center">
           {translate("home.section2.title", params.language)}
         </h2>
-        <p className="mt-4 text-lg sm:text-lg md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl text-justify">
+        <p className="mt-4 text-lg sm:text-lg md:text-lg lg:text-xl xl:text-xl 2xl:text-xl text-justify">
           {translate("home.section2.1", params.language)}
         </p>
-        <ul className="text-lg sm:text-lg md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl text-justify list-disc list-inside">
+        <ul className="text-lg sm:text-lg md:text-lg lg:text-xl xl:text-xl 2xl:text-xl text-justify list-disc list-inside">
           <li>{translate("home.section2.2", params.language)}</li>
           <li>{translate("home.section2.3", params.language)}</li>
           <li> {translate("home.section2.4", params.language)}</li>
@@ -31,18 +31,18 @@ export default function CompanyRules({
           <>
             <div>
               <br />
-              <h3 className="text-lg sm:text-lg md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl mb-5  text-bold text-justify">
+              <h3 className="text-lg sm:text-lg md:text-lg lg:text-xl xl:text-xl 2xl:text-xl mb-5  text-bold text-justify">
                 {translate("home.section2.8", params.language)}
               </h3>
-              <ol className="text-lg sm:text-lg md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl text-justify list-disc list-inside">
+              <ol className="text-lg sm:text-lg md:text-lg lg:text-xl xl:text-xl 2xl:text-xl text-justify list-disc list-inside">
                 <li>{translate("home.section2.9", params.language)}</li>
                 <li> {translate("home.section2.10", params.language)}</li>
                 <li> {translate("home.section2.11", params.language)}</li>
               </ol>
-              <p className="text-lg sm:text-lg md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl text-justify">
+              <p className="text-lg sm:text-lg md:text-lg lg:text-xl xl:text-xl 2xl:text-xl text-justify">
                 {translate("home.section2.12", params.language)}
               </p>
-              <p className="text-lg sm:text-lg md:text-lg lg:text-xl xl:text-2xl 2xl:text-2xl text-justify">
+              <p className="text-lg sm:text-lg md:text-lg lg:text-xl xl:text-xl 2xl:text-xl text-justify">
                 {translate("home.section2.13", params.language)}
               </p>
             </div>
