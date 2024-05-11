@@ -29,13 +29,14 @@ const fileSchema = z.object({
   file: z
     .any()
     .refine((file) => {
-      console.log(file);
       if (file.size === 0 || file.name === undefined) return false;
       else return true;
     }, "لطفا فایل را ارسال کنید")
 
     .refine(
-      (file) => file.type === "application/vnd.ms-excel",
+      (file) =>
+        file.type === "application/vnd.ms-excel" ||
+        file.type.indexOf("application/vnd.openxmlformats") > -1,
       "لطفا  فقط فایل اکسل ارسال نمایید"
     )
     .refine((file) => file.size <= 5 * 1024 * 1024, `Max file size is 5MB.`),
@@ -55,11 +56,10 @@ export const RegisterApplication = async (
         timestamp: +new Date(),
       };
     } else {
-      console.log("success");
+      console.log("error");
     }
 
     let item = await uploadFile(file);
-    console.log(item);
 
     var form = {
       resume: item,

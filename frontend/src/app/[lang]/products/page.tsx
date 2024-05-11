@@ -42,7 +42,7 @@ export default async function RootRoute({
       <Banner>
         <div className="flex flex-col  items-center text-center  text-white py-20">
           <div className="flex max-w-screen-2xl flex-row  mx-auto justify-center">
-            <h1 className="font-extrabold text-4xl">
+            <h1 className="font-extrabold text-2xl">
               {translate("products.title", data)}
             </h1>
           </div>
@@ -55,7 +55,7 @@ export default async function RootRoute({
         {products.data.map((j: any) => (
           <div className=" hover:scale-105 transition-all hover:transition-all ">
             <div className="bg-gray-100 p-6 rounded-lg text-center">
-              <h2 className="text-xl text-gray-900 font-medium title-font my-4">
+              <h2 className="text-lg text-gray-900 font-medium title-font my-4">
                 {j?.attributes?.name}
               </h2>
             </div>

@@ -44,10 +44,8 @@ function MobileNavLink({ url, text, closeMenu, children }: MobileNavLink) {
   const id = uuidv4();
   return children.length == 0 ? (
     <li>
-      <Link
+      <a
         href={url}
-        prefetch={true}
-        shallow
         style={{ fontSize: "16px" }}
         className={`block py-2 px-3 text-black sm:text-black  rounded md:bg-transparent md:text-black md:p-0 md:dark:text-red-500
         hover:text-red-700
@@ -55,7 +53,7 @@ function MobileNavLink({ url, text, closeMenu, children }: MobileNavLink) {
         aria-current="page"
       >
         {text}
-      </Link>
+      </a>
     </li>
   ) : (
     <li>
@@ -143,14 +141,15 @@ export default function Nav({
 
   function changeLanguage(ev: string) {
     let url = window.location.pathname.split("/").filter((p) => p != "");
-    url[0] = ev;
+    console.log(url.map((p) => p + "/"));
+    url[0] = ev.replace(",", "");
     let finalUrl =
       window.location.protocol +
       "//" +
       window.location.host +
       "/" +
       url.map((p) => p + "/");
-    window.location.replace(finalUrl);
+    window.location.replace(finalUrl.replace(",", ""));
   }
 
   return (
@@ -266,7 +265,7 @@ export default function Nav({
                           >
                             <span
                               className={`fi fi-${
-                                flags[p.code]
+                                flags[p.code] + p.code
                               } ps-2 pe-2 pl-10 pr-10`}
                             ></span>
                             {p.name}

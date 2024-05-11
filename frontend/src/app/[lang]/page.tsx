@@ -36,10 +36,13 @@ export default async function RootRoute({
               }}
             >
               <h1 className="text-lg text-white">
-                شرکت مهندسی <span className="text-white">کاراگستر</span>
+                {translate("home.section1.main-heading", data)}
+                <span className="text-white">
+                  {translate("home.section1.title", data)}
+                </span>
               </h1>
               <h2 className="text-lg text-white pt-5">
-                تولید کننده قالب تایر و پرس پخت
+                {translate("home.section1.slogan", data)}
               </h2>
               <div className="pt-7 flex justify-items-center justify-center">
                 <a
@@ -80,10 +83,14 @@ export default async function RootRoute({
               }}
             >
               <h1 className="text-4xl text-white">
-                شرکت مهندسی <span className="text-white">کاراگستر</span>
+                {translate("home.section1.main-heading", data)}
+                <span className="text-white">
+                  {" "}
+                  {translate("home.section1.title", data)}
+                </span>
               </h1>
               <h2 className="text-lg text-white pt-5">
-                تولید کننده قالب تایر و پرس پخت
+                {translate("home.section1.slogan", data)}
               </h2>
               <div className="pt-7 flex justify-items-end justify-end">
                 <a
@@ -105,9 +112,10 @@ export default async function RootRoute({
         <div className="text-gray-300">
           <div className="max-w-screen-2xl mx-auto pt-16 px-3 py-16">
             <h2 className="w-full text-center text-lg lg:text-4xl xl:text-4xl  mb-9">
-              مختصری درباره شرکت
+              {translate("home.section1.about-company-title", data)}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 text-lg lg:text-lg xl:text-lg 2xl:text-lg text-justify ">
+              {/* 
               شرکت مهندسی کاراگستر فعاليت خود را از سال 1372با هدف تأمين و توليد
               انواع قالب تاير آغاز نموده است. اين شرکت از بدو فعاليت خود با اتکا
               به دانش، تخصص،ماشین الات پیشرفته و تجربه کارشناسان خود توانسته است
@@ -120,143 +128,10 @@ export default async function RootRoute({
               خدمات فنی ، مهندسی و تولیدی جهت سایر صنایع نیازمند قطعات با دقت
               بالا مانند صنایع نیروگاهی ، هواپیمایی ، پتروشیمی و ... را دارا می
               باشد.
+               */}
+              {translate("home.section1.about-company", data)}
             </div>
           </div>
-          {/* <section>
-            <div className="text-white max-w-screen-xl px-4 py-5 mx-auto text-center lg:py-16 lg:px-6">
-              <dl className="grid  gap-8 mx-auto text-gray-900 sm:grid-cols-4 dark:text-white">
-                <div
-                  className="text-white flex flex-col p-8 items-center justify-center"
-                  style={{
-                    borderRadius: "10px",
-                    padding: "20px",
-                    backgroundColor: "rgb(41 50 63)",
-                    boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-                  }}
-                >
-                  <dt>
-                    <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-gray-600 lg:h-12 lg:w-12 ">
-                      <svg
-                        className="w-7 h-7 text-white"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="100"
-                        height="100"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                  </dt>
-
-                  <dt className="mb-2 text-3xl md:text-4xl font-extrabold">
-                    +100
-                  </dt>
-                  <dd className="font-light text-white dark:text-gray-400">
-                    نفر پرسنل متخصص
-                  </dd>
-                </div>
-                <div
-                  className="flex flex-col text-white items-center justify-center"
-                  style={{
-                    borderRadius: "10px",
-                    padding: "20px",
-                    backgroundColor: "rgb(41 50 63)",
-
-                    boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-                  }}
-                >
-                  <dt>
-                    <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-gray-600 lg:h-12 lg:w-12 ">
-                      <svg
-                        className="w-5 h-5 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path>
-                      </svg>
-                    </div>
-                  </dt>
-                  <dt className="mb-2 text-3xl md:text-3xl font-extrabold">
-                    رت
-                  </dt>
-                  <dd className="font-light text-white dark:text-gray-400">
-                    پروژه موفق
-                  </dd>
-                </div>
-                <div
-                  className="flex flex-col text-white items-center justify-center"
-                  style={{
-                    borderRadius: "10px",
-                    padding: "20px",
-                    backgroundColor: "rgb(41 50 63)",
-                    boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-                  }}
-                >
-                  <dt>
-                    <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-gray-600 lg:h-12 lg:w-12 dark:bg-primary-900">
-                      <svg
-                        className="w-7 h-7 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </div>
-                  </dt>
-                  <dt className="mb-2 text-xl md:text-3xl font-extrabold">
-                    +500
-                  </dt>
-                  <dd className="font-light text-white dark:text-gray-400">
-                    محصول متنوع
-                  </dd>
-                </div>
-                <div
-                  className="flex flex-col text-white items-center justify-center"
-                  style={{
-                    borderRadius: "10px",
-                    padding: "20px",
-                    backgroundColor: "rgb(41 50 63)",
-                    boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-                  }}
-                >
-                  <dt>
-                    <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-gray-600 lg:h-12 lg:w-12 dark:bg-primary-900">
-                      <svg
-                        className="w-7 h-7 text-primary-600 lg:w-6 lg:h-6 dark:text-primary-300"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-                          clip-rule="evenodd"
-                        ></path>
-                      </svg>
-                    </div>
-                  </dt>
-                  <dt className="mb-2 text-3xl md:text-3xl font-extrabold">
-                    +500
-                  </dt>
-                  <dd className="font-light text-white dark:text-gray-400">
-                    محصول متنوع
-                  </dd>
-                </div>
-              </dl>
-            </div>
-          </section> */}
         </div>
       </div>
 
@@ -276,10 +151,10 @@ export default async function RootRoute({
       >
         <div className="flex justify-start flex-col h-full items-center">
           <h1 className="text-lg sm:text-lg md:text-lg xl:text-lg 2xl:text-3xl py-6 text-white">
-            آدرس شرکت:
+            {translate("home.address.title", data)}
           </h1>
           <h1 className="text-white text-lg sm:text-lg md:text-lg xl:text-lg 2xl:text-3xl text-white">
-            تهران شهر قدس بلوار انقلاب، خیابان صنعت 2، مجتمع صنعتی پویا، پلاک 6
+            {translate("home.address.value", data)}
           </h1>
         </div>
       </section>
@@ -309,12 +184,13 @@ export default async function RootRoute({
         <div className="text-gray-300 p-6">
           <div className="max-w-screen-2xl mx-auto px-10 flex items-center flex-col h-full justify-center">
             <h2 className="w-full text-center text-lg sm:text-lg md:text-lg lg:text-3xl xl:text-3xl 2xl:text-3xl mb-9">
-              گواهينامه ISO 9001
+              {translate("home.ISO.title", data)}
             </h2>
             <div className=" text-lg text-justify md:text-lg lg:text-lg xl:text-lg 2xl:text-lg">
-              شرکت کاراگستر در سال 2002 ميلادی موفق به اخذ گواهينامه سيستم
+              {/* شرکت کاراگستر در سال 2002 ميلادی موفق به اخذ گواهينامه سيستم
               مديريت کيفيت ISO 9001 شده و هرساله علاوه بر اجرای مميزی های داخلی،
-              توسط مميزين شرکت TUV Nord مورد مميزی قرار می گيرد.
+              توسط مميزين شرکت TUV Nord مورد مميزی قرار می گيرد. */}
+              {translate("home.ISO.value", data)}
             </div>
           </div>
         </div>
@@ -436,9 +312,6 @@ export default async function RootRoute({
                 </li>
                 <li>
                   <span>{translate("home.section4.5", data)}</span>
-                  <ol style={{ listStyle: "inside" }}>
-                    <li>{translate("home.section4.6", data)}</li>
-                  </ol>
                 </li>
               </ol>
             </blockquote>

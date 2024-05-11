@@ -18,9 +18,12 @@ export default async function RegisterApplication({
       <Banner>
         <div className="flex flex-col  items-center text-center  text-white py-8">
           <div className="flex flex-col mx-auto justify-center">
-            <h1 className="font-extrabold text-4xl">
+            <h1 className="font-extrabold text-2xl">
               {translate("register-application.title", data)}
             </h1>
+            <p className="mt-10 font-light text-center text-white dark:text-gray-400 sm:text-lg md:text-md">
+              {translate("register-application.subtitle1", data)}
+            </p>
           </div>
         </div>
       </Banner>
@@ -28,9 +31,6 @@ export default async function RegisterApplication({
       <div className="container mx-auto flex flex-col justify-center mb-10 bg-white dark:bg-gray-900">
         <div className="flex flex-col w-full">
           <div className="flex flex-col py-5 px-4 w-full">
-            <p className="mt-10 font-light text-center text-black dark:text-gray-400 sm:text-lg md:text-md">
-              {translate("register-application.subtitle1", data)}
-            </p>
             <p className="mt-10 font-light text-center text-black dark:text-gray-400 sm:text-lg md:text-md">
               دانلود فایل رزومه :{" "}
               <a
