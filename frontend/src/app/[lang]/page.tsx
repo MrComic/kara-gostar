@@ -244,7 +244,7 @@ export default async function RootRoute({
                   <source
                     src={
                       getStrapiMedia(
-                        "/uploads/4_5825592244706481604_040ea44d54.mp4"
+                        "/uploads/4_5825592244706481604_eb97b13a86.mp4"
                       ) || ""
                     }
                     type="video/mp4"
