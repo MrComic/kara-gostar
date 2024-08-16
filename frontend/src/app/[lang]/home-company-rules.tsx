@@ -24,7 +24,11 @@ export default function CompanyRules({
           <li> {translate("home.section2.4", params.language)}</li>
           <li> {translate("home.section2.5", params.language)}</li>
           <li> {translate("home.section2.6", params.language)}</li>
-          <li> {translate("home.section2.7", params.language)}</li>
+          {translate("home.section2.7", params.language) != "" ? (
+            <li> {translate("home.section2.7", params.language)}</li>
+          ) : (
+            ""
+          )}
         </ul>
 
         {readMore == true ? (

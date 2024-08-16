@@ -25,11 +25,9 @@ export const ContactFormSubmit = async (
     };
 
     var data = contactFormSchema.parse(form);
-    console.log(data);
     // API endpoint where we send form data.
     const endpoint = getStrapiURL("/api/contact-uses");
     const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
-    console.log(token);
     const options: any = {
       method: "POST",
       headers: {
@@ -40,7 +38,6 @@ export const ContactFormSubmit = async (
     };
 
     const response = await fetch(endpoint, options);
-    console.log(response.status);
 
     const result = await response.json();
     if (response.status == 200)

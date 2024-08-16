@@ -32,14 +32,14 @@ export default async function RegisterApplication({
         <div className="flex flex-col w-full">
           <div className="flex flex-col py-5 px-4 w-full">
             <p className="mt-10 font-light text-center text-black dark:text-gray-400 sm:text-lg md:text-md">
-              دانلود فایل رزومه :{" "}
+              {translate("register-application.download-resume", data)}
               <a
                 className="text-blue-600"
                 href={`${getStrapiMedia(
                   "/uploads/frm_astkhdam_dc1143d9be.xls"
                 )}`}
               >
-                فایل
+                {translate("register-application.file", data)}
               </a>
             </p>
             <RegisterApplicationForm data={data} />

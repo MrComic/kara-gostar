@@ -141,7 +141,6 @@ export default function Nav({
 
   function changeLanguage(ev: string) {
     let url = window.location.pathname.split("/").filter((p) => p != "");
-    console.log(url.map((p) => p + "/"));
     url[0] = ev.replace(",", "");
     let finalUrl =
       window.location.protocol +

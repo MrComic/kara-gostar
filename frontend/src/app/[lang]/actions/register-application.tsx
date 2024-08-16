@@ -85,7 +85,6 @@ export const RegisterApplication = async (
   } catch (error) {
     var Validation = fromErrorToFormState(error);
     Validation.timestamp = +new Date();
-    console.log(Validation);
     return Validation;
   }
 };

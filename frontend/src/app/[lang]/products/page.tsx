@@ -48,6 +48,19 @@ export default async function RootRoute({
           </div>
         </div>
       </Banner>
+
+      <section
+        id="Projects"
+        className="container grid grid-cols-1 mx-auto mt-10 mb-10 gap-8"
+      >
+        <div className=" hover:scale-105 transition-all hover:transition-all ">
+          <div className="bg-gray-100 p-6 rounded-lg text-center">
+            <h2 className="text-2xl font-bold text-gray-900 title-font my-4">
+              {translate("products.main-product", data)}
+            </h2>
+          </div>
+        </div>
+      </section>
       <section
         id="Projects"
         className="container grid 2xl:grid-cols-3 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1   mx-auto mt-10 mb-10 gap-8"

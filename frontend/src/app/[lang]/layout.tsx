@@ -49,7 +49,7 @@ async function getGlobal(lang: string): Promise<any> {
   return await fetchAPI(path, urlParamsObject, options);
 }
 
-export async function getLanguages(): Promise<Array<any>> {
+export async function getLanguages(): Promise<any> {
   const path = `/i18n/locales`;
   const options = getBaseHttpOption();
   return await fetchAPI(path, {}, options);

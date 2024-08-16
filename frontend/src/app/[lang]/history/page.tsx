@@ -9,7 +9,7 @@ export default async function RootRoute({
 }) {
   return (
     <>
-      <Banner>
+      {/* <Banner>
         <div className="flex flex-col  items-center text-center  text-white py-20">
           <div className="flex max-w-screen-2xl flex-row mx-auto justify-center">
             <h1 className="font-extrabold text-4xl">تاریخچه</h1>
@@ -54,7 +54,7 @@ export default async function RootRoute({
             title="تاسیس شرکت"
           ></TimelineItem>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
